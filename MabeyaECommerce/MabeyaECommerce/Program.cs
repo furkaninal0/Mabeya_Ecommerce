@@ -2,6 +2,7 @@ using MabeyaECommerce;
 using MabeyaECommerce.Domain;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -68,5 +69,19 @@ new[]
          roleManager.CreateAsync(role).Wait();
 
  });
+{
+var user = new User()
+{
+    UserName = "mabeya@9895.com",
+    givenName = "Karataþ",
+    Email = "mabeya@9895.com",
+    EmailConfirmed= true,
+    Date = DateTime.Now,
+};
+    userManager.CreateAsync(user).Wait();
+    userManager.AddClaimAsync(user, new Claim(ClaimTypes.GivenName, "Karataþ")).Wait();
+    userManager.AddToRoleAsync(user, "Administrators").Wait();
+}
+
    
 app.Run();

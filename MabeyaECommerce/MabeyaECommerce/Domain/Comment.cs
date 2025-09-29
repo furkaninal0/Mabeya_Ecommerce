@@ -8,15 +8,11 @@ public class Comment
     public Guid Id { get; set; }
     public Guid ProductId { get; set; }
     public Guid UserId { get; set; }
-    
+
     public required string Text { get; set; }
     public DateTime Date { get; set; }
     public Product? Product { get; set; }
     public User? User { get; set; }
-
-         
-
-
 }
 
 public class CommentConfiguration : IEntityTypeConfiguration<Comment>

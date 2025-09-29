@@ -1,0 +1,64 @@
+﻿@model RegisterViewModel
+@{
+    ViewData["Title"] = "Yeni Üyelik";
+
+}
+
+
+    
+    <div class="container-fluid row  ">
+        <div class=" d-none d-md-block col-md-8 ">
+        <img src="~/images/mabeya.jpg" alt="Kaydol"  class="img-fluid w-75 " />
+        </div>
+            <div class="col-12 col-md-4" >
+            <form method="post">
+                <div class="card">
+                    <div class=" card-header text-center text-bg-light ">
+                        <h4> Yeni Üye Kaydı </h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="alert alert-danger" asp-validation-summary="ModelOnly"> </div>
+                        <div class="mb-3">
+                            <div class=" col-12">
+                                <label asp-for="UserName" class="form-label"> </label>
+                                <input asp-for="UserName" class="form-control" />
+                                <span asp-validation-for="UserName" class="text-bg-info"> </span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class=" col-12">
+                                <label asp-for="GivenName" class="form-label"> </label>
+                                <input asp-for="GivenName" class="form-control" />
+                                <span asp-validation-for="GivenName" class="text-bg-info"> </span>
+                            </div>
+                        </div> <div class="mb-3">
+                            <div class=" col-12">
+                                <label asp-for="Password" class="form-label"> </label>
+                                <input asp-for="Password" class="form-control" />
+                                <span asp-validation-for="Password" class="text-bg-info"> </span>
+                            </div>
+                        </div> <div class="mb-3">
+                            <div class=" col-12">
+                                <label asp-for="PasswordCheck" class="form-label"> </label>
+                                <input asp-for="PasswordCheck" class="form-control" />
+                                <span asp-validation-for="PasswordCheck" class="text-bg-info"> </span>
+                            </div>
+                        </div>
+
+                               <div class=" mb-3 col-12">
+                                   <button type="submit" class="btn btn-dark w-100" >Kaydol </button>
+
+                               </div>
+
+
+
+                    </div>
+
+                </div>
+                 </form>
+            </div> 
+    </div>
+
+@section Scripts{ 
+ <partial name="_ValidationScriptsPartial" />
+}

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Asus Tuf15\\Desktop\\infotech\\Mabeya\\MabeyaECommerce\\MabeyaECommerce\\MabeyaECommerce.csproj": {}
+    "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\MabeyaECommerce.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Asus Tuf15\\Desktop\\infotech\\Mabeya\\MabeyaECommerce\\MabeyaECommerce\\MabeyaECommerce.csproj": {
+    "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\MabeyaECommerce.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Asus Tuf15\\Desktop\\infotech\\Mabeya\\MabeyaECommerce\\MabeyaECommerce\\MabeyaECommerce.csproj",
+        "projectUniqueName": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\MabeyaECommerce.csproj",
         "projectName": "MabeyaECommerce",
-        "projectPath": "C:\\Users\\Asus Tuf15\\Desktop\\infotech\\Mabeya\\MabeyaECommerce\\MabeyaECommerce\\MabeyaECommerce.csproj",
+        "projectPath": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\MabeyaECommerce.csproj",
         "packagesPath": "C:\\Users\\Asus Tuf15\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Asus Tuf15\\Desktop\\infotech\\Mabeya\\MabeyaECommerce\\MabeyaECommerce\\obj\\",
+        "outputPath": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
