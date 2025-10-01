@@ -3,13 +3,12 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace MabeyaECommerce.Domain;
 
-public class Category
+public class Category : _EntityBase
 {
-    public Guid Id { get; set; }
     public string Name { get; set; }
-    
-   
-    public ICollection <Product> Products { get; set; } = new HashSet<Product> ();
+    public byte[] Image { get; set; }
+
+    public ICollection <Product> Products { get; set; } = new List<Product> ();
 
 }
 
@@ -21,8 +20,8 @@ public class CategoryConfiguration : IEntityTypeConfiguration<Category>
             .ToTable("Category");
 
         builder
-            .HasIndex(p => new { p.Name })
-            .IsUnique(true);
+            .Property(p => p.Name)
+            .IsRequired();
 
         builder
                 .HasMany(p => p.Products)
