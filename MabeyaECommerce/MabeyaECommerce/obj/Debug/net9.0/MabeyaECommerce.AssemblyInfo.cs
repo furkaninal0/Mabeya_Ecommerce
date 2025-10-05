@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MabeyaECommerce")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f79ec27a3881538236a9f861f733c7b35206db3a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+677725e8f9842ef9867ff40098de33e7db6cfea6")]
 [assembly: System.Reflection.AssemblyProductAttribute("MabeyaECommerce")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MabeyaECommerce")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
