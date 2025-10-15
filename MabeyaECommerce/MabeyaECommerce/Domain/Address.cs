@@ -8,9 +8,9 @@ public class Address
     public Guid Id { get; set; }
     public Guid userId { get; set; }
     public int cityId { get; set; }
-    public string Name { get; set; }
-    public string Text { get; set; }
-    public string zipCode { get; set; }
+    public string? Name { get; set; }
+    public string? Text { get; set; }
+    public string? zipCode { get; set; }
     public City? City { get; set; }
     public User? User { get; set; }
 

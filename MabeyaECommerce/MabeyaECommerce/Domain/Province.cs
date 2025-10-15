@@ -7,8 +7,7 @@ public class Province
 {
     public int Id { get; set; }
     public string Name { get; set; }
-    public Guid addressId { get; set; }
-    public Address? Address { get; set; }
+
 
     public ICollection<City> Cities { get; set; } = new List<City>();
 }
@@ -26,6 +25,7 @@ public class ProvinceConfiguration : IEntityTypeConfiguration<Province>
                 .WithOne(p => p.Province!)
                 .HasForeignKey(p => p.provinceId)
                 .OnDelete(DeleteBehavior.Restrict);
+    
         builder.HasData(
     new Province { Id = 1, Name = "Adana" },
     new Province { Id = 2, Name = "Adıyaman" },

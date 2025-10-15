@@ -1,10 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MabeyaECommerce.Domain;
 
-public class Product : _EntityBase
+public class Product 
 {
+    public Guid Id { get; set; }
+    public Guid userId { get; set; }
+    public DateTime CreatedAt { get; set; }
+    public bool IsEnabled { get; set; }
     public required Guid CategoryId { get; set; }
     public string Name { get; set; }
     public decimal Price { get; set; }
@@ -17,6 +22,7 @@ public class Product : _EntityBase
     public ICollection<Comment> Comments { get; set; } = new List<Comment>();
     public ICollection<ProductImages> ProductImagess { get; set; } = new List<ProductImages>();
     public ICollection<ShoppedOrder_Item> ShoppedOrder_Items { get; set; } = new List<ShoppedOrder_Item>();
+    [NotMapped]
     public ICollection<SelectedProduct> SelectedProducts { get; set; } = new List<SelectedProduct>();
 
 }

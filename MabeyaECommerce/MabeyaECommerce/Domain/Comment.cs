@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace MabeyaECommerce.Domain;
 
-public class Comment : _EntityBase
+public class Comment 
 {
     public Guid Id { get; set; }
     public Guid ProductId { get; set; }

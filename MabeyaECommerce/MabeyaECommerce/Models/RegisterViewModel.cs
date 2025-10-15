@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿ using System.ComponentModel.DataAnnotations;
 
 namespace MabeyaECommerce.Models;
 
@@ -17,10 +17,10 @@ public class RegisterViewModel
     [Required(ErrorMessage = "{0} alanı boş bırakılamaz.")]
 
     public string? Password { get; set; }
-    [DataType(DataType.Password)]
+    [DataType(DataType.Password)] 
     [Display(Name = "Parola Tekrarı")]
     [Required(ErrorMessage = "{0} alanı boş bırakılamaz.")]
-    [Compare("password", ErrorMessage = "{0} ve {1} alanları aynı olmalıdır.")]
+    [Compare("Password", ErrorMessage = "{0} ve {1} alanları aynı olmalıdır.")]
     public string? PasswordCheck { get; set; }
 
 

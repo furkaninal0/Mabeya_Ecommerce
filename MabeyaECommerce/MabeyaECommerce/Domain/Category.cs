@@ -3,8 +3,12 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace MabeyaECommerce.Domain;
 
-public class Category : _EntityBase
+public class Category 
 {
+    public Guid Id { get; set; }
+    public Guid userId { get; set; }
+    public DateTime CreatedAt { get; set; }
+    public bool IsEnabled { get; set; }
     public string Name { get; set; }
     public byte[] Image { get; set; }
 

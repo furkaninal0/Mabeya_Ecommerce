@@ -4,8 +4,12 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace MabeyaECommerce.Domain;
 
-public class ProductImages : _EntityBase
+public class ProductImages 
 {
+    public Guid Id { get; set; }
+    public Guid userId { get; set; }
+    public DateTime CreatedAt { get; set; }
+    public bool IsEnabled { get; set; }
     public Guid productId { get; set; }
     public byte[] Image { get; set; }
     public Product? Product { get; set; }

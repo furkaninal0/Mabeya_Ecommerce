@@ -2,6 +2,8 @@ using MabeyaECommerce;
 using MabeyaECommerce.Domain;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using NETCore.MailKit.Extensions;
+using NETCore.MailKit.Infrastructure.Internal;
 using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,9 +11,14 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<MabeyaDbContext>(config =>
-    { config.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer"));
-    });
+{
+    config.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer"));
+    
+});
 
+
+//AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+//config.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
 builder
     .Services.AddIdentity<User, Role>(config =>
     {
@@ -26,11 +33,49 @@ builder
     config.Lockout.MaxFailedAccessAttempts = 5;
     config.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
     })
-    .AddEntityFrameworkStores<MabeyaDbContext>();
+    .AddEntityFrameworkStores<MabeyaDbContext>()
+    .AddDefaultTokenProviders();
+builder.Services.Configure<CookiePolicyOptions>(options =>
+{
+    options.MinimumSameSitePolicy = SameSiteMode.None;
+    options.Secure = CookieSecurePolicy.Always;
+});
+builder.Services.AddAntiforgery(options =>
+{
+    options.Cookie.SameSite = SameSiteMode.None;
+    options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+});
+builder.Services.ConfigureApplicationCookie(options =>
+{
+options.Cookie.SameSite = SameSiteMode.None;
+options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+
+options.LoginPath = "/Account/Login";
+});
+builder
+    .Services
+    .AddMailKit(config =>
+    {
+        config.UseMailKit(new MailKitOptions
+        {
+            Server = "sandbox.smtp.mailtrap.io",
+            Port = 2525,
+            SenderName = "MVCEcommerce Hesap",
+            SenderEmail = "hesap@mvcforum.com",
+            Account = "1dbd08a42eee36",
+            Password = "94db0de79ecb1e",
+            Security = true,
+
+
+
+        });
+    });
+
 
 builder.Services.AddAuthentication();
 
 var app = builder.Build();
+app.UseStaticFiles();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -41,6 +86,8 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseCookiePolicy();
+
 app.UseRouting();
 
 app.UseAuthentication();
@@ -49,39 +96,44 @@ app.UseAuthorization();
 app.MapStaticAssets();
 
 app.MapControllerRoute(
+    name: "areas",
+    pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}");
+
+app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
-    .WithStaticAssets();
+    pattern: "{controller=Home}/{action=Index}/{id?}");
+    
+
 var scope = app.Services.CreateScope();
+var dbContext = scope.ServiceProvider.GetRequiredService<MabeyaDbContext>();
 var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<Role>>();
 var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+dbContext.Database.Migrate();
+
 new[]
 {
-    new Role  {Name = "Administrators", givenName= "" },
-    new Role  {Name = "Moderators", givenName= "" },
-    new Role  {Name = "Members", givenName= "" },
+    new Role  {givenName="Yönetici " , Name = "Administrators", },
+    new Role  {givenName="Yönetici Yardýmcýsý" , Name = "Moderators", },
+    new Role  {givenName="Üyeler" , Name = "Members", },
 
 }
 .ToList()
-.ForEach(role =>
+.ForEach(p =>
  {
-     if (!roleManager.RoleExistsAsync(role.Name).Result)
-         roleManager.CreateAsync(role).Wait();
+         roleManager.CreateAsync(p).Wait();
 
  });
-{
+
 var user = new User()
 {
-    UserName = "mabeya@9895.com",
+    Date = DateTime.Now,
     givenName = "Karataþ",
+    UserName = "mabeya@9895.com",
     Email = "mabeya@9895.com",
     EmailConfirmed= true,
-    Date = DateTime.Now,
 };
-    userManager.CreateAsync(user).Wait();
-    userManager.AddClaimAsync(user, new Claim(ClaimTypes.GivenName, "Karataþ")).Wait();
+    userManager.CreateAsync(user , "19941998esbey").Wait();
     userManager.AddToRoleAsync(user, "Administrators").Wait();
-}
+    userManager.AddClaimAsync(user, new Claim(ClaimTypes.GivenName, user.givenName)).Wait();
 
-   
 app.Run();

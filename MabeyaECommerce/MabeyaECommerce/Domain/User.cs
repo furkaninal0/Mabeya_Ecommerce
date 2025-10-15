@@ -15,6 +15,7 @@ public class User :IdentityUser<Guid>
     public required string givenName { get; set; }    
     public DateTime Date{ get; set; }
     public Genders Gender{ get; set; }
+    public bool IsEnabled { get; set; } = true;
 
     public ICollection<Address> Addresses { get; set; } = new List<Address>();
     public ICollection<Comment> Comments { get; set; } = new List<Comment>();
@@ -26,13 +27,14 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
 {
     public void Configure(EntityTypeBuilder<User> builder)
     {
+        builder.ToTable("User");
         builder.HasMany(p => p.Addresses)
                .WithOne(p => p.User)
                .HasForeignKey(p => p.userId)
                .OnDelete(DeleteBehavior.Restrict);
         builder.HasMany(p => p.Comments)
                .WithOne(p => p.User)
-               .HasForeignKey(p => p.userId)
+               .HasForeignKey(p => p.UserId)
                .OnDelete(DeleteBehavior.Restrict);
         builder.HasMany(p => p.ShoppedOrders)
                .WithOne(p => p.User)
