@@ -3,39 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{39ABB65E-8B0E-4496-A1F5-A91D490EB7B3}|MabeyaECommerce\\MabeyaECommerce.csproj|c:\\users\\asus tuf15\\documents\\github\\mabeyaecommerce\\mabeyaecommerce\\mabeyaecommerce\\areas\\admin\\views\\products\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{39ABB65E-8B0E-4496-A1F5-A91D490EB7B3}|MabeyaECommerce\\MabeyaECommerce.csproj|solutionrelative:mabeyaecommerce\\areas\\admin\\views\\products\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39ABB65E-8B0E-4496-A1F5-A91D490EB7B3}|MabeyaECommerce\\MabeyaECommerce.csproj|c:\\users\\asus tuf15\\documents\\github\\mabeyaecommerce\\mabeyaecommerce\\mabeyaecommerce\\areas\\admin\\views\\products\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{39ABB65E-8B0E-4496-A1F5-A91D490EB7B3}|MabeyaECommerce\\MabeyaECommerce.csproj|solutionrelative:mabeyaecommerce\\areas\\admin\\views\\products\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{39ABB65E-8B0E-4496-A1F5-A91D490EB7B3}|MabeyaECommerce\\MabeyaECommerce.csproj|c:\\users\\asus tuf15\\documents\\github\\mabeyaecommerce\\mabeyaecommerce\\mabeyaecommerce\\areas\\admin\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{39ABB65E-8B0E-4496-A1F5-A91D490EB7B3}|MabeyaECommerce\\MabeyaECommerce.csproj|solutionrelative:mabeyaecommerce\\areas\\admin\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{39ABB65E-8B0E-4496-A1F5-A91D490EB7B3}|MabeyaECommerce\\MabeyaECommerce.csproj|c:\\users\\asus tuf15\\documents\\github\\mabeyaecommerce\\mabeyaecommerce\\mabeyaecommerce\\areas\\admin\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{39ABB65E-8B0E-4496-A1F5-A91D490EB7B3}|MabeyaECommerce\\MabeyaECommerce.csproj|solutionrelative:mabeyaecommerce\\areas\\admin\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{39ABB65E-8B0E-4496-A1F5-A91D490EB7B3}|MabeyaECommerce\\MabeyaECommerce.csproj|c:\\users\\asus tuf15\\documents\\github\\mabeyaecommerce\\mabeyaecommerce\\mabeyaecommerce\\domain\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{39ABB65E-8B0E-4496-A1F5-A91D490EB7B3}|MabeyaECommerce\\MabeyaECommerce.csproj|solutionrelative:mabeyaecommerce\\domain\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{39ABB65E-8B0E-4496-A1F5-A91D490EB7B3}|MabeyaECommerce\\MabeyaECommerce.csproj|c:\\users\\asus tuf15\\documents\\github\\mabeyaecommerce\\mabeyaecommerce\\mabeyaecommerce\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{39ABB65E-8B0E-4496-A1F5-A91D490EB7B3}|MabeyaECommerce\\MabeyaECommerce.csproj|solutionrelative:mabeyaecommerce\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{39ABB65E-8B0E-4496-A1F5-A91D490EB7B3}|MabeyaECommerce\\MabeyaECommerce.csproj|c:\\users\\asus tuf15\\documents\\github\\mabeyaecommerce\\mabeyaecommerce\\mabeyaecommerce\\areas\\admin\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{39ABB65E-8B0E-4496-A1F5-A91D490EB7B3}|MabeyaECommerce\\MabeyaECommerce.csproj|solutionrelative:mabeyaecommerce\\areas\\admin\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{39ABB65E-8B0E-4496-A1F5-A91D490EB7B3}|MabeyaECommerce\\MabeyaECommerce.csproj|c:\\users\\asus tuf15\\documents\\github\\mabeyaecommerce\\mabeyaecommerce\\mabeyaecommerce\\areas\\admin\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{39ABB65E-8B0E-4496-A1F5-A91D490EB7B3}|MabeyaECommerce\\MabeyaECommerce.csproj|solutionrelative:mabeyaecommerce\\areas\\admin\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{39ABB65E-8B0E-4496-A1F5-A91D490EB7B3}|MabeyaECommerce\\MabeyaECommerce.csproj|c:\\users\\asus tuf15\\documents\\github\\mabeyaecommerce\\mabeyaecommerce\\mabeyaecommerce\\areas\\admin\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{39ABB65E-8B0E-4496-A1F5-A91D490EB7B3}|MabeyaECommerce\\MabeyaECommerce.csproj|solutionrelative:mabeyaecommerce\\areas\\admin\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{39ABB65E-8B0E-4496-A1F5-A91D490EB7B3}|MabeyaECommerce\\MabeyaECommerce.csproj|c:\\users\\asus tuf15\\documents\\github\\mabeyaecommerce\\mabeyaecommerce\\mabeyaecommerce\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{39ABB65E-8B0E-4496-A1F5-A91D490EB7B3}|MabeyaECommerce\\MabeyaECommerce.csproj|solutionrelative:mabeyaecommerce\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{39ABB65E-8B0E-4496-A1F5-A91D490EB7B3}|MabeyaECommerce\\MabeyaECommerce.csproj|c:\\users\\asus tuf15\\documents\\github\\mabeyaecommerce\\mabeyaecommerce\\mabeyaecommerce\\mabeyadbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{39ABB65E-8B0E-4496-A1F5-A91D490EB7B3}|MabeyaECommerce\\MabeyaECommerce.csproj|solutionrelative:mabeyaecommerce\\mabeyadbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{39ABB65E-8B0E-4496-A1F5-A91D490EB7B3}|MabeyaECommerce\\MabeyaECommerce.csproj|c:\\users\\asus tuf15\\documents\\github\\mabeyaecommerce\\mabeyaecommerce\\mabeyaecommerce\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{39ABB65E-8B0E-4496-A1F5-A91D490EB7B3}|MabeyaECommerce\\MabeyaECommerce.csproj|solutionrelative:mabeyaecommerce\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Asus Tuf15\\AppData\\Local\\Temp\\Rar$DRa33880.47802\\dist\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{39ABB65E-8B0E-4496-A1F5-A91D490EB7B3}|MabeyaECommerce\\MabeyaECommerce.csproj|c:\\users\\asus tuf15\\documents\\github\\mabeyaecommerce\\mabeyaecommerce\\mabeyaecommerce\\areas\\admin\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{39ABB65E-8B0E-4496-A1F5-A91D490EB7B3}|MabeyaECommerce\\MabeyaECommerce.csproj|solutionrelative:mabeyaecommerce\\areas\\admin\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{39ABB65E-8B0E-4496-A1F5-A91D490EB7B3}|MabeyaECommerce\\MabeyaECommerce.csproj|c:\\users\\asus tuf15\\documents\\github\\mabeyaecommerce\\mabeyaecommerce\\mabeyaecommerce\\domain\\productdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{39ABB65E-8B0E-4496-A1F5-A91D490EB7B3}|MabeyaECommerce\\MabeyaECommerce.csproj|solutionrelative:mabeyaecommerce\\domain\\productdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -45,8 +38,35 @@
       "DocumentGroups": [
         {
           "DockedWidth": 230,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 6,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Domain\\Product.cs",
+              "RelativeDocumentMoniker": "MabeyaECommerce\\Domain\\Product.cs",
+              "ToolTip": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Domain\\Product.cs",
+              "RelativeToolTip": "MabeyaECommerce\\Domain\\Product.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAADwvx8AAABlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-21T19:55:25.508Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "MabeyaECommerce\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAMAAAAAAAAAAAIAwwNoAAABiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-21T21:25:27.481Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
@@ -57,112 +77,68 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "MabeyaECommerce\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAsDAAAAAAAAAAAAABMDAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-14T10:55:13.92Z",
+              "DocumentIndex": 6,
+              "Title": "ProductDetails.cs",
+              "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Domain\\ProductDetails.cs",
+              "RelativeDocumentMoniker": "MabeyaECommerce\\Domain\\ProductDetails.cs",
+              "ToolTip": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Domain\\ProductDetails.cs",
+              "RelativeToolTip": "MabeyaECommerce\\Domain\\ProductDetails.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAowA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-21T20:04:54.4Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Views\\Products\\Create.cshtml",
+              "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Views\\Products\\Create.cshtml",
+              "ToolTip": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Views\\Products\\Create.cshtml",
+              "RelativeToolTip": "MabeyaECommerce\\Areas\\Admin\\Views\\Products\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-21T19:53:44.692Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
-              "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
-              "RelativeToolTip": "MabeyaECommerce\\Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Views\\Products\\Index.cshtml",
+              "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Views\\Products\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Views\\Products\\Index.cshtml",
+              "RelativeToolTip": "MabeyaECommerce\\Areas\\Admin\\Views\\Products\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-13T12:47:37.717Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "MabeyaECommerce\\Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "MabeyaECommerce\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAAIoAAAAAAAAAAAAhwJIAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T12:07:14.066Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "MabeyaDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\MabeyaDbContext.cs",
-              "RelativeDocumentMoniker": "MabeyaECommerce\\MabeyaDbContext.cs",
-              "ToolTip": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\MabeyaDbContext.cs",
-              "RelativeToolTip": "MabeyaECommerce\\MabeyaDbContext.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAkwB4AAABAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T12:01:50.726Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "index.html",
-              "DocumentMoniker": "C:\\Users\\Asus Tuf15\\AppData\\Local\\Temp\\Rar$DRa33880.47802\\dist\\index.html",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\AppData\\Local\\Temp\\Rar$DRa33880.47802\\dist\\index.html",
-              "ToolTip": "C:\\Users\\Asus Tuf15\\AppData\\Local\\Temp\\Rar$DRa33880.47802\\dist\\index.html",
-              "RelativeToolTip": "..\\..\\..\\..\\AppData\\Local\\Temp\\Rar$DRa33880.47802\\dist\\index.html",
-              "ViewState": "AgIAAAgDAAAAAAAAAAAAABcDAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-10-13T12:00:41.658Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "_ViewStart.cshtml",
-              "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Views\\_ViewStart.cshtml",
-              "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Views\\_ViewStart.cshtml",
-              "ToolTip": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Views\\_ViewStart.cshtml",
-              "RelativeToolTip": "MabeyaECommerce\\Areas\\Admin\\Views\\_ViewStart.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-13T11:50:27.146Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "_ViewImports.cshtml",
-              "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Views\\_ViewImports.cshtml",
-              "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Views\\_ViewImports.cshtml",
-              "ToolTip": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Views\\_ViewImports.cshtml",
-              "RelativeToolTip": "MabeyaECommerce\\Areas\\Admin\\Views\\_ViewImports.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-13T11:50:25.607Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Program.cs",
-              "RelativeDocumentMoniker": "MabeyaECommerce\\Program.cs",
-              "ToolTip": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Program.cs",
-              "RelativeToolTip": "MabeyaECommerce\\Program.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAAwE0AAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T11:47:28.329Z"
+              "WhenOpened": "2025-10-21T17:38:15.733Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Views\\Account\\Login.cshtml",
-              "RelativeDocumentMoniker": "MabeyaECommerce\\Views\\Account\\Login.cshtml",
-              "ToolTip": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Views\\Account\\Login.cshtml",
-              "RelativeToolTip": "MabeyaECommerce\\Views\\Account\\Login.cshtml",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABAAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-13T11:39:38.592Z"
+              "Title": "ProductsController.cs",
+              "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Controllers\\ProductsController.cs",
+              "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Controllers\\ProductsController.cs",
+              "ToolTip": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Controllers\\ProductsController.cs",
+              "RelativeToolTip": "MabeyaECommerce\\Areas\\Admin\\Controllers\\ProductsController.cs",
+              "ViewState": "AgIAAFAAAAAAAAAAAAAgwHcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-21T17:36:23.856Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CategoriesController.cs",
+              "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Controllers\\CategoriesController.cs",
+              "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Controllers\\CategoriesController.cs",
+              "ToolTip": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Controllers\\CategoriesController.cs",
+              "RelativeToolTip": "MabeyaECommerce\\Areas\\Admin\\Controllers\\CategoriesController.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAA3wAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-21T19:54:19.613Z",
+              "EditorCaption": ""
             }
           ]
         },

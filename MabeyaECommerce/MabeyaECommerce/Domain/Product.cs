@@ -9,14 +9,20 @@ public class Product
     public Guid Id { get; set; }
     public Guid userId { get; set; }
     public DateTime CreatedAt { get; set; }
+    public Guid CategoryId { get; set; }
     public bool IsEnabled { get; set; }
-    public required Guid CategoryId { get; set; }
-    public string Name { get; set; }
+    public string? Name { get; set; }
     public decimal Price { get; set; }
     public string? Description { get; set; }
     public byte[]? Image { get; set; }
     public int Views { get; set; }
 
+    [NotMapped]
+    public IFormFile? ImageFile { get; set; }
+    [NotMapped]
+    public IFormFile[]? ImageFiles { get; set; }
+   
+    
     public Category? Category { get; set; }
     public ICollection<Catalog> Catalogs { get; set; } = new List<Catalog>();
     public ICollection<Comment> Comments { get; set; } = new List<Comment>();
@@ -24,6 +30,8 @@ public class Product
     public ICollection<ShoppedOrder_Item> ShoppedOrder_Items { get; set; } = new List<ShoppedOrder_Item>();
     [NotMapped]
     public ICollection<SelectedProduct> SelectedProducts { get; set; } = new List<SelectedProduct>();
+    public ICollection<ProductDetails> Prodc_Details { get; set; } = new List<ProductDetails>();
+
 
 }
 

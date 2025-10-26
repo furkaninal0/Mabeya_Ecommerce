@@ -102,10 +102,6 @@ namespace MabeyaECommerce.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<byte[]>("Image")
-                        .IsRequired()
-                        .HasColumnType("varbinary(max)");
-
                     b.Property<bool>("IsEnabled")
                         .HasColumnType("bit");
 
@@ -6075,6 +6071,8 @@ namespace MabeyaECommerce.Migrations
 
                     b.HasKey("productId", "specId");
 
+                    b.HasIndex("specId");
+
                     b.ToTable("ProductDetails", (string)null);
                 });
 
@@ -6957,6 +6955,25 @@ namespace MabeyaECommerce.Migrations
                     b.Navigation("Category");
                 });
 
+            modelBuilder.Entity("MabeyaECommerce.Domain.ProductDetails", b =>
+                {
+                    b.HasOne("MabeyaECommerce.Domain.Product", "Prodıct")
+                        .WithMany("Prodc_Details")
+                        .HasForeignKey("productId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MabeyaECommerce.Domain.Spec", "Spec")
+                        .WithMany()
+                        .HasForeignKey("specId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Prodıct");
+
+                    b.Navigation("Spec");
+                });
+
             modelBuilder.Entity("MabeyaECommerce.Domain.ProductImages", b =>
                 {
                     b.HasOne("MabeyaECommerce.Domain.Product", "Product")
@@ -7097,6 +7114,8 @@ namespace MabeyaECommerce.Migrations
             modelBuilder.Entity("MabeyaECommerce.Domain.Product", b =>
                 {
                     b.Navigation("Comments");
+
+                    b.Navigation("Prodc_Details");
 
                     b.Navigation("ProductImagess");
 

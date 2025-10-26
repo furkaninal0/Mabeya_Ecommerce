@@ -12416,6 +12416,7 @@ textarea.is-invalid.tt-hint, .select2-container--default .select2-selection--sin
   color: var(--bs-navbar-brand-color);
   text-decoration: none;
   white-space: nowrap;
+  height: 118px;
 }
 .navbar-brand:hover, .navbar-brand:focus {
   color: var(--bs-navbar-brand-hover-color);
@@ -21955,7 +21956,7 @@ code {
 }
 
 .navbar-brand.landing img {
-  height: 20px;
+  height: 34px;
 }
 
 .landing-effect {
@@ -25475,7 +25476,7 @@ svg {
 .form-check .form-check-label {
   min-height: 18px;
   display: block;
-  margin-left: 1.75rem;
+  margin-left: 0.5rem;
   font-size: 0.812rem;
   line-height: 1.5;
 }
@@ -25648,7 +25649,7 @@ svg {
 .todo-list-rounded .form-check .form-check-label {
   min-height: 18px;
   display: block;
-  margin-left: 1.75rem;
+  margin-left: 0.5rem;
   font-size: 0.812rem;
   line-height: 1.5;
 }
@@ -28823,7 +28824,7 @@ dl li {
   -moz-transition: width 0.25s ease, background 0.25s ease;
   -ms-transition: width 0.25s ease, background 0.25s ease;
   width: 220px;
-  height: 97px;
+  height: 118px;
   padding: 20px 35px;
 }
 .sidebar-dark .navbar .navbar-brand-wrapper {
@@ -30380,3 +30381,9 @@ dl li {
   outline: 1px solid slategrey;
 }
 /*# sourceMappingURL=maps/style.css.map */
+
+/* Navbar Logo Boyut Düzeltmesi */
+.navbar-brand.brand-logo img {
+    height: 34px; /* Yüksekliği 34px'e sabitle */
+    width: auto; /* Genişlik otomatik ayarlansın */
+}

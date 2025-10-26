@@ -1,0 +1,14 @@
+﻿@model Product
+@inject MabeyaDbContext dbContext
+@{
+    ViewData["Title"] = "Ürün Ekle";
+
+}
+<form method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label class="form-label" asp-for="CategoryId"></label>
+        <select class="form-control" asp-for="CategoryId" >
+            <option disabled selected value="">Seçiniz...</option>
+        </select>
+    </div>
+    </form>

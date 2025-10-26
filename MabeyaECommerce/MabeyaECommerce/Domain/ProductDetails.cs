@@ -8,7 +8,8 @@ public class ProductDetails
     public Guid productId { get; set; }
     public Guid specId { get; set; }
     public string Value { get; set; }
-
+    public Product? Prodıct { get; set; }
+    public Spec? Spec { get; set; }
 
 }
 public class ProductDetailsConfiguration : IEntityTypeConfiguration<ProductDetails>
