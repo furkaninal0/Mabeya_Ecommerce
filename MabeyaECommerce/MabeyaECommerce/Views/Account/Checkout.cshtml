@@ -1,0 +1,66 @@
+﻿@inject MabeyaDbContext dbContext
+@{
+    ViewData["Title"] = "Checkout";
+    var userId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
+    var items = dbContext.shoppingCartItems.Include(p => p.Product).Where(p => p.UserId == userId).ToList();
+    var counter = 0;
+}
+
+<div class="h4">@ViewData["Title"]</div>
+
+<div class="row">
+    <div class="col-12 col-md-9 ">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Qty.</th>
+                    <th>Amount</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in items)
+                {
+                    <tr>
+                        <td>@(++counter)</td>
+                        <td>
+                            <div class="d-flex flex-column gap-3">
+                                <img src="@Url.Action("Product", "Images" , new {id = item.Product!.Id})" height="60" width="80 " class="p-1 border " />
+                                <span class="fw-bold">@item.Product.Name</span>
+                            </div>
+                        </td>
+                        <td class="text-end font-monospace">
+                            @item.Product.Price.ToString("N2")
+                        </td>
+                        <td class="text-end font-monospace">
+                            @item.Quantity.ToString("N0")
+                        </td>
+                        <td class="text-end font-monospace">
+                            @((item.Product.Price * item.Quantity).ToString("N2"))
+                        </td>
+                        <td>
+                            <a asp-action="RemoveFromCart" asp-route-id="@item.Id" class="text-danger">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-12 col-md-3 ">
+        <div class="p-2 border bg-body-secondary">
+            Total
+            <h2 class="text-success">
+                ₺ @items.Sum(p => p.Quantity * p.Product.Price).ToString("N2")
+                <a asp-action="Payment" class="btn btn-success w-100">
+                    Satın Al
+                </a>
+            </h2>
+        </div>
+    </div>
+</div> 

@@ -1,32 +1,142 @@
-﻿<!DOCTYPE html>
+﻿@inject MabeyaDbContext dbContext
+@{ 
+    var catagories = dbContext?.Categories?.Where(p => p.IsEnabled).OrderBy(p => p.Name).ToList() ?? new List<Category>();
+    var catalogs = dbContext?.Catalogs?.Where(p => p.IsEnabled).OrderBy(p => p.Name).ToList() ?? new List<Catalog>();
+
+}
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - MabeyaECommerce</title>
+    <title>@ViewData["Title"] - Mabeya</title>
     <script type="importmap"></script>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/MabeyaECommerce.styles.css" asp-append-version="true" />
+    <link rel="icon" href=~/favicon_(2).ico" type="image/png">
 </head>
-<body>
+<body class="">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MabeyaECommerce</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+        <nav class="navbar navbar-expand-lg  bgg-color">
+            <!--<a class="navbar-brand" asp-controller="Home" asp-action="Index">
+            <span class="text-warning fw-bold">MVC</span><span class="text-body-secondary"></span>
+                           </a>-->
+
+            <div class="container d-flex justify-content-between align-items-baseline">
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+              
+                <div class="collapse navbar-collapse justify-content-start col-4 d-flex" id="navbarSupportedContent">
+                          <a class="navbar-brand center-logo" asp-controller="Home" asp-action="Index">
+          <img src="~/images/ana_sayfa.png" height="80" width="180" alt="Logo" />
+      </a>
+
+                          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                              <li class="nav-item">
+                                  <a class="nav-link active" aria-current="page" asp-controller="Home" asp-action="Index">Ana Sayfa</a>
+                              </li>
+
+                              <li class="nav-item active dropdown">
+                                  <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                      Kategoriler
+                                  </a>
+                                  <ul class="dropdown-menu">
+                                      @foreach (var category in catagories)
+                                      {
+                                          <li class="nav-item">
+                                              <a class="nav-link text-truncate overflow-hidden app-dropdown-toggle" asp-route="Category"
+                                                 asp-route-name="@(category.Name != null ? category.Name.ToSafeUrlString() : ""))" asp-route-id="@category.Id">@category.Name</a>
+
+                                          </li>
+
+                                      }
+
+
+                                  </ul>
+                              </li>
+                              <li class="nav-item active dropdown">
+                                  <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                      Kataloglar
+                                  </a>
+                                  <ul class="dropdown-menu">
+                                      @foreach (var catalog in catalogs)
+                                      {
+                                          <li class="nav-item">
+                                              <a class="nav-link text-truncate overflow-hidden app-dropdown-toggle" asp-route="Catalog" asp-route-name="@(catalog.Name.ToSafeUrlString())" asp-route-id="@catalog.Id">@catalog.Name</a>
+
+                                          </li>
+
+                                      }
+
+                                  </ul>
+                              </li>
+
+                              <li class="nav-item">
+                                  <a class="nav-link active" href="#">İletişim</a>
+                              </li>
+                              <li class="nav-item">
+                                  <a class="nav-link active" href="#">Hakkımızda</a>
+                              </li>
+
+                              <form asp-controller="Home" asp-action="Search" class="d-flex" role="search" method="get">
+                                  <input class="form-control me-2" type="search" name="keyword" placeholder="Ara" aria-label="Search" />
+                                  <button class="btn btn-outline-dark" type="submit"> <i class="bi bi-search"></i> </button>
+                              </form>
+                              @if (User.Identity.IsAuthenticated)
+                              {
+
+
+                                  var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                                  if (!string.IsNullOrEmpty(userIdClaim))
+                                  {
+                                      var userId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
+                                      var shoppingCart = dbContext?.shoppingCartItems?.Where(p => p.UserId == userId).Sum(p => p.Quantity);
+
+                                      <li class="nav-item me-2">
+                                          <a asp-action="Checkout" asp-controller="Account" class="nav-item btn btn-link position-relative ">
+                                              <i class="bi bi-cart"></i>
+                                              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                                  @(shoppingCart > 99 ? "99+" : shoppingCart)
+                                              </span>
+                                          </a>
+                                      </li>
+                                      <li class="nav-item">
+                                          <a class="nav-link" asp-action="Profile" asp-controller="Account">
+                                              <i class="bi bi-person"> </i>
+                                              @User.FindFirst(ClaimTypes.GivenName)?.Value
+                                          </a>
+                                      </li>
+
+                                      <li class="nav-item">
+                                          <a class="nav-link" asp-action="Logout" asp-controller="Account">
+                                              <i class="bi bi-power "></i>
+                                          </a>
+                                      </li>
+}
+                              }
+                              else
+                              {
+                                  <li class="nav-item">
+                                      <a class="nav-link" asp-action="Login" asp-controller="Account">
+                                          <i class="bi bi-person-check"></i>
+                                      </a>
+                                  </li>
+                                  <li class="nav-item">
+                                      <a class="nav-link" asp-action="Register" asp-controller="Account">
+                                          <i class="bi bi-person-plus "></i>
+
+                                      </a>
+
+                                  </li>
+                              }
+                          </ul>
                 </div>
             </div>
         </nav>
@@ -37,13 +147,13 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-muted justify-content-center">
         <div class="container">
-            &copy; 2025 - MabeyaECommerce - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2025 - Mabeya   <a asp-area="" asp-controller="Home" asp-action="Privacy"></a>
         </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" ></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

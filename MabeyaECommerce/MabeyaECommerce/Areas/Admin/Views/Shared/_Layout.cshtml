@@ -6,39 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>@ViewData["Title"] - MabeyaECommerce</title>
     <script type="importmap"></script>
-    <link rel="stylesheet" href="~/admin/css/style.css" asp-append-version="true" />
+    <link href="~/admin/vendors/css/vendor.bundle.base.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/MabeyaECommerce.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/admin/css/style.css" asp-append-version="true" />
     <link href="~/admin/vendors/feather/feather.css" rel="stylesheet" />
     <link href="~/admin/vendors/mdi/css/materialdesignicons.min.css" rel="stylesheet" />
     <link href="~/admin/vendors/ti-icons/css/themify-icons.css" rel="stylesheet" />
     <link href="~/admin/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <link href="~/admin/vendors/typicons/typicons.css" rel="stylesheet" />
     <link href="~/admin/vendors/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" />
-    <link href="~/admin/vendors/css/vendor.bundle.base.css" rel="stylesheet" />
     <link href="~/admin/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet" />
     <link href="~/admin/vendors/datatables.net-bs4/dataTables.bootstrap4.css" rel="stylesheet" />
     <link href="~/admin/js/select.dataTables.min.css" rel="stylesheet" />
-    <link href="~/admin/css/style.css" rel="stylesheet" />
-    <img src="~/admin/images/favicon.png" />
+    <link type="image/png" href="~/admin/images/favicon.png">
 </head>
 <body class="with-welcome-text">
     <div class="container-scroller">
-        <!-- partial:partials/_navbar.html -->
-        <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row">
+        <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-center flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
                 <div class="me-3">
                     <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-bs-toggle="minimize">
                         <span class="icon-menu"></span>
                     </button>
                 </div>
-                <div >
-                    <h1 class="d-flex justify-content-evenly" 
+                <div>
+                    <h1 class="d-flex justify-content-evenly"
                         <a class="navbar-brand" asp-area="Admin" asp-controller="Dashboard" asp-action="Index" >
 
-                            <img src="~/images/logo-Photoroom.png"  alt="" height="140" width="150"/>
+                            <img src="~/images/logo-Photoroom.png"  alt="" height="130" width="150"/>
                         </a>
                     </h1>
-                    
+
                 </div>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-top">
@@ -47,7 +45,16 @@
                         <h1 class="welcome-text">@ViewData["Title"], <span class="text-black fw-bold">Karataş</span></h1>
                     </li>
                 </ul>
+                
                 <ul class="navbar-nav ms-auto">
+                    <li class=" ">
+                        <a class="bi-boombox" asp-area="" asp-action="Index" asp-controller="Home">
+                            <i class=" fa fa-shopping-cart me-2">
+                                Mağazaya git
+                            </i>
+                        </a>
+
+                    </li>
                     <li class="nav-item dropdown d-none d-lg-block">
                         <a class="nav-link dropdown-bordered dropdown-toggle dropdown-toggle-split" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false"> Kategori Seçiniz </a>
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="messageDropdown">
@@ -68,7 +75,7 @@
                                     <p class="fw-light small-text mb-0">Everything you’ll ever need for your Angular projects</p>
                                 </div>
                             </a>
-                          
+
                             <a class="dropdown-item preview-item">
                                 <div class="preview-item-content flex-grow py-2">
                                     <p class="preview-subject ellipsis fw-medium text-dark">React Bundle</p>
@@ -194,16 +201,14 @@
                 </button>
             </div>
         </nav>
-        <!-- partial -->
         <div class="container-fluid page-body-wrapper">
-            <!-- partial:partials/_sidebar.html -->
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
-                    <li class="nav-item">
+                   <li class="nav-item">
                         <a class="nav-link" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">
                             <i class="mdi mdi-grid-large menu-icon"></i>
                             <span class="menu-title">Yönetim Paneli</span>
-                        </a>
+                          </a>
                     </li>
                     <li class="nav-item nav-category">Ayarlar</li>
                     <li class="nav-item">
@@ -228,7 +233,8 @@
                         </a>
                         <div class="collapse" id="form-elements">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"><a class="nav-link" href="">Edit</a></li>
+                                <li class="nav-item"> <a class="nav-link" asp-controller="Specs" asp-action="Index">Ürün</a></li>
+
                             </ul>
                         </div>
                     </li>
@@ -240,19 +246,19 @@
                         </a>
                         <div class="collapse" id="charts">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">Edit</a></li>
+                                <li class="nav-item"> <a class="nav-link" asp-controller="SliderImages" asp-action="Index">Edit</a></li>
                             </ul>
                         </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
                             <i class="menu-icon mdi mdi-table"></i>
-                            <span class="menu-title">Tablolar</span>
+                            <span class="menu-title">İstatislikler</span>
                             <i class="menu-arrow"></i>
                         </a>
                         <div class="collapse" id="tables">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Basic table</a></li>
+                                <li class="nav-item"> <a class="nav-link" asp-controller="Dashboard" asp-action="Tables">Tablolar</a></li>
                             </ul>
                         </div>
                     </li>
@@ -292,48 +298,35 @@
                     </li>
                 </ul>
             </nav>
-            <!-- partial -->
             <div class="main-panel">
                 <div class="content-wrapper">
                     <div class="row">
                         @RenderBody()
-                        
-                <!-- content-wrapper ends -->
-                <!-- partial:partials/_footer.html -->
-                
-                <!-- partial -->
-            </div>
-            <!-- main-panel ends -->
-        </div>
-        <!-- page-body-wrapper ends -->
-
-   
-    <!-- container-scroller -->
-    <!-- plugins:js -->
-    <script src="~/admin/vendors/js/vendor.bundle.base.js"></script>
-    <script src="~/admin/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    <script src="~/admin/vendors/chart.js/chart.umd.js"></script>
-    <script src="~/admin/vendors/progressbar.js/progressbar.min.js"></script>
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
-    <script src="~/admin/js/off-canvas.js"></script>
-    <script src="~/admin/js/template.js"></script>
-    <script src="~/admin/js/settings.js"></script>
-    <script src="~/admin/js/hoverable-collapse.js"></script>
-    <script src="~/admin/js/todolist.js"></script>
-    <!-- endinject -->
-    <!-- Custom js for this page-->
-    <script src="~/admin/js/dashboard.js"></script>
-    <!-- <script src="assets/js/Chart.roundedBarCharts.js"></script> -->
-    <!-- End custom js for this page-->
 
 
-    <a href="~/lib/jquery/dist/jquery.min.map"></a>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+                    </div>
+                </div>
 
-    @await RenderSectionAsync("Scripts", required: false)
+                <script src="~/admin/vendors/js/vendor.bundle.base.js"></script>
+
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+                <script src="~/admin/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+
+
+                <script src="~/admin/js/off-canvas.js"></script>
+                <script src="~/admin/js/template.js"></script>
+                <script src="~/admin/js/settings.js"></script>
+                <script src="~/admin/js/hoverable-collapse.js"></script>
+                <script src="~/admin/js/todolist.js"></script>
+
+
+
+
+                <a href="~/lib/jquery/dist/jquery.min.map"></a>
+                <script src="~/js/site.js" asp-append-version="true"></script>
+
+                @await RenderSectionAsync("Scripts", required: false)
 
 </body>
 </html>

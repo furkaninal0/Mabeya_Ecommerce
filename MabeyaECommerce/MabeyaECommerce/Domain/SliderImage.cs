@@ -9,8 +9,9 @@ public class SliderImage
     public Guid userId { get; set; }
     public DateTime CreatedAt { get; set; }
     public bool IsEnabled { get; set; }
+    public string? Url { get; set; }
     public byte[] Image{ get; set; }
-    public Guid catalogId { get; set; }
+    public Guid? catalogId { get; set; }
 
 
 

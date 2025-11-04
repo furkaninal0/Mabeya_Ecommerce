@@ -17,7 +17,7 @@ namespace MabeyaECommerce.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.9")
+                .HasAnnotation("ProductVersion", "9.0.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -6013,6 +6013,168 @@ namespace MabeyaECommerce.Migrations
                     b.ToTable("Comment", (string)null);
                 });
 
+            modelBuilder.Entity("MabeyaECommerce.Domain.CreditCard", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CreditCards", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("fce20ea5-7ace-4965-9024-3792bedca3f1"),
+                            Name = "axess"
+                        },
+                        new
+                        {
+                            Id = new Guid("fce20ea5-7ace-4965-9024-3792bedca3f2"),
+                            Name = "world"
+                        },
+                        new
+                        {
+                            Id = new Guid("fce20ea5-7ace-4965-9024-3792bedca3f3"),
+                            Name = "bonus"
+                        },
+                        new
+                        {
+                            Id = new Guid("fce20ea5-7ace-4965-9024-3792bedca3f4"),
+                            Name = "maximum"
+                        },
+                        new
+                        {
+                            Id = new Guid("fce20ea5-7ace-4965-9024-3792bedca3f5"),
+                            Name = "advantage"
+                        },
+                        new
+                        {
+                            Id = new Guid("fce20ea5-7ace-4965-9024-3792bedca3f6"),
+                            Name = "bankkart"
+                        });
+                });
+
+            modelBuilder.Entity("MabeyaECommerce.Domain.Installment", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("CreditCardId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("Rate")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CreditCardId");
+
+                    b.ToTable("Installments", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("ab107747-f610-4752-8a97-2ebcac3c3ed0"),
+                            Count = 2,
+                            CreditCardId = new Guid("fce20ea5-7ace-4965-9024-3792bedca3f1"),
+                            Rate = 1m
+                        },
+                        new
+                        {
+                            Id = new Guid("ab107747-f610-4752-8a97-2ebcac3c3ed1"),
+                            Count = 3,
+                            CreditCardId = new Guid("fce20ea5-7ace-4965-9024-3792bedca3f1"),
+                            Rate = 1m
+                        },
+                        new
+                        {
+                            Id = new Guid("ab107747-f610-4752-8a97-2ebcac3c3eb3"),
+                            Count = 4,
+                            CreditCardId = new Guid("fce20ea5-7ace-4965-9024-3792bedca3f1"),
+                            Rate = 1m
+                        },
+                        new
+                        {
+                            Id = new Guid("ab107747-f610-4752-8a97-2ebcac3c3ed4"),
+                            Count = 6,
+                            CreditCardId = new Guid("fce20ea5-7ace-4965-9024-3792bedca3f1"),
+                            Rate = 1m
+                        },
+                        new
+                        {
+                            Id = new Guid("ab107747-f610-4752-8a97-2ebcac3c3ed5"),
+                            Count = 8,
+                            CreditCardId = new Guid("fce20ea5-7ace-4965-9024-3792bedca3f1"),
+                            Rate = 1.10m
+                        },
+                        new
+                        {
+                            Id = new Guid("ab107747-f610-4752-8a97-2ebcac3c3ed6"),
+                            Count = 9,
+                            CreditCardId = new Guid("fce20ea5-7ace-4965-9024-3792bedca3f1"),
+                            Rate = 1.20m
+                        },
+                        new
+                        {
+                            Id = new Guid("ab107747-f610-4752-8a97-2ebcac3c3ed7"),
+                            Count = 12,
+                            CreditCardId = new Guid("fce20ea5-7ace-4965-9024-3792bedca3f1"),
+                            Rate = 1.30m
+                        },
+                        new
+                        {
+                            Id = new Guid("ab107747-f610-4752-8a97-2ebcac3c3e08"),
+                            Count = 2,
+                            CreditCardId = new Guid("fce20ea5-7ace-4965-9024-3792bedca3f2"),
+                            Rate = 1m
+                        },
+                        new
+                        {
+                            Id = new Guid("ab107747-f610-4752-8a97-2ebcac3c3ed9"),
+                            Count = 3,
+                            CreditCardId = new Guid("fce20ea5-7ace-4965-9024-3792bedca3f2"),
+                            Rate = 1m
+                        },
+                        new
+                        {
+                            Id = new Guid("ab107747-f610-4752-8a97-2ebcac3c3e10"),
+                            Count = 6,
+                            CreditCardId = new Guid("fce20ea5-7ace-4965-9024-3792bedca3f2"),
+                            Rate = 1m
+                        },
+                        new
+                        {
+                            Id = new Guid("ab107747-f610-4752-8a97-2ebcac3c3e11"),
+                            Count = 8,
+                            CreditCardId = new Guid("fce20ea5-7ace-4965-9024-3792bedca3f2"),
+                            Rate = 1.15m
+                        },
+                        new
+                        {
+                            Id = new Guid("ab107747-f610-4752-8a97-2ebcac3c3e12"),
+                            Count = 9,
+                            CreditCardId = new Guid("fce20ea5-7ace-4965-9024-3792bedca3f2"),
+                            Rate = 1.22m
+                        },
+                        new
+                        {
+                            Id = new Guid("ab107747-f610-4752-8a97-2ebcac3c3e13"),
+                            Count = 12,
+                            CreditCardId = new Guid("fce20ea5-7ace-4965-9024-3792bedca3f2"),
+                            Rate = 1.28m
+                        });
+                });
+
             modelBuilder.Entity("MabeyaECommerce.Domain.Product", b =>
                 {
                     b.Property<Guid>("Id")
@@ -6642,6 +6804,30 @@ namespace MabeyaECommerce.Migrations
                     b.ToTable("ShoppedOrder_Items", (string)null);
                 });
 
+            modelBuilder.Entity("MabeyaECommerce.Domain.ShoppingCartItem", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ProductId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("shoppingCartItems");
+                });
+
             modelBuilder.Entity("MabeyaECommerce.Domain.SliderImage", b =>
                 {
                     b.Property<Guid>("Id")
@@ -6658,7 +6844,10 @@ namespace MabeyaECommerce.Migrations
                     b.Property<bool>("IsEnabled")
                         .HasColumnType("bit");
 
-                    b.Property<Guid>("catalogId")
+                    b.Property<string>("Url")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("catalogId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("userId")
@@ -6683,9 +6872,9 @@ namespace MabeyaECommerce.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<Guid?>("categoryId")
+                    b.Property<Guid>("categoryId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("userId")
@@ -6693,9 +6882,11 @@ namespace MabeyaECommerce.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Name");
+
                     b.HasIndex("categoryId");
 
-                    b.ToTable("Specs");
+                    b.ToTable("Spec", (string)null);
                 });
 
             modelBuilder.Entity("MabeyaECommerce.Domain.User", b =>
@@ -6944,6 +7135,17 @@ namespace MabeyaECommerce.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("MabeyaECommerce.Domain.Installment", b =>
+                {
+                    b.HasOne("MabeyaECommerce.Domain.CreditCard", "CreditCard")
+                        .WithMany("Installments")
+                        .HasForeignKey("CreditCardId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("CreditCard");
+                });
+
             modelBuilder.Entity("MabeyaECommerce.Domain.Product", b =>
                 {
                     b.HasOne("MabeyaECommerce.Domain.Category", "Category")
@@ -6958,7 +7160,7 @@ namespace MabeyaECommerce.Migrations
             modelBuilder.Entity("MabeyaECommerce.Domain.ProductDetails", b =>
                 {
                     b.HasOne("MabeyaECommerce.Domain.Product", "Prodıct")
-                        .WithMany("Prodc_Details")
+                        .WithMany("ProductDetails")
                         .HasForeignKey("productId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -6977,7 +7179,7 @@ namespace MabeyaECommerce.Migrations
             modelBuilder.Entity("MabeyaECommerce.Domain.ProductImages", b =>
                 {
                     b.HasOne("MabeyaECommerce.Domain.Product", "Product")
-                        .WithMany("ProductImagess")
+                        .WithMany("ProductImages")
                         .HasForeignKey("productId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
@@ -7041,11 +7243,32 @@ namespace MabeyaECommerce.Migrations
                     b.Navigation("ShoppedOrder");
                 });
 
+            modelBuilder.Entity("MabeyaECommerce.Domain.ShoppingCartItem", b =>
+                {
+                    b.HasOne("MabeyaECommerce.Domain.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MabeyaECommerce.Domain.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("MabeyaECommerce.Domain.Spec", b =>
                 {
                     b.HasOne("MabeyaECommerce.Domain.Category", "Category")
-                        .WithMany()
-                        .HasForeignKey("categoryId");
+                        .WithMany("Specs")
+                        .HasForeignKey("categoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Category");
                 });
@@ -7104,6 +7327,8 @@ namespace MabeyaECommerce.Migrations
             modelBuilder.Entity("MabeyaECommerce.Domain.Category", b =>
                 {
                     b.Navigation("Products");
+
+                    b.Navigation("Specs");
                 });
 
             modelBuilder.Entity("MabeyaECommerce.Domain.City", b =>
@@ -7111,13 +7336,18 @@ namespace MabeyaECommerce.Migrations
                     b.Navigation("Addresses");
                 });
 
+            modelBuilder.Entity("MabeyaECommerce.Domain.CreditCard", b =>
+                {
+                    b.Navigation("Installments");
+                });
+
             modelBuilder.Entity("MabeyaECommerce.Domain.Product", b =>
                 {
                     b.Navigation("Comments");
 
-                    b.Navigation("Prodc_Details");
+                    b.Navigation("ProductDetails");
 
-                    b.Navigation("ProductImagess");
+                    b.Navigation("ProductImages");
 
                     b.Navigation("SelectedProducts");
 

@@ -20,6 +20,8 @@ public class MabeyaDbContext (DbContextOptions options): IdentityDbContext<
     }
     public required DbSet<Address> Addresses { get; set; }
     public required DbSet<Catalog> Catalogs{ get; set; }
+    public required DbSet<CreditCard> CreditCards { get; set; }
+    public required DbSet<ShoppingCartItem> shoppingCartItems { get; set; }
 
     public required DbSet<Category> Categories { get; set; }
     public required DbSet<City> Cities{ get; set; }

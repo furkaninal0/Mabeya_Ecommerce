@@ -730,10 +730,13 @@ wwwroot\admin\vendors\typicons\typicons.woff
 wwwroot\admin\vendors\typicons\typicons.woff2
 wwwroot\css\admin.css
 wwwroot\css\site.css
-wwwroot\favicon.ico
+wwwroot\favicon_(2).ico
+wwwroot\images\ana_sayfa.png
 wwwroot\images\logo-Photoroom.png
 wwwroot\images\logo.jpg
 wwwroot\images\mabeya.jpg
+wwwroot\images\noimage.png
+wwwroot\images\noimage2.png
 wwwroot\js\site.js
 wwwroot\lib\bootstrap-icons\bootstrap-icons.svg
 wwwroot\lib\bootstrap-icons\font\bootstrap-icons.css
@@ -2879,9 +2882,7 @@ wwwroot\lib\jquery\dist\jquery.slim.js
 wwwroot\lib\jquery\dist\jquery.slim.min.js
 wwwroot\lib\jquery\dist\jquery.slim.min.map
 wwwroot\lib\jquery\LICENSE.txt
-C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\lib\bootstrap-icons\icons\pip-fill.svg
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\admin\css\maps\light\common.css.map
-C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\lib\bootstrap-icons\icons\pinterest.svg
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\lib\bootstrap-icons\icons\pin.svg
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\lib\bootstrap-icons\icons\pin-map.svg
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\lib\bootstrap-icons\icons\pin-map-fill.svg
@@ -2940,10 +2941,11 @@ C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaEComm
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\lib\bootstrap-icons\icons\person-dash.svg
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\lib\bootstrap-icons\icons\person-dash-fill.svg
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\lib\bootstrap-icons\icons\person-circle.svg
+C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\lib\bootstrap-icons\icons\person-check.svg
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\admin\css\style.css
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\admin\css\maps\style.css.map
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\admin\css\light\common.css
-C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\lib\bootstrap-icons\icons\pip.svg
+C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\lib\bootstrap-icons\icons\pip-fill.svg
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\admin\images\arrow-down-dark.svg
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\admin\images\arrow-down.svg
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\admin\images\favicon.ico
@@ -2956,6 +2958,7 @@ C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaEComm
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\admin\js\chart.js
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\admin\js\Chart.roundedBarCharts.js
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\admin\js\codemirror.js
+C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\lib\jquery\LICENSE.txt
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\admin\js\dashboard.js
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\admin\js\file-upload.js
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\admin\js\hoverable-collapse.js
@@ -3540,7 +3543,7 @@ C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaEComm
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\admin\vendors\typicons\typicons.svg
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\css\admin.css
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\css\site.css
-C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\favicon.ico
+C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\favicon_(2).ico
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\js\site.js
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\lib\bootstrap-icons\bootstrap-icons.svg
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\lib\bootstrap-icons\font\bootstrap-icons.css
@@ -5025,8 +5028,6 @@ C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaEComm
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\lib\bootstrap-icons\icons\person-badge.svg
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\lib\bootstrap-icons\icons\person-bounding-box.svg
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\lib\bootstrap-icons\icons\person-check-fill.svg
-C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\lib\bootstrap-icons\icons\person-check.svg
-C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\lib\jquery\LICENSE.txt
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\lib\jquery\dist\jquery.slim.min.map
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\lib\jquery\dist\jquery.slim.min.js
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\lib\jquery\dist\jquery.slim.js
@@ -5622,3 +5623,5 @@ C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaEComm
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\lib\bootstrap-icons\icons\play-circle-fill.svg
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\lib\bootstrap-icons\icons\play-btn.svg
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\lib\bootstrap-icons\icons\play-btn-fill.svg
+C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\lib\bootstrap-icons\icons\pip.svg
+C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\lib\bootstrap-icons\icons\pinterest.svg

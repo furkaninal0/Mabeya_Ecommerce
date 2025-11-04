@@ -16,6 +16,7 @@ public class Category
     [Display(Name = "Aktif")]
     public bool IsEnabled { get; set; } = true;
     public ICollection <Product> Products { get; set; } = new List<Product> ();
+    public ICollection <Spec> Specs { get; set; } = new List<Spec> ();
 
 }
 

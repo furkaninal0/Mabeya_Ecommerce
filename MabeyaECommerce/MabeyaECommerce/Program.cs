@@ -94,7 +94,18 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapStaticAssets();
-
+app.MapControllerRoute(
+    name: "Catalog",
+    pattern: "{name}-catalog-{id}",
+    defaults: new { controller = "Home", action = "Catalog" });
+app.MapControllerRoute(
+    name: "Category",
+    pattern: "{name}-category-{id}",
+    defaults: new { controller = "Home", action = "Category" });
+app.MapControllerRoute(
+    name: "Product",
+    pattern: "{name}-product-{id}",
+    defaults: new { controller = "Home", action = "Detail" });
 app.MapControllerRoute(
     name: "areas",
     pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}");

@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@inject MabeyaDbContext dbContext
+
+<!DOCTYPE html>
 <html lang="tr">
 
 
@@ -10,17 +12,17 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 <body>
-    <div class=" container">
-       
-        </div>
+    <div class="container-fluid">
 
-        <div class=" vh-100 d-flex align-items-center justify-content-center">
+    </div>
+
+    <div class=" vh-100 d-flex align-items-center justify-content-center">
 
 
-            @RenderBody()
-            <script src="~/lib/jquery/dist/jquery.min.js"></script>
-            <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-            <script src="~/js/site.js" asp-append-version="true"></script>
-            @await RenderSectionAsync("Scripts", required: false)
+        @RenderBody()
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

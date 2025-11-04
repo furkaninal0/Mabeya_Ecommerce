@@ -1,6 +1,74 @@
-﻿@model HomeController
+﻿@inject MabeyaDbContext dbContext
 @{
-    ViewData["Title"] = "Mabeya - Hoşgeldiniz";
+    ViewData["Title"] = "Ana Sayfa ";
+
+    var sliderImages = dbContext.sliderImages.Where(p => p.IsEnabled).Select(p => new { p.Id, p.Url }).ToList();
+
+    var newestproducts = dbContext.Products.Where(p => p.IsEnabled).OrderByDescending(p => p.CreatedAt).
+        Take(8).Select(p => new ProductTileViewModel
+        {
+            Id = p.Id,
+            Name = p.Name,
+            Price = p.Price,
+            CategoryId = p.CategoryId,
+            CategoryName = p.Category.Name,
+
+        }).ToList();
+
+    var viewsproducts = dbContext.Products.Where(p => p.IsEnabled).OrderByDescending(p => p.Views)
+        .Take(8).Select(p => new ProductTileViewModel
+        {
+            Id = p.Id,
+            Name = p.Name,
+            Price = p.Price,
+            CategoryId = p.CategoryId,
+            CategoryName = p.Category.Name,
+        }).ToList();
 }
 
-<h1 class="text-center" > Mabeya'ya Hoşgeldiniz.    </h1>
+
+<section id="image-slider" class="splide">
+    <div class="splide__track">
+        <ul class="splide__list">
+            @foreach (var image in sliderImages)
+            {
+                <li class="splide__slide">
+                @if (@image.Url==null)
+                {
+                    <img src="@Url.Action("SliderImage" , "Images" ,new { id= image.Id})" alt="" />
+                }
+                else
+                {
+                <a href="@image.Url" target="_blank">
+
+                    <img src="@Url.Action("SliderImage" , "Images" ,new { id= image.Id})" alt="" />
+                </a>
+                }
+            </li>
+            }
+
+        </ul>
+    </div>
+</section>
+<header class=" py-3 display-5"></header>
+
+
+
+
+<header class="py-3 display-5">En çok öne çıkanlar</header>
+<section class="mb-3">
+    <partial name="_ProductListPartial" model="viewsproducts" />
+</section>
+<header class="py-3 display-5">En son eklenenler</header>
+<section class="mb-3">
+    <partial name="_ProductListPartial" model="newestproducts" />
+</section>
+
+@section Scripts {
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script>
+        new Splide('#image-slider').mount();
+    </script>
+
+}

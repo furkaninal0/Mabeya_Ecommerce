@@ -3,6 +3,7 @@ using MabeyaECommerce.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Shared;
 using NETCore.MailKit.Core;
 using System.Data;
@@ -49,7 +50,7 @@ public class AccountController (
         if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
             return Redirect(returnUrl);
         else
-            return RedirectToAction("Index", "Dashboard", new { area = "Admin" });
+            return RedirectToAction("Index", "Home");
     }
     public IActionResult Register()
     {
@@ -148,6 +149,36 @@ public class AccountController (
        var user = await userManager.FindByIdAsync(model.Id!.ToString());
         var result = await userManager.ResetPasswordAsync(user!, model.Token!, model.Password);
         return View("SetPasswordSucces");
+    }
+
+    public async Task<IActionResult> AddToCart(Guid id)
+    {
+        var userId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
+        var product = await dbContext.Products.SingleOrDefaultAsync(p => p.Id == id);
+        var item = await dbContext.shoppingCartItems.SingleOrDefaultAsync(p => p.UserId == userId && p.ProductId == id);
+        if (item == null)
+        {
+            item = new ShoppingCartItem
+            {
+                ProductId = id,
+                UserId = userId,
+                Quantity = 1,
+            };
+            dbContext.shoppingCartItems.Add(item);
+        }
+        else
+        {
+            item.Quantity++;
+            dbContext.shoppingCartItems.Update(item);
+        }
+        TempData["success"] = "Ürün başarıyla sepete eklendi.";
+        await dbContext.SaveChangesAsync();
+        return RedirectToRoute("Product", new { id, name = product.Name.ToSafeUrlString() });
+    }
+    [Authorize]
+    public IActionResult Checkout()
+    {
+        return View();
     }
 
 

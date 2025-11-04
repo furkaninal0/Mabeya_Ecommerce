@@ -1,12 +1,13 @@
 ﻿using MabeyaECommerce.Domain;
+using MabeyaECommerce.Migrations;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Org.BouncyCastle.Ocsp;
-using System.Net.NetworkInformation;
-using System.Threading.Tasks;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Processing;
+using System.Net.NetworkInformation;
+using System.Threading.Tasks;
 
 namespace MabeyaECommerce.Areas.Admin.Controllers;
 
@@ -38,14 +39,14 @@ public class ProductsController(
             .ToList()
             .ForEach(p =>
             {
-                model.Prodc_Details.Add(new ProductDetails
+                model.ProductDetails.Add(new ProductDetails
                 {
                     specId = p.Id,
                     Value = form[p.Id.ToString()]
                 });
 
             });
-            var allowedTypes = new[] {"image/jpeg", "image/png", "image/webp", "image/gif", "image/bmp" };
+        var allowedTypes = new[] { "image/jpeg", "image/png", "image/webp", "image/gif", "image/bmp" };
         if (model.ImageFile is not null && model.ImageFile.Length > 0)
         {
             if (!allowedTypes.Contains(model.ImageFile.ContentType))
@@ -69,7 +70,7 @@ public class ProductsController(
                 await image.SaveAsWebpAsync(ms);
                 model.Image = ms.ToArray();
             }
-            catch(UnknownImageFormatException)
+            catch (UnknownImageFormatException)
             {
                 ModelState.AddModelError("ImageFile", "Geçersiz veya bozuk resim formatı yüklendi.");
                 return View(model);
@@ -77,9 +78,9 @@ public class ProductsController(
         }
         if (model.ImageFiles is not null)
         {
-            foreach (var file in model.ImageFiles) 
+            foreach (var file in model.ImageFiles)
             {
-                if(file.Length == 0 || !allowedTypes.Contains(file.ContentType))
+                if (file.Length == 0 || !allowedTypes.Contains(file.ContentType))
                     continue;
                 try
                 {
@@ -95,14 +96,14 @@ public class ProductsController(
                     });
                     using var ms = new MemoryStream();
                     await image.SaveAsWebpAsync(ms);
-                    model.ProductImagess.Add(new ProductImages
+                    model.ProductImages.Add(new ProductImages
                     {
                         IsEnabled = true,
                         CreatedAt = DateTime.UtcNow,
                         Image = ms.ToArray()
                     });
                 }
-                catch (UnknownImageFormatException) 
+                catch (UnknownImageFormatException)
                 {
                     continue;
                 }
@@ -115,5 +116,138 @@ public class ProductsController(
         await dbContext.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
+    public async Task<IActionResult> Edit(Guid id)
+    {
+        var item = await dbContext.Products.Include(p => p.Catalogs).Include(p => p.ProductDetails).Include(p => p.ProductImages).AsNoTracking().SingleOrDefaultAsync(p => p.Id == id);
+        return View(item);
+    }
+    [HttpPost]
+    public async Task<IActionResult> Edit(Product model)
+    {
+        var item = await dbContext.Products.Include(p => p.Catalogs).Include(p => p.ProductDetails).Include(p => p.ProductImages).SingleOrDefaultAsync(p => p.Id == model.Id);
 
+        if (item == null)
+            return NotFound();
+        
+        item.Name = model.Name;
+        item.Description = model.Description;
+        item.Category = model.Category;
+        item.Price = model.Price;
+        item.IsEnabled = model.IsEnabled;
+      
+        if (model.CategoryId != Guid.Empty)
+            item.CategoryId = model.CategoryId;
+       
+        var form = Request.Form;
+        dbContext.ProductDetails.RemoveRange(item.ProductDetails);
+
+        var details = await dbContext.Specs.ToListAsync();
+        
+        foreach (var detail in details)
+        {
+            var value = form[detail.Id.ToString()];
+
+            if (!string.IsNullOrEmpty(value))
+            {
+
+                item.ProductDetails.Add(new ProductDetails
+                {
+                    specId = detail.Id,
+                    Value = value
+                });
+
+            }
+
+        }
+                
+
+        var allowedTypes = new[] { "image/jpeg", "image/png", "image/webp", "image/gif", "image/bmp" };
+        if (model.ImageFile != null && model.ImageFile.Length > 0)
+            if (!allowedTypes.Contains(model.ImageFile.ContentType))
+            {
+                ModelState.AddModelError("ImageFile", "Desteklenmeyen resim formatı (yalnızca JPG, PNG, WEBP, GIF, BMP).");
+                return View(item);
+        try
+        {
+            using var image = await Image.LoadAsync(model.ImageFile.OpenReadStream());
+            image.Mutate(p =>
+            {
+                p.Resize(new ResizeOptions
+                {
+                    Size = new Size(1500, 1250),
+                    Mode = ResizeMode.Crop
+                });
+            });
+            using var ms = new MemoryStream();
+            await image.SaveAsWebpAsync(ms);
+            item.Image = ms.ToArray();
+        }
+        catch (UnknownImageFormatException)
+        {
+            ModelState.AddModelError("ImageFile", "Geçersiz veya bozuk resim formatı yüklendi.");
+            return View(item);
+
+        }
+            }
+
+        if (model.ImageFiles != null && model.ImageFiles.Any())
+        {
+            foreach (var file in model.ImageFiles)
+            {
+                if (file.Length == 0 || !allowedTypes.Contains(file.ContentType))
+                    continue;
+
+                try
+                {
+                    using var image = await Image.LoadAsync(file.OpenReadStream());
+                    image.Mutate(p =>
+                    {
+                        p.Resize(new ResizeOptions
+                        {
+                            Size = new Size(1500, 1250),
+                            Mode = ResizeMode.Crop
+                        });
+                    });
+                    using var ms = new MemoryStream();
+                    await image.SaveAsWebpAsync(ms);
+                    item.ProductImages.Add(new ProductImages
+                    {
+                        IsEnabled = true,
+                        CreatedAt = DateTime.Now,
+                        Image = ms.ToArray()
+                    });
+                }
+                catch (UnknownImageFormatException)
+                {
+                    continue;
+                }
+            }
+        }
+        item.Catalogs.Clear();
+        if (model.SelectedCatalogs is not null && model.SelectedCatalogs.Any())
+        {
+            var catalogsToAdd = await dbContext.Catalogs.Where(p => model.SelectedCatalogs.Contains(p.Id)).ToListAsync();
+            foreach (var catalog in catalogsToAdd)
+            {
+                item.Catalogs.Add(catalog);
+            }
+        }
+        await dbContext.SaveChangesAsync();
+        return RedirectToAction(nameof(Index));
+
+    }
+    public async Task<IActionResult> Delete(Guid id)
+    {
+        var item = await dbContext.Products.Include(p => p.ProductImages).SingleOrDefaultAsync(p => p.Id == id);
+        if (item != null)
+        {
+            dbContext.ProductImages.RemoveRange(item.ProductImages);
+            dbContext.Products.Remove(item);
+
+            await dbContext.SaveChangesAsync();
+        }
+        return RedirectToAction(nameof(Index));
+    }
 }
+
+

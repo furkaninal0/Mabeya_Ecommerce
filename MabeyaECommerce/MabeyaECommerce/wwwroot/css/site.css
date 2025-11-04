@@ -29,3 +29,20 @@ body {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
 }
+.container {
+    max-width: 1140px !important;
+}
+
+.navbar .navbar-brand.center-logo {
+    position: static; /* absolute kullanma */
+    transform: none;
+}
+
+.navbar {
+    align-items: center;
+}
+
+.bgg-color{
+    background-color: antiquewhite;
+
+}
