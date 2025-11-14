@@ -1,6 +1,6 @@
 ﻿@inject MabeyaDbContext dbContext
 @{
-    ViewData["Title"] = "Checkout";
+    ViewData["Title"] = "Sepetim";
     var userId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
     var items = dbContext.shoppingCartItems.Include(p => p.Product).Where(p => p.UserId == userId).ToList();
     var counter = 0;
@@ -28,7 +28,10 @@
                         <td>@(++counter)</td>
                         <td>
                             <div class="d-flex flex-column gap-3">
-                                <img src="@Url.Action("Product", "Images" , new {id = item.Product!.Id})" height="60" width="80 " class="p-1 border " />
+                                <a asp-route="Product" asp-route-id="@item.Product.Id" asp-route-name="@item.Product.Name.ToSafeUrlString() ">
+
+                                    <img src="@Url.Action("Product", "Images" , new {id = item.Product!.Id})" height="60" width="80 " class="p-1 border " />
+                                </a>
                                 <span class="fw-bold">@item.Product.Name</span>
                             </div>
                         </td>
@@ -36,7 +39,12 @@
                             @item.Product.Price.ToString("N2")
                         </td>
                         <td class="text-end font-monospace">
-                            @item.Quantity.ToString("N0")
+                            <div class="d-flex align-items-center">
+                                <a asp-action="DecreaseQuantity" asp-route-id="@item.Id" class="btn btn-light">-</a>
+                                <input class="form-control text-center quantity-input" style="width:40px" data-id="@item.Id" value="@item.Quantity" onchange="setQuantity" />
+                                <a asp-action="IncreaseQuantity" asp-route-id="@item.Id" class="btn btn-light" >+</a>
+
+                            </div>
                         </td>
                         <td class="text-end font-monospace">
                             @((item.Product.Price * item.Quantity).ToString("N2"))
@@ -63,4 +71,23 @@
             </h2>
         </div>
     </div>
-</div> 
+</div>
+@section Scripts {
+    <script>
+
+        $(() => {
+            $('.quantity-input').on('change', (e) => {
+
+
+                const qty = $(e.currentTarget).val();
+                const id = $(e.currentTarget).data('id');
+                window.location = `/Account/SetQuantity/${id}/?Quantity=${qty}`;
+            })
+
+
+        });
+
+
+
+    </script>
+}

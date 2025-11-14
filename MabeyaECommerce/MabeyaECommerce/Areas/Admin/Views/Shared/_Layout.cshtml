@@ -55,49 +55,7 @@
                         </a>
 
                     </li>
-                    <li class="nav-item dropdown d-none d-lg-block">
-                        <a class="nav-link dropdown-bordered dropdown-toggle dropdown-toggle-split" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false"> Kategori Seçiniz </a>
-                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="messageDropdown">
-                            <a class="dropdown-item py-3">
-                                <p class="mb-0 fw-medium float-start">Kategori Seçiniz</p>
-                            </a>
-                            <!-- Kategoriler buraya gelecek -->
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item preview-item">
-                                <div class="preview-item-content flex-grow py-2">
-                                    <p class="preview-subject ellipsis fw-medium text-dark">Bootstrap Bundle </p>
-                                    <p class="fw-light small-text mb-0">This is a Bundle featuring 16 unique dashboards</p>
-                                </div>
-                            </a>
-                            <a class="dropdown-item preview-item">
-                                <div class="preview-item-content flex-grow py-2">
-                                    <p class="preview-subject ellipsis fw-medium text-dark">Angular Bundle</p>
-                                    <p class="fw-light small-text mb-0">Everything you’ll ever need for your Angular projects</p>
-                                </div>
-                            </a>
-
-                            <a class="dropdown-item preview-item">
-                                <div class="preview-item-content flex-grow py-2">
-                                    <p class="preview-subject ellipsis fw-medium text-dark">React Bundle</p>
-                                    <p class="fw-light small-text mb-0"></p>
-                                </div>
-                            </a>
-                        </div>
-                    </li>
-                    <li class="nav-item d-none d-lg-block">
-                        <div id="datepicker-popup" class="input-group date datepicker navbar-date-picker">
-                            <span class="input-group-addon input-group-prepend border-right">
-                                <span class="icon-calendar input-group-text calendar-icon"></span>
-                            </span>
-                            <input type="text" class="form-control">
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <form class="search-form" action="#">
-                            <i class="icon-search"></i>
-                            <input type="search" class="form-control" placeholder="Search Here" title="Search here">
-                        </form>
-                    </li>
+                   
                     <li class="nav-item dropdown">
                         <a class="nav-link count-indicator" id="notificationDropdown" href="#" data-bs-toggle="dropdown">
                             <i class="icon-bell"></i>
@@ -180,11 +138,11 @@
                     </li>
                     <li class="nav-item dropdown d-none d-lg-block user-dropdown">
                         <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img class="img-xs rounded-circle" src="~/admin/images/faces/face8.jpg" alt="Profile image">
+                            <img class="img-xs rounded-circle" src="~/images/pp_karatas.jpg" alt="Profile image">
                         </a>
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
                             <div class="dropdown-header text-center">
-                                <img class="img-md rounded-circle" src="~/admin/images/faces/face8.jpg" alt="Profile image">
+                                <img class="img-xs rounded-circle" src="~/images/pp_karatas.jpg" alt="Profile image">
                                 <p class="mb-1 mt-3 fw-semibold">Karataş</p>
                                 <p class="fw-light text-muted mb-0">mabeya@@.com</p>
                             </div>
@@ -204,11 +162,11 @@
         <div class="container-fluid page-body-wrapper">
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
-                   <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">
                             <i class="mdi mdi-grid-large menu-icon"></i>
                             <span class="menu-title">Yönetim Paneli</span>
-                          </a>
+                        </a>
                     </li>
                     <li class="nav-item nav-category">Ayarlar</li>
                     <li class="nav-item">
@@ -240,7 +198,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
-                            <i class="menu-icon mdi mdi-chart-line"></i>
+                            <i class="menu-icon mdi mdi-table"></i>
                             <span class="menu-title">Sliders</span>
                             <i class="menu-arrow"></i>
                         </a>
@@ -251,14 +209,28 @@
                         </div>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
+                            <i class="menu-icon mdi mdi-shopping-outline"></i>
+                            <span class="menu-title">Siparişler</span>
+                            <i class="menu-arrow"></i>
+                        </a>
+                        <div class="collapse" id="charts">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" asp-controller="ShoppedOrders" asp-action="Index">Yeni Siparişler</a></li>
+                                <li class="nav-item"> <a class="nav-link" asp-controller="ShoppedOrders" asp-action="InProgess">Aktif Siparişler</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
-                            <i class="menu-icon mdi mdi-table"></i>
+                            <i class="menu-icon mdi mdi-chart-line"></i>
                             <span class="menu-title">İstatislikler</span>
                             <i class="menu-arrow"></i>
                         </a>
                         <div class="collapse" id="tables">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" asp-controller="Dashboard" asp-action="Tables">Tablolar</a></li>
+                                <li class="nav-item"> <a class="nav-link" asp-controller="Dashboard" asp-action="Tables">Satış ve Yorumlar</a></li>
+                                <li class="nav-item"> <a class="nav-link" asp-controller="Dashboard" asp-action="MarketingAnalyst">Analistik</a></li>
                             </ul>
                         </div>
                     </li>
@@ -308,6 +280,9 @@
                 </div>
 
                 <script src="~/admin/vendors/js/vendor.bundle.base.js"></script>
+                <script src="~/admin/vendors/progressbar.js/progressbar.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 
@@ -327,6 +302,7 @@
                 <script src="~/js/site.js" asp-append-version="true"></script>
 
                 @await RenderSectionAsync("Scripts", required: false)
+                <script src="~/admin/js/dashboard.js"></script>
 
 </body>
 </html>

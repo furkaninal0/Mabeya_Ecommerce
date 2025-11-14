@@ -10,6 +10,7 @@ public class Address
     public int cityId { get; set; }
     public string? Name { get; set; }
     public string? Text { get; set; }
+    public string? Number { get; set; } = "0";
     public string? zipCode { get; set; }
     public City? City { get; set; }
     public User? User { get; set; }
@@ -25,6 +26,8 @@ public class Address
             .IsRequired();
         builder.Property(p => p.Text)
             .IsRequired();
+        builder.Property(p => p.Number)
+           .IsRequired();
 
     }
 }

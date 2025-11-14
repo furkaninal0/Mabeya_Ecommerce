@@ -56,6 +56,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRGFzaGJvYXJkXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Asus Tuf15/Documents/GitHub/MabeyaEcommerce/MabeyaECommerce/MabeyaECommerce/Areas/Admin/Views/Dashboard/MarketingAnalyst.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRGFzaGJvYXJkXE1hcmtldGluZ0FuYWx5c3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Asus Tuf15/Documents/GitHub/MabeyaEcommerce/MabeyaECommerce/MabeyaECommerce/Areas/Admin/Views/Dashboard/Tables.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRGFzaGJvYXJkXFRhYmxlcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -70,6 +74,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Asus Tuf15/Documents/GitHub/MabeyaEcommerce/MabeyaECommerce/MabeyaECommerce/Areas/Admin/Views/Products/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Asus Tuf15/Documents/GitHub/MabeyaEcommerce/MabeyaECommerce/MabeyaECommerce/Areas/Admin/Views/ShoppedOrders/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hvcHBlZE9yZGVyc1xEZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Asus Tuf15/Documents/GitHub/MabeyaEcommerce/MabeyaECommerce/MabeyaECommerce/Areas/Admin/Views/ShoppedOrders/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hvcHBlZE9yZGVyc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Asus Tuf15/Documents/GitHub/MabeyaEcommerce/MabeyaECommerce/MabeyaECommerce/Areas/Admin/Views/SliderImages/Create.cshtml]
@@ -120,6 +132,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Asus Tuf15/Documents/GitHub/MabeyaEcommerce/MabeyaECommerce/MabeyaECommerce/Views/Account/Payment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxQYXltZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Asus Tuf15/Documents/GitHub/MabeyaEcommerce/MabeyaECommerce/MabeyaECommerce/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -164,6 +180,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTZWFyY2guY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Asus Tuf15/Documents/GitHub/MabeyaEcommerce/MabeyaECommerce/MabeyaECommerce/Views/Profile/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Asus Tuf15/Documents/GitHub/MabeyaEcommerce/MabeyaECommerce/MabeyaECommerce/Views/Profile/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxQcm9maWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Asus Tuf15/Documents/GitHub/MabeyaEcommerce/MabeyaECommerce/MabeyaECommerce/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -199,3 +223,7 @@ build_metadata.AdditionalFiles.CssScope = b-s16f5hm28d
 [C:/Users/Asus Tuf15/Documents/GitHub/MabeyaEcommerce/MabeyaECommerce/MabeyaECommerce/Views/Shared/_LayoutAccount.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRBY2NvdW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = b-7jz2p0ctsr
+
+[C:/Users/Asus Tuf15/Documents/GitHub/MabeyaEcommerce/MabeyaECommerce/MabeyaECommerce/Views/Shared/_LayoutProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRQcm9maWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-am9nfr2ayw

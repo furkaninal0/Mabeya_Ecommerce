@@ -75,12 +75,12 @@
                 ₺ @Model.Price.ToString("N2")
             </div>
             <div>
-                <form asp-action="AddToCart" asp-controller="Account" asp-route-id="@Model.Id"
-                      class="btn btn-success">
-                    <button type="submit" class="btn btn-success">
-                        Sepete Ekle
-                    </button>
-                </form>
+                <form asp-action="AddToCart" asp-controller="Account" asp-route-id="@Model.Id" method="post">
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="btn btn-success">
+                            Add to Cart
+                        </button>
+                    </form>
             </div>
         </div>
     </div>

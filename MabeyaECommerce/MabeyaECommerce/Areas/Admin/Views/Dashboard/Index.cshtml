@@ -1,3 +1,51 @@
-﻿@{
+﻿@inject MabeyaDbContext dbContext
+@{
+    var neworders = dbContext.shoppedOrders.Include(p => p.User).Include(p => p.Order_Items).Include(p => p.Address).Where(p => p.Status == OrderStatus.New).OrderBy(p => p.Date).Take(10).ToList();
+
     ViewData["Title"] = "Admin Yönetim Paneli";
 }
+
+<div class="row">
+    <div class=" ">
+        <div class="card ">
+            <div class="card-header">
+                <h5>Son Siparişler</h5>
+            </div>
+            <div class="card-body">
+                <table class="table table-active">
+                    <thead>
+                        <tr>
+                            <th>Tarih</th>
+                            <th>Müşteri</th>
+                            <th>Müşteri E-posta</th>
+                            <th>Müşteri Tel.</th>
+                            <th>Tutar</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var order in neworders)
+                        {
+                            <tr>
+                                <td>@order.Date.ToShortDateString()</td>
+                                <td>@order.User!.givenName</td>
+                                <td>
+                                    <a href="mailto:@order.User!.Email">@order.User.Email</a>
+                                </td>
+                                <td>@order.Address!.Number</td>
+                                <td class="bi-text-right text-monospace">@order.GrandTotal.ToString("n2")</td>
+                                <td>
+                                    <a asp-action="Detail" asp-controller="ShoppedOrders" asp-route-id="@order.Id" class="btn btn-primary">
+                                        <i class="bi bi-search"></i>
+                                        İncele
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

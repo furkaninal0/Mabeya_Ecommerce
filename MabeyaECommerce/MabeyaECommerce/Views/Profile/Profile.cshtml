@@ -1,0 +1,105 @@
+﻿@model User
+@inject MabeyaDbContext dbContext
+@using Humanizer
+
+@{
+    Layout = "_LayoutProfile";
+    ViewData["Title"] = "Kullanıcı Profili";
+
+
+    var userId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+
+
+    var momentorders = dbContext.shoppedOrders
+.Include(p => p.Order_Items).ThenInclude(p => p.Product)
+.AsNoTracking()
+.AsSingleQuery()
+.Where(p => p.userId == userId && (p.Status == OrderStatus.New || p.Status == OrderStatus.InProgress)).ToList();
+
+}
+
+
+
+    <!-- Page Content  -->
+    @foreach (var order in momentorders)
+    {
+        <div class="card mb-3">
+            <div class="card-header d-flex align-items-center ">
+               
+                    <button class="btn btn-circle" type="button" data-toggle="collapse" data-target="#items_@order.Id">
+                        <i class="bi bi-chevron-down"></i>
+                    </button>
+                <div class="flex-fill">@order.Date.Humanize()</div>
+                <div class="text-secondary fw-bold ">@order.GrandTotal.ToString("n2") </div>
+                <span class="text-success ms-auto">@order.Status </span>
+            </div>
+            <div class="card-body collapse" id="items_@order.Id">
+                    <table class="table table-bordered">
+                        <colgroup>
+                            <col width="120" />
+                            <col />
+                            <col />
+                            <col />
+                            <col />
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>Ürün</th>
+                                <th>İsmi</th>
+                                <th>Adedi</th>
+                                <th>Fiyatı</th>
+                                <th>Toplam Fiyatı</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in order.Order_Items)
+                            {
+                                <tr>
+                                    <td>
+                                        <img src="@Url.Action("Product", "Images", new {id = item.productId})" height="60" class="img-thumbnail" />
+                                    </td>
+                                    <td>@item.Product.Name</td>
+                                    <td>@item.Quantity</td>
+                                    <td>@item.Price.ToString("n2")</td>
+                                    <td>@item.Amount.ToString("n2")</td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="4" class="text-end fw-bold ">Toplam </td>
+                            <td class=" fw-bold ">@order.GrandTotal.ToString("n2")</td>
+                        </tr>
+                    </tfoot>      
+                    
+                    </table>
+                    
+
+
+                </div>
+
+
+
+
+            </div>
+
+
+
+
+
+}
+   
+
+
+    @section Scripts{
+        <script>
+            $("#sidebarCollapse").on("click", function () {
+                $("#sidebar").toggleClass("active");
+            });
+
+
+        </script>
+
+
+    }

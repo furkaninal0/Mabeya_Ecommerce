@@ -1,0 +1,226 @@
+﻿@model PaymentViewModel
+@inject MabeyaDbContext dbContext
+@{
+    var provinces = dbContext.Provinces.ToList();
+    var cities = dbContext.Cities.ToList();
+}
+
+<h4>Ödeme Sayfası</h4>
+<hr />
+
+<div ng-app="paymentApp" ng-controller="ctrl" ng-init="init()">
+    <div class="row">
+        <div class="col-6" ng-show="page=='address'">
+            <div class="d-flex ">
+                <button class="btn btn-primary ms-auto" ng-disabled="selectedAddress == null" type="button" ng-click="page='creditCard'">Sonraki </button>
+            </div>
+            <h6>Sipariş Adresi</h6>
+            <div class="d-flex p-2 border" style="cursor : pointer" ng-repeat="address in userAddresses" ng-class="{'bg-success' : address ==selectedAddress}" ng-click="setAddress(address)">
+                <div class="col-1 p-2 text-center">
+                    <i class=" bi bi-check text-success" ng-show="selectedAddress == address"></i>
+                </div>
+                <div class="col-3 p-2">{{address.name}}</div>
+                <div class="col-8 p-2 text-body-secondary overflow-hidden text-truncate">{{address.text}}</div>
+            </div>
+            <hr />
+            <div class="text-center "> veya </div>
+            <hr />
+            <div class="mb-3 ">
+                <label class="form-label">İsim</label>
+                <input class="form-control" ng-model="address.name" type="text" ng-required="true" />
+                <span></span>
+            </div>
+            <div class="mb-3 ">
+                <label class="form-label">Telefon Numarası</label>
+                <input class="form-control" ng-model="address.number" type="tel" required />
+                <span></span>
+            </div>
+
+            <div class="mb-3 ">
+                <label class="form-label">Adres</label>
+                <input class="form-control" ng-model="address.text" type="text" required />
+                <span></span>
+            </div>
+            <div class="mb-3 ">
+                <label class="form-label">Zip Code</label>
+                <input class="form-control" ng-model="address.zipCode" type="text" required/>
+                <span></span>
+            </div>
+            <div class="mb-3 ">
+                <div class="row">
+                    <div class="col-6">
+                        <label class="form-label">Şehir</label>
+                        <select class="form-select" name="Provinces" ng-model="selectedProvinceId" ng-change="fetchCities()" ng-required="true">
+                            <option value="">Seçiniz</option>
+                            @foreach (var item in provinces)
+                            {
+                                <option value="@item.Id">@item.Name</option>
+                            }
+
+                        </select>
+                    </div>
+                    <div class="col-6 ">
+                        <label class="form-label">City</label>
+                        <select class="form-select" ng-model="address.cityId" ng-options="city.id as city.name for city in cities track by city.id">
+                            <option value="" disabled selected>Seçiniz</option>
+                        </select>
+                    </div>
+                </div>
+                <span></span>
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-primary" type="button" ng-click="saveAddress()">Kaydet</button>
+            </div>
+        </div>
+    <div class="col-6" ng-show="page == 'creditCard'">
+        <h6>Kredi Kartı</h6>
+        <div class="d-flex flex-column">
+            <div class="mb-3 ">
+                <label class="form-label">Kart Numarası</label>
+                <input class="form-control" ng-model="creditCard.cardNumber" type="tel" ng-required="true" />
+                <span></span>
+            </div>
+            <div class="mb-3 ">
+                <label class="form-label">Kart Sahibinin Adı</label>
+                <input class="form-control" ng-model="creditCard.cardHolderName" type="text" required />
+                <span></span>
+            </div>
+            <div class="mb-3 ">
+                        <label class="form-label">Bitiş Tarihi</label>
+                <div class="row">
+                    <div class="col-6 ">
+                        <label>Ay</label>
+                        <select class="form-select" ng-model="creditCard.expireMonth" required>
+                            @for (int i = 1; i <= 12; i++)
+                            {
+                                <option>@i.ToString("00")</option>
+                            }
+                        </select>
+                        <span></span>
+                    </div>
+
+                <div class="col-6">
+                    <label class="form-label">Yıl</label>
+                    <select class="form-select" ng-model="creditCard.expireYear" ng-required="true" >
+
+                        @for (int i = DateTime.Today.Year; i <= DateTime.Today.AddYears(10).Year; i++)
+                        {
+                            <option>@(new DateTime(i,1,1).ToString("yy")) </option>
+
+                        }
+                    </select>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <div class="mb-3 ">
+            <label class="form-label">CVC</label>
+            <input class="form-control" ng-model="creditCard.cvc" type="number" required />
+            <span></span>
+        </div>
+        <div class="mb-3 ">
+            <button class="btn btn-success" type="button" ng-click="pay()" ng-required="true">
+                <div class="spinner-border spinner-border-sm text-white" role="status" ng-show="status=='progress'"></div>
+                Ödeme Yap
+            </button>
+        </div>
+    </div>
+</div>
+</div>
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js" integrity="sha512-KZmyTq3PLx9EZl0RHShHQuXtrvdJ+m35tuOiwlcZfs/rE7NZv29ygNA8SFCkMXTnYZQK2OX0Gm2qKGfvWEtRXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        var app = angular
+            .module('paymentApp', [])
+            .controller('ctrl', function ($scope, $http) {
+                $scope.selectedProvinceId = null;
+                $scope.selectedAddress = null;
+                $scope.cities = [];
+                $scope.userAddresses = [];
+                $scope.page = 'address';
+                $scope.address = {};
+                $scope.creditCard = {};
+
+                $scope.init = () => {
+                    $scope.fetchUserAddresses();
+
+                };
+
+                $scope.setAddress = (a) => {
+                    $scope.selectedAddress = a;
+
+                }
+
+
+                $scope.fetchCities = () => {
+                    $http
+                        .get(`/api/getcities/${$scope.selectedProvinceId}`)
+                        .then((response) => {
+                            $scope.cities = response.data;
+                        });
+
+                };
+
+                $scope.fetchUserAddresses = () => {
+                    $http
+                        .get(`/account/UserAddress/`)
+                        .then((response) => {
+                            $scope.userAddresses = response.data;
+                        })
+                };
+
+                $scope.saveAddress = () => {
+                    console.log("Gönderilen adres:", $scope.address);
+                    $http
+                        .post('/account/createaddress', $scope.address)
+                        .then((response) => {
+                            $scope.fetchUserAddresses();
+                            $scope.address = {};
+                            $scope.selectedProvinceId = null;
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Adresiniz Kaydedildi!',
+                                html: 'Adresiniz başarıyla kaydolmuştur.'
+
+                            });
+
+                        });
+                };
+
+                $scope.pay = () => {
+                    $scope.status = 'progress';
+                    $scope.creditCard.shippingAddressId = $scope.selectedAddress.id;
+                    $scope.creditCard.billingAddressId = $scope.selectedAddress.id;
+
+                    $scope.creditCard.expireMonth = parseInt($scope.creditCard.expireMonth);
+                    $scope.creditCard.expireYear = parseInt($scope.creditCard.expireYear);
+                    console.log($scope.creditCard);
+                    $http
+                        .post('/account/pay', {
+                            ShippingAddressId: $scope.creditCard.shippingAddressId,
+                            BillingAddressId: $scope.creditCard.billingAddressId,
+                            CardNumber: $scope.creditCard.cardNumber,
+                            CardHolderName: $scope.creditCard.cardHolderName,
+                            Cvc: String($scope.creditCard.cvc),
+
+                            ExpireMonth: parseInt($scope.creditCard.expireMonth),
+                            ExpireYear: parseInt($scope.creditCard.expireYear)
+                        },
+                            { withCredentials: true })
+                        .then((response) => {
+                            $scope.status = 'idle';
+
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Ödemeniz Yapılmıştır!',
+                                html: 'Siparişiniz başarıyla verilmiştir.'
+
+                            }).then((result) => {
+                                window.location = '/'
+                            });
+                        });
+                };
+
+            });
+    </script>
+}

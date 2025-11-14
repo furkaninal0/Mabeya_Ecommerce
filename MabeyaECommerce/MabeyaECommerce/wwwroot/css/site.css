@@ -46,3 +46,57 @@ body {
     background-color: antiquewhite;
 
 }
+body.login-page {
+    background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('/images/login_photo.png') top center / cover no-repeat fixed;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center; /* yatay merkez */
+    align-items: center; /* dikey merkez */
+
+    margin: 0;
+    padding: 0;
+}
+
+/* Login kutusu görsel üzerinde dursun */
+.re-login-box {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.20);
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 12px;
+    padding: 25px;
+    width: 380px;
+    box-shadow: 0px 4px 25px rgba(0,0,0,0.35);
+}
+
+    .re-login-box .form-control {
+        background: rgba(255,255,255,0.85);
+    }
+body.register-page {
+    background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('/images/regi_pp.png') top center / cover no-repeat fixed;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+    body.register-page header,
+    body.register-page footer {
+        display: none !important;
+    }
+.re-login-box {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.20);
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 12px;
+    padding: 25px;
+    width: 380px;
+    box-shadow: 0px 4px 25px rgba(0,0,0,0.35);
+}
+
+    .re-login-box .form-control {
+        background: rgba(255,255,255,0.85);
+    }
+
+
+

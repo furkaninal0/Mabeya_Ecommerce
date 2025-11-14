@@ -532,7 +532,6 @@ C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaEComm
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\obj\Debug\net9.0\compressed\krgwl55hkv-qbhdofh7c2.gz
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\obj\Debug\net9.0\compressed\6na1xlmhlw-8v1rly5ck9.gz
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\obj\Debug\net9.0\compressed\eosy6fmwzy-vwweg7mbqx.gz
-C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\obj\Debug\net9.0\compressed\6n9nri57f9-77h8z76pa5.gz
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\obj\Debug\net9.0\compressed\ubupos21ed-n4nfmnm54j.gz
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\obj\Debug\net9.0\compressed\m74uemi150-bayw4lhcpo.gz
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\obj\Debug\net9.0\compressed\wrysrymsb7-x2gyjohz4c.gz
@@ -1115,7 +1114,6 @@ C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaEComm
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\obj\Debug\net9.0\compressed\sq104r8dpp-62xh5dtbab.gz
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\obj\Debug\net9.0\compressed\pbsyu5rz8z-w3k4bz554q.gz
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\obj\Debug\net9.0\compressed\w5bst86a87-3p4ytpugmk.gz
-C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\obj\Debug\net9.0\compressed\lbmu4des17-d8j7y4ozgw.gz
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\obj\Debug\net9.0\compressed\976v046ex0-x6uklre1ut.gz
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\obj\Debug\net9.0\compressed\9u00k273wr-xtxxf3hu2r.gz
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\obj\Debug\net9.0\compressed\s7jeeyf5ku-qagmcfajms.gz
@@ -3259,8 +3257,6 @@ C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaEComm
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\obj\Debug\net9.0\compressed\gwl36sjf7o-muycvpuwrr.gz
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\obj\Debug\net9.0\compressed\b5xlhoc59q-87fc7y1x7t.gz
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\obj\Debug\net9.0\compressed\y6n6i41r82-mlv21k5csn.gz
-C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\obj\Debug\net9.0\compressed\cw6jbomcym-1v20rsx7ee.gz
-C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\obj\Debug\net9.0\compressed\d97jyabgr4-1v20rsx7ee.gz
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\obj\Debug\net9.0\staticwebassets.build.json
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\obj\Debug\net9.0\staticwebassets.build.json.cache
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\obj\Debug\net9.0\staticwebassets.development.json
@@ -3272,3 +3268,19 @@ C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaEComm
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\obj\Debug\net9.0\MabeyaECommerce.pdb
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\obj\Debug\net9.0\MabeyaECommerce.genruntimeconfig.cache
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\obj\Debug\net9.0\ref\MabeyaECommerce.dll
+C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\obj\Debug\net9.0\compressed\6n9nri57f9-geo86vlohy.gz
+C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\obj\Debug\net9.0\compressed\oe1rh5kq5e-o2wlpouf80.gz
+C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\obj\Debug\net9.0\compressed\pm9ms2tprw-5ipweew5fc.gz
+C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\obj\Debug\net9.0\compressed\3xxg6nt486-5ipweew5fc.gz
+C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\obj\Debug\net9.0\compressed\gdlyduucmt-5ipweew5fc.gz
+C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\obj\Debug\net9.0\compressed\8mttyazpe9-og2dpbrh3e.gz
+C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\obj\Debug\net9.0\compressed\daaa9r0jx0-b43ch30if3.gz
+C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\obj\Debug\net9.0\compressed\t13q0ppcjs-x6o7fnspzt.gz
+C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\obj\Debug\net9.0\compressed\5xsinuo4ua-m8so7gk97h.gz
+C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\obj\Debug\net9.0\compressed\08z8gmzup7-7zv7jb6usr.gz
+C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\obj\Debug\net9.0\compressed\4fe9is54r0-ep1e0k2l7b.gz
+C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\obj\Debug\net9.0\compressed\ybcl9pid9q-dddfm65c8w.gz
+C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\obj\Debug\net9.0\compressed\lbmu4des17-mgui4713v4.gz
+C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\obj\Debug\net9.0\scopedcss\Views\Shared\_LayoutProfile.cshtml.rz.scp.css
+C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\obj\Debug\net9.0\compressed\cw6jbomcym-1h5qd1j6gm.gz
+C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\obj\Debug\net9.0\compressed\d97jyabgr4-1h5qd1j6gm.gz

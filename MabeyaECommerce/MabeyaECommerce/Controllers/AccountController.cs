@@ -150,11 +150,24 @@ public class AccountController (
         var result = await userManager.ResetPasswordAsync(user!, model.Token!, model.Password);
         return View("SetPasswordSucces");
     }
-
+    [Authorize]
+    public async Task<IActionResult> RemoveFromCart(Guid id)
+    {
+        var userId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
+        await dbContext.shoppingCartItems.Where(p => p.Id == id && p.UserId == userId!).ExecuteDeleteAsync();
+        return RedirectToAction(nameof(Checkout));
+    }
+    [HttpPost]
+    [Authorize]
     public async Task<IActionResult> AddToCart(Guid id)
     {
         var userId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
         var product = await dbContext.Products.SingleOrDefaultAsync(p => p.Id == id);
+        if (product == null)
+        {
+            TempData["error"] = "Product not found!";
+            return RedirectToAction("Index", "Home");
+        }
         var item = await dbContext.shoppingCartItems.SingleOrDefaultAsync(p => p.UserId == userId && p.ProductId == id);
         if (item == null)
         {
@@ -173,14 +186,118 @@ public class AccountController (
         }
         TempData["success"] = "Ürün başarıyla sepete eklendi.";
         await dbContext.SaveChangesAsync();
-        return RedirectToRoute("Product", new { id, name = product.Name.ToSafeUrlString() });
+        return Redirect(Request.Headers["Referer"].ToString());
+
+    }
+    [Authorize]
+    public IActionResult Payment()
+    {
+        return View();
     }
     [Authorize]
     public IActionResult Checkout()
     {
         return View();
     }
+    [Authorize]
 
+    public async Task<IActionResult> SetQuantity(Guid id, int Quantity)
+    {
+        var item = await dbContext.shoppingCartItems.SingleOrDefaultAsync(p=>p.Id == id);
+        item.Quantity = Quantity;
+        dbContext.Update(item);
+        await dbContext.SaveChangesAsync();
+        return RedirectToAction(nameof(Checkout));
+    }
+    [Authorize]
 
+    public async Task<IActionResult> IncreaseQuantity(Guid id)
+    {
+        var item = await dbContext.shoppingCartItems.SingleOrDefaultAsync(p => p.Id == id);
+        item.Quantity++;
+        dbContext.Update(item);
+        await dbContext.SaveChangesAsync();
+        return RedirectToAction(nameof(Checkout));
+    }
+    [Authorize]
 
+    public async Task<IActionResult> DecreaseQuantity(Guid id)
+    {
+        var item = await dbContext.shoppingCartItems.SingleOrDefaultAsync(p => p.Id == id);
+        if (item.Quantity > 1)
+        item.Quantity--;
+        dbContext.Update(item);
+        await dbContext.SaveChangesAsync();
+        return RedirectToAction(nameof(Checkout));
+    }
+
+    [Authorize]
+    [HttpPost]
+    public async Task<IActionResult> CreateAddress([FromBody]AddressViewModel model)
+    {
+        var userıd = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
+        var address = new Address()
+        {
+            Name = model.Name,
+            Number = model.Number,
+            Text = model.Text,
+            zipCode = model.zipCode,
+            cityId = model.CityId,
+            userId = userıd,
+        };
+        dbContext.Add(address);
+        await dbContext.SaveChangesAsync();
+        return Ok();
+    }
+
+    [Authorize]
+    public async Task<IActionResult> UserAddress()
+    {
+        var userId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
+        var model = await dbContext.Addresses
+            .Where(a => a.userId == userId)
+            .Select(p => new { p.Id, p.Name, p.Number, p.Text })
+            .ToListAsync();
+        return Json(model);
+    }
+    [Authorize]
+    [HttpPost]
+    [Consumes("application/json")]
+
+    public async Task<IActionResult> Pay ([FromBody]PaymentViewModel model)
+    {
+        if(model==null)
+            return BadRequest("Model null geldi");
+
+        var userIdString = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        if(string.IsNullOrEmpty(userIdString))
+            return Unauthorized("Kullanıcı kimliği bulunamadı");
+        var userId = Guid.Parse(userIdString);
+#if DEBUG
+        Thread.Sleep(5000);
+#endif
+        var order = new ShoppedOrder()
+        {
+            Date = DateTime.Now,
+            addressId = model.ShippingAddressId,
+            userId = userId,
+            Order_Items = dbContext.
+            shoppingCartItems
+            .Include(p=>p.Product)
+            .Where(p => p.UserId == userId)
+            .Select(p=> new ShoppedOrder_Item
+            {
+                Price = p.Product!.Price,
+                Quantity = p.Quantity,
+                productId = p.ProductId,
+
+            }).ToList()
+        };
+        dbContext.Add(order);
+        await dbContext.SaveChangesAsync();
+        await dbContext.shoppingCartItems.Where(p => p.UserId == userId)
+            .ExecuteDeleteAsync();
+        return Ok();
+    }
+   
 }

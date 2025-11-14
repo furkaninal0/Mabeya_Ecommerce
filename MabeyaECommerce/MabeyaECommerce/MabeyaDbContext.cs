@@ -34,9 +34,10 @@ public class MabeyaDbContext (DbContextOptions options): IdentityDbContext<
     public required DbSet<ShoppedOrder_Item> shoppedOrder_Items{ get; set; }
     public required DbSet<SliderImage> sliderImages{ get; set; }
     public required DbSet<Spec> Specs{ get; set; }
+    public DbSet<VisitLog> VisitLogs { get; set; }
+
 
 
 }
 
 
-  

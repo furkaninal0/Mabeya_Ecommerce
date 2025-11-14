@@ -177,7 +177,7 @@
       });
     }
 
-    if ($("#marketingOverview").length) { 
+    /*if ($("#marketingOverview").length) { 
       const marketingOverviewCanvas = document.getElementById('marketingOverview');
       new Chart(marketingOverviewCanvas, {
         type: 'bar',
@@ -280,7 +280,7 @@
             }
         }]
       });
-    }
+    }*/
 
     if ($('#totalVisitors').length) {
       var bar = new ProgressBar.Circle(totalVisitors, {
@@ -360,7 +360,7 @@
       bar.animate(.34); // Number from 0.0 to 1.0
     }
 
-    if ($("#doughnutChart").length) { 
+    /*if ($("#doughnutChart").length) { 
       const doughnutChartCanvas = document.getElementById('doughnutChart');
       new Chart(doughnutChartCanvas, {
         type: 'doughnut',
@@ -494,7 +494,7 @@
         }
       });
     }
-
+    */
 
     
   });

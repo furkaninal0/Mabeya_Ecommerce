@@ -16,5 +16,9 @@ public class DashboardController : Controller
     {
         return View();
     }
+    public IActionResult MarketingAnalyst()
+    {
+        return View();
+    }
 
 }

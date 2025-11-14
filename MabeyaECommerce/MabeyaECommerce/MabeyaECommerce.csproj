@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
@@ -28,6 +28,17 @@
 
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\sidebars\css\.DS_Store" />
+    <None Include="wwwroot\sidebars\css\bootstrap\.DS_Store" />
+    <None Include="wwwroot\sidebars\css\bootstrap\mixins\.DS_Store" />
+    <None Include="wwwroot\sidebars\fonts\.DS_Store" />
+    <None Include="wwwroot\sidebars\images\.DS_Store" />
+    <None Include="wwwroot\sidebars\js\.DS_Store" />
+    <None Include="wwwroot\sidebars\scss\.DS_Store" />
+    <None Include="wwwroot\sidebars\scss\bootstrap\.DS_Store" />
   </ItemGroup>
 
 </Project>

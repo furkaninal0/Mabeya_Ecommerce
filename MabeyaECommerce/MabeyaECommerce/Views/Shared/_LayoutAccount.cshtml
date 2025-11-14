@@ -8,20 +8,26 @@
     <title> @ViewData["Title"]</title>
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link href="~/css/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <!--link href="~/css/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" />-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link href="~/sidebars/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
 </head>
-<body>
+<body class="@(ViewBag.BodyClass)">
     <div class="container-fluid">
 
     </div>
 
-    <div class=" vh-100 d-flex align-items-center justify-content-center">
 
 
         @RenderBody()
         <script src="~/lib/jquery/dist/jquery.min.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/sidebars/js/popper.js"></script>
+        <script src="~/sidebars/js/bootstrap.min.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
         @await RenderSectionAsync("Scripts", required: false)
 </body>

@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MabeyaECommerce.Domain;
 
@@ -13,7 +14,8 @@ public class ShoppedOrder_Item
     public decimal Price { get; set; }
     public Product? Product { get; set; }
     public ShoppedOrder? ShoppedOrder { get; set; }
-
+    [NotMapped]
+    public decimal Amount => Price * Quantity;
 
 
 }

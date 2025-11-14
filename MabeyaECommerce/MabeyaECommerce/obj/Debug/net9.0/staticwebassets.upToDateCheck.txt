@@ -732,11 +732,14 @@ wwwroot\css\admin.css
 wwwroot\css\site.css
 wwwroot\favicon_(2).ico
 wwwroot\images\ana_sayfa.png
+wwwroot\images\login_photo.png
 wwwroot\images\logo-Photoroom.png
 wwwroot\images\logo.jpg
 wwwroot\images\mabeya.jpg
 wwwroot\images\noimage.png
 wwwroot\images\noimage2.png
+wwwroot\images\pp_karatas.jpg
+wwwroot\images\regi_pp.png
 wwwroot\js\site.js
 wwwroot\lib\bootstrap-icons\bootstrap-icons.svg
 wwwroot\lib\bootstrap-icons\font\bootstrap-icons.css
@@ -2882,6 +2885,107 @@ wwwroot\lib\jquery\dist\jquery.slim.js
 wwwroot\lib\jquery\dist\jquery.slim.min.js
 wwwroot\lib\jquery\dist\jquery.slim.min.map
 wwwroot\lib\jquery\LICENSE.txt
+wwwroot\sidebars\css\bootstrap.min.css
+wwwroot\sidebars\css\bootstrap\mixins\_border-radius.css
+wwwroot\sidebars\css\bootstrap\mixins\_screen-reader.css
+wwwroot\sidebars\css\bootstrap\mixins\_visibility.css
+wwwroot\sidebars\css\bootstrap\utilities\_stretched-link.css
+wwwroot\sidebars\css\bootstrap\_media.css
+wwwroot\sidebars\css\style.css
+wwwroot\sidebars\js\bootstrap.min.js
+wwwroot\sidebars\js\jquery.min.js
+wwwroot\sidebars\js\main.js
+wwwroot\sidebars\js\popper.js
+wwwroot\sidebars\scss\bootstrap\bootstrap-grid.scss
+wwwroot\sidebars\scss\bootstrap\bootstrap-reboot.scss
+wwwroot\sidebars\scss\bootstrap\bootstrap.scss
+wwwroot\sidebars\scss\bootstrap\mixins\_alert.scss
+wwwroot\sidebars\scss\bootstrap\mixins\_background-variant.scss
+wwwroot\sidebars\scss\bootstrap\mixins\_badge.scss
+wwwroot\sidebars\scss\bootstrap\mixins\_border-radius.scss
+wwwroot\sidebars\scss\bootstrap\mixins\_box-shadow.scss
+wwwroot\sidebars\scss\bootstrap\mixins\_breakpoints.scss
+wwwroot\sidebars\scss\bootstrap\mixins\_buttons.scss
+wwwroot\sidebars\scss\bootstrap\mixins\_caret.scss
+wwwroot\sidebars\scss\bootstrap\mixins\_clearfix.scss
+wwwroot\sidebars\scss\bootstrap\mixins\_deprecate.scss
+wwwroot\sidebars\scss\bootstrap\mixins\_float.scss
+wwwroot\sidebars\scss\bootstrap\mixins\_forms.scss
+wwwroot\sidebars\scss\bootstrap\mixins\_gradients.scss
+wwwroot\sidebars\scss\bootstrap\mixins\_grid-framework.scss
+wwwroot\sidebars\scss\bootstrap\mixins\_grid.scss
+wwwroot\sidebars\scss\bootstrap\mixins\_hover.scss
+wwwroot\sidebars\scss\bootstrap\mixins\_image.scss
+wwwroot\sidebars\scss\bootstrap\mixins\_list-group.scss
+wwwroot\sidebars\scss\bootstrap\mixins\_lists.scss
+wwwroot\sidebars\scss\bootstrap\mixins\_nav-divider.scss
+wwwroot\sidebars\scss\bootstrap\mixins\_pagination.scss
+wwwroot\sidebars\scss\bootstrap\mixins\_reset-text.scss
+wwwroot\sidebars\scss\bootstrap\mixins\_resize.scss
+wwwroot\sidebars\scss\bootstrap\mixins\_screen-reader.scss
+wwwroot\sidebars\scss\bootstrap\mixins\_size.scss
+wwwroot\sidebars\scss\bootstrap\mixins\_table-row.scss
+wwwroot\sidebars\scss\bootstrap\mixins\_text-emphasis.scss
+wwwroot\sidebars\scss\bootstrap\mixins\_text-hide.scss
+wwwroot\sidebars\scss\bootstrap\mixins\_text-truncate.scss
+wwwroot\sidebars\scss\bootstrap\mixins\_transition.scss
+wwwroot\sidebars\scss\bootstrap\mixins\_visibility.scss
+wwwroot\sidebars\scss\bootstrap\utilities\_align.scss
+wwwroot\sidebars\scss\bootstrap\utilities\_background.scss
+wwwroot\sidebars\scss\bootstrap\utilities\_borders.scss
+wwwroot\sidebars\scss\bootstrap\utilities\_clearfix.scss
+wwwroot\sidebars\scss\bootstrap\utilities\_display.scss
+wwwroot\sidebars\scss\bootstrap\utilities\_embed.scss
+wwwroot\sidebars\scss\bootstrap\utilities\_flex.scss
+wwwroot\sidebars\scss\bootstrap\utilities\_float.scss
+wwwroot\sidebars\scss\bootstrap\utilities\_overflow.scss
+wwwroot\sidebars\scss\bootstrap\utilities\_position.scss
+wwwroot\sidebars\scss\bootstrap\utilities\_screenreaders.scss
+wwwroot\sidebars\scss\bootstrap\utilities\_shadows.scss
+wwwroot\sidebars\scss\bootstrap\utilities\_sizing.scss
+wwwroot\sidebars\scss\bootstrap\utilities\_spacing.scss
+wwwroot\sidebars\scss\bootstrap\utilities\_stretched-link.scss
+wwwroot\sidebars\scss\bootstrap\utilities\_text.scss
+wwwroot\sidebars\scss\bootstrap\utilities\_visibility.scss
+wwwroot\sidebars\scss\bootstrap\vendor\_rfs.scss
+wwwroot\sidebars\scss\bootstrap\_alert.scss
+wwwroot\sidebars\scss\bootstrap\_badge.scss
+wwwroot\sidebars\scss\bootstrap\_breadcrumb.scss
+wwwroot\sidebars\scss\bootstrap\_button-group.scss
+wwwroot\sidebars\scss\bootstrap\_buttons.scss
+wwwroot\sidebars\scss\bootstrap\_card.scss
+wwwroot\sidebars\scss\bootstrap\_carousel.scss
+wwwroot\sidebars\scss\bootstrap\_close.scss
+wwwroot\sidebars\scss\bootstrap\_code.scss
+wwwroot\sidebars\scss\bootstrap\_custom-forms.scss
+wwwroot\sidebars\scss\bootstrap\_dropdown.scss
+wwwroot\sidebars\scss\bootstrap\_forms.scss
+wwwroot\sidebars\scss\bootstrap\_functions.scss
+wwwroot\sidebars\scss\bootstrap\_grid.scss
+wwwroot\sidebars\scss\bootstrap\_images.scss
+wwwroot\sidebars\scss\bootstrap\_input-group.scss
+wwwroot\sidebars\scss\bootstrap\_jumbotron.scss
+wwwroot\sidebars\scss\bootstrap\_list-group.scss
+wwwroot\sidebars\scss\bootstrap\_media.scss
+wwwroot\sidebars\scss\bootstrap\_mixins.scss
+wwwroot\sidebars\scss\bootstrap\_modal.scss
+wwwroot\sidebars\scss\bootstrap\_nav.scss
+wwwroot\sidebars\scss\bootstrap\_navbar.scss
+wwwroot\sidebars\scss\bootstrap\_pagination.scss
+wwwroot\sidebars\scss\bootstrap\_popover.scss
+wwwroot\sidebars\scss\bootstrap\_print.scss
+wwwroot\sidebars\scss\bootstrap\_progress.scss
+wwwroot\sidebars\scss\bootstrap\_reboot.scss
+wwwroot\sidebars\scss\bootstrap\_root.scss
+wwwroot\sidebars\scss\bootstrap\_spinners.scss
+wwwroot\sidebars\scss\bootstrap\_tables.scss
+wwwroot\sidebars\scss\bootstrap\_toasts.scss
+wwwroot\sidebars\scss\bootstrap\_tooltip.scss
+wwwroot\sidebars\scss\bootstrap\_transitions.scss
+wwwroot\sidebars\scss\bootstrap\_type.scss
+wwwroot\sidebars\scss\bootstrap\_utilities.scss
+wwwroot\sidebars\scss\bootstrap\_variables.scss
+wwwroot\sidebars\scss\style.scss
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\admin\css\maps\light\common.css.map
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\lib\bootstrap-icons\icons\pin.svg
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\lib\bootstrap-icons\icons\pin-map.svg
@@ -5625,3 +5729,14 @@ C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaEComm
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\lib\bootstrap-icons\icons\play-btn-fill.svg
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\lib\bootstrap-icons\icons\pip.svg
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\lib\bootstrap-icons\icons\pinterest.svg
+C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\sidebars\css\bootstrap.min.css
+C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\sidebars\css\bootstrap\mixins\_border-radius.css
+C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\sidebars\css\bootstrap\mixins\_screen-reader.css
+C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\sidebars\css\bootstrap\mixins\_visibility.css
+C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\sidebars\css\bootstrap\utilities\_stretched-link.css
+C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\sidebars\css\bootstrap\_media.css
+C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\sidebars\css\style.css
+C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\sidebars\js\bootstrap.min.js
+C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\sidebars\js\jquery.min.js
+C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\sidebars\js\main.js
+C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\sidebars\js\popper.js

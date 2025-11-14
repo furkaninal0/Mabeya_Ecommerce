@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore;
 using NETCore.MailKit.Extensions;
 using NETCore.MailKit.Infrastructure.Internal;
 using System.Security.Claims;
+using MabeyaECommerce.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<MabeyaDbContext>(config =>
 {
     config.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer"));
@@ -35,6 +35,12 @@ builder
     })
     .AddEntityFrameworkStores<MabeyaDbContext>()
     .AddDefaultTokenProviders();
+builder.Services
+    .AddControllersWithViews()
+    .AddJsonOptions(o =>
+    {
+        o.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+    });
 builder.Services.Configure<CookiePolicyOptions>(options =>
 {
     options.MinimumSameSitePolicy = SameSiteMode.None;
@@ -73,6 +79,8 @@ builder
 
 
 builder.Services.AddAuthentication();
+builder.Services.AddSession();
+
 
 var app = builder.Build();
 app.UseStaticFiles();
@@ -89,9 +97,10 @@ app.UseHttpsRedirection();
 app.UseCookiePolicy();
 
 app.UseRouting();
-
+app.UseSession();
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseMiddleware<VisitTrackingMiddleware>();
 
 app.MapStaticAssets();
 app.MapControllerRoute(

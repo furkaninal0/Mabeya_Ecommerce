@@ -1,17 +1,28 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MabeyaECommerce.Domain;
-
+public enum OrderStatus
+{
+    New, InProgress, Shipped, Cancelled
+}
 public class ShoppedOrder
 {
     public Guid Id { get; set; }
     public Guid userId { get; set; }
     public Guid addressId { get; set; }
     public DateTime Date { get; set; }
+    public Guid ShippingAddressId { get; set; }
+
+    public OrderStatus Status { get; set; } = OrderStatus.New;
+    public string? ShippingNumber { get; set; }
+
+
     public User? User { get; set; } = null!;
     public Address? Address { get; set; } = null!;
-
+    [NotMapped]
+    public decimal GrandTotal => Order_Items.Sum(p => p.Amount);
     public ICollection<ShoppedOrder_Item> Order_Items { get; set; } = new List<ShoppedOrder_Item>();
 }
 
