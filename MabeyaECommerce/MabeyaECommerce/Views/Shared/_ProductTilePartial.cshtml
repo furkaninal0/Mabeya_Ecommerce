@@ -1,33 +1,57 @@
 ﻿@model ProductTileViewModel
 
+<div class="product-card shadow-sm h-100">
 
-<div class=" card h-100">
-    <a asp-route="Product" asp-route-name="@(Model.Name!.ToSafeUrlString())" asp-route-id="@Model.Id">
-        <img src="@Url.Action("Product" , "Images" , new { id = Model.Id})" class="card-img-top" />
+    <a asp-route="Product"
+       asp-route-name="@Model.Name!.ToSafeUrlString()"
+       asp-route-id="@Model.Id"
+       class="product-image-wrapper">
+
+        <img src="@Url.Action("Product", "Images", new { id = Model.Id })"
+             class="product-image" />
     </a>
-    <div class="card-body">
-        <h5 class="card-title">
-            @Model.Price.ToString("C0" , CultureInfo.CreateSpecificCulture("tr-TR"))
-        </h5>
-        <div class="small">
-            <a asp-route="Category" asp-route-name="@(Model.CategoryName!.ToSafeUrlString())"  asp-route-id="@Model.CategoryId">@Model.CategoryName</a>
+
+    <div class="p-3">
+
+        <div class="product-price mb-1">
+            @Model.Price.ToString("C0", CultureInfo.CreateSpecificCulture("tr-TR"))
         </div>
-        <p class="card-text app-product-name" >
+
+        <div class="product-category mb-1">
+            <a asp-route="Category"
+               asp-route-name="@Model.CategoryName!.ToSafeUrlString()"
+               asp-route-id="@Model.CategoryId">
+                @Model.CategoryName
+            </a>
+        </div>
+
+        <div class="product-name two-lines">
             @Model.Name
-        </p>
+        </div>
+
     </div>
-    <div class="card-footer">
-        <div class="d-flex justify-content-center gap-3">
-            <a class="btn btn-outline-warning" asp-route="Product" asp-route-name="@Model.Name!.ToSafeUrlString()" asp-route-id="@Model.Id">
+
+    <div class="product-footer px-3 pb-3 mt-auto">
+        <div class="d-flex justify-content-between">
+
+            <a class="btn btn-light btn-icon"
+               asp-route="Product"
+               asp-route-name="@Model.Name!.ToSafeUrlString()"
+               asp-route-id="@Model.Id">
                 <i class="bi bi-search"></i>
             </a>
-            <form asp-controller="Account" asp-action="AddToCart" asp-route-id="@Model.Id" method="post">
+
+            <form asp-controller="Account"
+                  asp-action="AddToCart"
+                  asp-route-id="@Model.Id"
+                  method="post" class="m-0">
                 @Html.AntiForgeryToken()
-                <button type="submit" class="btn btn-outline-info">
+                <button type="submit" class="btn btn-success btn-icon">
                     <i class="bi bi-cart"></i>
                 </button>
             </form>
-        </div>
 
+        </div>
     </div>
+
 </div>

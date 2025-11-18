@@ -1,0 +1,25 @@
+﻿@model OrderStatus
+
+@{
+    string text = Model switch
+    {
+        OrderStatus.New => "Yeni",
+        OrderStatus.InProgress => "Hazırlanıyor",
+        OrderStatus.Shipped => "Kargoda",
+        OrderStatus.Delivered => "Teslim Edildi",
+        OrderStatus.Cancelled => "İptal Edildi",
+        _ => "Bilinmiyor"
+    };
+
+    string color = Model switch
+    {
+        OrderStatus.New => "badge bg-secondary",
+        OrderStatus.InProgress => "badge bg-warning text-dark",
+        OrderStatus.Shipped => "badge bg-info text-dark",
+        OrderStatus.Delivered => "badge bg-success",
+        OrderStatus.Cancelled => "badge bg-danger",
+        _ => "badge bg-dark"
+    };
+}
+
+<span class="@color">@text</span>

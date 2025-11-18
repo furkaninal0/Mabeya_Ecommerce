@@ -1,0 +1,46 @@
+﻿@model List<MabeyaECommerce.Areas.Admin.Models.UserWithRolesDto>
+
+@{
+}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Ad Soyad</th>
+            <th>E-posta</th>
+            <th>Yetki</th>
+            <th>İşlemler</th>
+            <th>Detaylar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.User.givenName</td>
+                <td>
+                    @item.User.UserName
+                </td>
+                <td>
+                    @string.Join(", ", item.Roles)
+                </td>
+                <td>
+                    <a class="btn btn-outline-dark" asp-action="SetRoles" asp-route-id="@item.User.Id">Yetkiler</a>
+                    @if (item.IsEnabled)
+                    {
+                        <a class="btn btn-danger" asp-action="BanUser" asp-route-id="@item.User.Id">Yasakla</a>
+
+                    }
+                    else
+                    {
+                        <a class="btn btn-danger" asp-action="UnbanUser" asp-route-id="@item.User.Id">Yasak Kaldır</a>
+
+                    }
+                </td>
+                <td>
+                    <a class="btn btn-github" asp-action="Detail" asp-route-id="@item.User.Id" >Detayları Gör</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

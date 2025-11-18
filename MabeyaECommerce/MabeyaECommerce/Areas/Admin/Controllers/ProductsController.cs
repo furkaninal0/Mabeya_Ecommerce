@@ -1,5 +1,4 @@
 ﻿using MabeyaECommerce.Domain;
-using MabeyaECommerce.Migrations;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -31,6 +30,7 @@ public class ProductsController(
     public async Task<IActionResult> Create(Product model)
     {
         model.CreatedAt = DateTime.Now;
+
         var form = Request.Form;
         var specs = await dbContext.Specs.ToListAsync();
 
@@ -44,14 +44,16 @@ public class ProductsController(
                     specId = p.Id,
                     Value = form[p.Id.ToString()]
                 });
-
             });
+
         var allowedTypes = new[] { "image/jpeg", "image/png", "image/webp", "image/gif", "image/bmp" };
+
+        // --- Ana görsel ---
         if (model.ImageFile is not null && model.ImageFile.Length > 0)
         {
             if (!allowedTypes.Contains(model.ImageFile.ContentType))
             {
-                ModelState.AddModelError("ImageFile", "Desteklenmeyen resim formatı(yalnızca JPG, PNG, WEBP, GIF, BMP).");
+                ModelState.AddModelError("ImageFile", "Desteklenmeyen resim formatı.");
                 return View(model);
             }
 
@@ -72,16 +74,19 @@ public class ProductsController(
             }
             catch (UnknownImageFormatException)
             {
-                ModelState.AddModelError("ImageFile", "Geçersiz veya bozuk resim formatı yüklendi.");
+                ModelState.AddModelError("ImageFile", "Geçersiz resim formatı.");
                 return View(model);
             }
         }
+
+        // --- Çoklu görseller ---
         if (model.ImageFiles is not null)
         {
             foreach (var file in model.ImageFiles)
             {
                 if (file.Length == 0 || !allowedTypes.Contains(file.ContentType))
                     continue;
+
                 try
                 {
                     using var image = await Image.LoadAsync(file.OpenReadStream());
@@ -91,7 +96,6 @@ public class ProductsController(
                         {
                             Size = new Size(800, 600),
                             Mode = ResizeMode.BoxPad
-
                         });
                     });
                     using var ms = new MemoryStream();
@@ -103,19 +107,31 @@ public class ProductsController(
                         Image = ms.ToArray()
                     });
                 }
-                catch (UnknownImageFormatException)
+                catch
                 {
                     continue;
                 }
             }
         }
-        if (model.SelectedProducts is not null)
-            model.SelectedProducts.ToList().ForEach(p => model.Catalogs.Add(dbContext.Catalogs.Find(p)));
+
+        if (model.SelectedCatalogs is not null && model.SelectedCatalogs.Any())
+        {
+            var catalogsToAdd = await dbContext.Catalogs
+                .Where(c => model.SelectedCatalogs.Contains(c.Id))
+                .ToListAsync();
+
+            foreach (var cat in catalogsToAdd)
+                model.Catalogs.Add(cat);
+        }
 
         dbContext.Add(model);
         await dbContext.SaveChangesAsync();
+
         return RedirectToAction(nameof(Index));
     }
+
+    
+    
     public async Task<IActionResult> Edit(Guid id)
     {
         var item = await dbContext.Products.Include(p => p.Catalogs).Include(p => p.ProductDetails).Include(p => p.ProductImages).AsNoTracking().SingleOrDefaultAsync(p => p.Id == id);

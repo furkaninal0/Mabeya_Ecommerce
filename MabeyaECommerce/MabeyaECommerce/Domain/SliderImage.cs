@@ -6,7 +6,6 @@ namespace MabeyaECommerce.Domain;
 public class SliderImage 
 {
     public Guid Id { get; set; }
-    public Guid userId { get; set; }
     public DateTime CreatedAt { get; set; }
     public bool IsEnabled { get; set; }
     public string? Url { get; set; }

@@ -43,6 +43,21 @@ namespace MabeyaECommerce.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<int>("CityId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsInvoice")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsShipping")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -51,14 +66,17 @@ namespace MabeyaECommerce.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("TaxNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TaxOffice")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Text")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("cityId")
-                        .HasColumnType("int");
-
-                    b.Property<Guid>("userId")
+                    b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("zipCode")
@@ -66,9 +84,9 @@ namespace MabeyaECommerce.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("cityId");
+                    b.HasIndex("CityId");
 
-                    b.HasIndex("userId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Address", (string)null);
                 });
@@ -89,10 +107,12 @@ namespace MabeyaECommerce.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("userId")
+                    b.Property<Guid?>("UserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Catalogs", (string)null);
                 });
@@ -113,10 +133,12 @@ namespace MabeyaECommerce.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("userId")
+                    b.Property<Guid?>("UserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Category", (string)null);
                 });
@@ -6179,6 +6201,34 @@ namespace MabeyaECommerce.Migrations
                         });
                 });
 
+            modelBuilder.Entity("MabeyaECommerce.Domain.OrderCancellation", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CancelledAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Reason")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<Guid>("ShoppedOrderId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ShoppedOrderId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("OrderCancellations", (string)null);
+                });
+
             modelBuilder.Entity("MabeyaECommerce.Domain.Product", b =>
                 {
                     b.Property<Guid>("Id")
@@ -6207,11 +6257,11 @@ namespace MabeyaECommerce.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<Guid?>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<int>("Views")
                         .HasColumnType("int");
-
-                    b.Property<Guid>("userId")
-                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
@@ -6219,6 +6269,8 @@ namespace MabeyaECommerce.Migrations
 
                     b.HasIndex("Name")
                         .IsDescending();
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Products", (string)null);
                 });
@@ -6258,13 +6310,15 @@ namespace MabeyaECommerce.Migrations
                     b.Property<bool>("IsEnabled")
                         .HasColumnType("bit");
 
+                    b.Property<Guid?>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<Guid>("productId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("userId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.HasIndex("productId");
 
@@ -6742,17 +6796,17 @@ namespace MabeyaECommerce.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("productId")
+                    b.Property<Guid?>("UserId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("userId")
+                    b.Property<Guid>("productId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("productId");
+                    b.HasIndex("UserId");
 
-                    b.HasIndex("userId");
+                    b.HasIndex("productId");
 
                     b.ToTable("SelectedProduct", (string)null);
                 });
@@ -6763,10 +6817,28 @@ namespace MabeyaECommerce.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid?>("BillingAddressId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("ShippingAddressId")
+                    b.Property<bool>("FinalReturnApproved")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsReturnApproved")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsReturnRequested")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ReturnCompletedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ReturnTrackingNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("ShippingAddressId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("ShippingNumber")
@@ -6775,17 +6847,22 @@ namespace MabeyaECommerce.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("addressId")
+                    b.Property<string>("TrackingNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("userId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("UserReturnTrackingNumber")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("addressId");
+                    b.HasIndex("BillingAddressId");
 
-                    b.HasIndex("userId");
+                    b.HasIndex("ShippingAddressId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("ShoppedOrders", (string)null);
                 });
@@ -6860,13 +6937,15 @@ namespace MabeyaECommerce.Migrations
                     b.Property<string>("Url")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid?>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<Guid?>("catalogId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("userId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("SliderImages", (string)null);
                 });
@@ -6887,19 +6966,39 @@ namespace MabeyaECommerce.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<Guid>("categoryId")
+                    b.Property<Guid?>("UserId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("userId")
+                    b.Property<Guid>("categoryId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
                     b.HasIndex("Name");
 
+                    b.HasIndex("UserId");
+
                     b.HasIndex("categoryId");
 
                     b.ToTable("Spec", (string)null);
+                });
+
+            modelBuilder.Entity("MabeyaECommerce.Domain.Subscriber", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Subscribers");
                 });
 
             modelBuilder.Entity("MabeyaECommerce.Domain.User", b =>
@@ -7130,19 +7229,35 @@ namespace MabeyaECommerce.Migrations
                 {
                     b.HasOne("MabeyaECommerce.Domain.City", "City")
                         .WithMany("Addresses")
-                        .HasForeignKey("cityId")
+                        .HasForeignKey("CityId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("MabeyaECommerce.Domain.User", "User")
                         .WithMany("Addresses")
-                        .HasForeignKey("userId")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("City");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("MabeyaECommerce.Domain.Catalog", b =>
+                {
+                    b.HasOne("MabeyaECommerce.Domain.User", "User")
+                        .WithMany("CreatedCatalogs")
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("MabeyaECommerce.Domain.Category", b =>
+                {
+                    b.HasOne("MabeyaECommerce.Domain.User", null)
+                        .WithMany("CreatedCategories")
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("MabeyaECommerce.Domain.City", b =>
@@ -7186,6 +7301,24 @@ namespace MabeyaECommerce.Migrations
                     b.Navigation("CreditCard");
                 });
 
+            modelBuilder.Entity("MabeyaECommerce.Domain.OrderCancellation", b =>
+                {
+                    b.HasOne("MabeyaECommerce.Domain.ShoppedOrder", "Order")
+                        .WithMany("Cancellations")
+                        .HasForeignKey("ShoppedOrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MabeyaECommerce.Domain.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
+                    b.Navigation("Order");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("MabeyaECommerce.Domain.Product", b =>
                 {
                     b.HasOne("MabeyaECommerce.Domain.Category", "Category")
@@ -7194,12 +7327,18 @@ namespace MabeyaECommerce.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("MabeyaECommerce.Domain.User", "User")
+                        .WithMany("CreatedProducts")
+                        .HasForeignKey("UserId");
+
                     b.Navigation("Category");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("MabeyaECommerce.Domain.ProductDetails", b =>
                 {
-                    b.HasOne("MabeyaECommerce.Domain.Product", "Prodıct")
+                    b.HasOne("MabeyaECommerce.Domain.Product", "Product")
                         .WithMany("ProductDetails")
                         .HasForeignKey("productId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -7211,13 +7350,17 @@ namespace MabeyaECommerce.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Prodıct");
+                    b.Navigation("Product");
 
                     b.Navigation("Spec");
                 });
 
             modelBuilder.Entity("MabeyaECommerce.Domain.ProductImages", b =>
                 {
+                    b.HasOne("MabeyaECommerce.Domain.User", "User")
+                        .WithMany("CreatedProductImages")
+                        .HasForeignKey("UserId");
+
                     b.HasOne("MabeyaECommerce.Domain.Product", "Product")
                         .WithMany("ProductImages")
                         .HasForeignKey("productId")
@@ -7225,20 +7368,22 @@ namespace MabeyaECommerce.Migrations
                         .IsRequired();
 
                     b.Navigation("Product");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("MabeyaECommerce.Domain.SelectedProduct", b =>
                 {
+                    b.HasOne("MabeyaECommerce.Domain.User", "User")
+                        .WithMany("SelectedProducts")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
                     b.HasOne("MabeyaECommerce.Domain.Product", "Product")
                         .WithMany("SelectedProducts")
                         .HasForeignKey("productId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
-
-                    b.HasOne("MabeyaECommerce.Domain.User", "User")
-                        .WithMany("SelectedProducts")
-                        .HasForeignKey("userId")
-                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("Product");
 
@@ -7247,19 +7392,25 @@ namespace MabeyaECommerce.Migrations
 
             modelBuilder.Entity("MabeyaECommerce.Domain.ShoppedOrder", b =>
                 {
-                    b.HasOne("MabeyaECommerce.Domain.Address", "Address")
+                    b.HasOne("MabeyaECommerce.Domain.Address", "BillingAddress")
                         .WithMany()
-                        .HasForeignKey("addressId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .HasForeignKey("BillingAddressId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("MabeyaECommerce.Domain.Address", "ShippingAddress")
+                        .WithMany()
+                        .HasForeignKey("ShippingAddressId")
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("MabeyaECommerce.Domain.User", "User")
                         .WithMany("ShoppedOrders")
-                        .HasForeignKey("userId")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.Navigation("Address");
+                    b.Navigation("BillingAddress");
+
+                    b.Navigation("ShippingAddress");
 
                     b.Navigation("User");
                 });
@@ -7302,8 +7453,19 @@ namespace MabeyaECommerce.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("MabeyaECommerce.Domain.SliderImage", b =>
+                {
+                    b.HasOne("MabeyaECommerce.Domain.User", null)
+                        .WithMany("CreatedCarouselImages")
+                        .HasForeignKey("UserId");
+                });
+
             modelBuilder.Entity("MabeyaECommerce.Domain.Spec", b =>
                 {
+                    b.HasOne("MabeyaECommerce.Domain.User", null)
+                        .WithMany("Specs")
+                        .HasForeignKey("UserId");
+
                     b.HasOne("MabeyaECommerce.Domain.Category", "Category")
                         .WithMany("Specs")
                         .HasForeignKey("categoryId")
@@ -7401,6 +7563,8 @@ namespace MabeyaECommerce.Migrations
 
             modelBuilder.Entity("MabeyaECommerce.Domain.ShoppedOrder", b =>
                 {
+                    b.Navigation("Cancellations");
+
                     b.Navigation("Order_Items");
                 });
 
@@ -7410,9 +7574,21 @@ namespace MabeyaECommerce.Migrations
 
                     b.Navigation("Comments");
 
+                    b.Navigation("CreatedCarouselImages");
+
+                    b.Navigation("CreatedCatalogs");
+
+                    b.Navigation("CreatedCategories");
+
+                    b.Navigation("CreatedProductImages");
+
+                    b.Navigation("CreatedProducts");
+
                     b.Navigation("SelectedProducts");
 
                     b.Navigation("ShoppedOrders");
+
+                    b.Navigation("Specs");
                 });
 #pragma warning restore 612, 618
         }

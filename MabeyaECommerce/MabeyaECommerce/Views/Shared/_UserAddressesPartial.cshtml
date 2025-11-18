@@ -1,0 +1,140 @@
+﻿@model User
+
+@{
+    var shipping = ViewBag.ShippingAddresses as List<Address>;
+    var personal = ViewBag.PersonalBillingAddresses as List<Address>;
+    var corporate = ViewBag.CorporateBillingAddresses as List<Address>;
+}
+
+<div class="card shadow-sm p-4">
+
+    <h5 class="fw-bold mb-4">Adreslerim</h5>
+
+    <div class="dropdown mb-4">
+        <button class="btn btn-outline-primary dropdown-toggle w-100" type="button"
+                data-bs-toggle="dropdown">
+            Teslimat Adresleri
+        </button>
+
+        <ul class="dropdown-menu w-100 p-3" style="max-height:300px; overflow-y:auto;">
+            @if (shipping != null && shipping.Any())
+            {
+                foreach (var a in shipping)
+                {
+                    <li class="mb-3 border-bottom pb-2">
+
+                        <div class="fw-semibold">@a.Name</div>
+                        <div>@a.Number</div>
+                        <div>@a.Text</div>
+                        <div>@a.City.Name / @a.City.Province.Name</div>
+
+                        <div class="mt-2 d-flex gap-2">
+                            <a asp-action="EditAddress" asp-route-id="@a.Id"
+                               class="btn btn-sm btn-warning">
+                                <i class="bi bi-pencil"></i> Düzenle
+                            </a>
+                            <form asp-action="DeleteAddress" asp-route-id="@a.Id" method="post"
+                                  onsubmit="return confirm('Bu adres silinsin mi?')">
+                                <button class="btn btn-sm btn-danger">
+                                    <i class="bi bi-trash"></i> Sil
+                                </button>
+                            </form>
+                        </div>
+
+                    </li>
+                }
+            }
+            else
+            {
+                <li class="text-muted px-2">Kayıtlı teslimat adresiniz yok.</li>
+            }
+        </ul>
+    </div>
+
+
+    <div class="dropdown mb-4">
+        <button class="btn btn-outline-primary dropdown-toggle w-100" type="button"
+                data-bs-toggle="dropdown">
+            Teslimat Adresleri
+        </button>
+
+        <ul class="dropdown-menu w-100 p-3" style="max-height:300px; overflow-y:auto;">
+            @if (shipping != null && shipping.Any())
+            {
+                foreach (var a in shipping)
+                {
+                    <li class="mb-3 border-bottom pb-2">
+
+                        <div class="fw-semibold">@a.Name</div>
+                        <div>@a.Number</div>
+                        <div>@a.Text</div>
+                        <div>@a.City.Name / @a.City.Province.Name</div>
+
+                        <div class="mt-2 d-flex gap-2">
+                            <a asp-action="EditAddress" asp-route-id="@a.Id"
+                               class="btn btn-sm btn-warning">
+                                <i class="bi bi-pencil"></i> Düzenle
+                            </a>
+
+                            <form asp-action="DeleteAddress" asp-route-id="@a.Id" method="post"
+                                  onsubmit="return confirm('Bu adres silinsin mi?')">
+                                <button class="btn btn-sm btn-danger">
+                                    <i class="bi bi-trash"></i> Sil
+                                </button>
+                            </form>
+                        </div>
+
+                    </li>
+                }
+            }
+            else
+            {
+                <li class="text-muted px-2">Kayıtlı teslimat adresiniz yok.</li>
+            }
+        </ul>
+    </div>
+
+    <div class="dropdown mb-2">
+        <button class="btn btn-outline-primary dropdown-toggle w-100" type="button"
+                data-bs-toggle="dropdown">
+            Kurumsal Fatura Adresleri
+        </button>
+
+        <ul class="dropdown-menu w-100 p-3" style="max-height:300px; overflow-y:auto;">
+            @if (corporate != null && corporate.Any())
+            {
+                foreach (var a in corporate)
+                {
+                    <li class="mb-3 border-bottom pb-2">
+
+                        <div class="fw-semibold">Şirket Adı: @a.Name</div>
+                        <div>Vergi Dairesi: @a.TaxOffice</div>
+                        <div>Vergi No: @a.TaxNumber</div>
+                        <div>Adres: @a.Text</div>
+                        <div>@a.City.Name / @a.City.Province.Name</div>
+
+                        <div class="mt-2 d-flex gap-2">
+                            <a asp-action="EditAddress" asp-route-id="@a.Id"
+                               class="btn btn-sm btn-warning">
+                                <i class="bi bi-pencil"></i> Düzenle
+                            </a>
+
+                            <form asp-action="DeleteAddress" asp-route-id="@a.Id" method="post"
+                                  onsubmit="return confirm('Bu adres silinsin mi?')">
+                                <button class="btn btn-sm btn-danger">
+                                    <i class="bi bi-trash"></i> Sil
+                                </button>
+                            </form>
+                        </div>
+
+                    </li>
+                }
+            }
+            else
+            {
+                <li class="text-muted px-2">Kayıtlı kurumsal fatura adresiniz yok.</li>
+            }
+        </ul>
+    </div>
+
+</div>

@@ -8,13 +8,13 @@ namespace MabeyaECommerce.Domain;
 public class Product 
 {
     public Guid Id { get; set; }
-    public Guid userId { get; set; }
     public DateTime CreatedAt { get; set; }
     [Display(Name = "Kategori")]
     [Required(ErrorMessage = "{0} alanı boş bırakılamaz")]
     public Guid CategoryId { get; set; }
     [Display(Name = "Aktif")]
     public bool IsEnabled { get; set; } = true;
+    public User? User { get; set; }
 
     [Display(Name = "Ad")]
     [Required(ErrorMessage = "{0} alanı boş bırakılamaz")]
@@ -82,5 +82,7 @@ public class ProductConfiguration : IEntityTypeConfiguration<Product>
            .WithOne(p => p.Product)
            .HasForeignKey(p => p.productId)
            .OnDelete(DeleteBehavior.Restrict);
+       
+
     }
 }

@@ -1,105 +1,94 @@
 ﻿@model User
 @inject MabeyaDbContext dbContext
+@using System.Security.Claims
 @using Humanizer
 
 @{
-    Layout = "_LayoutProfile";
-    ViewData["Title"] = "Kullanıcı Profili";
+    Layout = "_Layout";
 
-
-    var userId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
-
-
-    var momentorders = dbContext.shoppedOrders
-.Include(p => p.Order_Items).ThenInclude(p => p.Product)
-.AsNoTracking()
-.AsSingleQuery()
-.Where(p => p.userId == userId && (p.Status == OrderStatus.New || p.Status == OrderStatus.InProgress)).ToList();
-
+    var title = ViewBag.Title as string ?? "Siparişlerim";
+    var orders = ViewBag.Orders as List<ShoppedOrder>;
+    var tr = System.Globalization.CultureInfo.GetCultureInfo("tr-TR");
 }
+<div class="row">
 
+    <div class="col-12 col-md-3">
+        <div class="sidebar-card p-3 shadow-sm rounded">
 
-
-    <!-- Page Content  -->
-    @foreach (var order in momentorders)
-    {
-        <div class="card mb-3">
-            <div class="card-header d-flex align-items-center ">
-               
-                    <button class="btn btn-circle" type="button" data-toggle="collapse" data-target="#items_@order.Id">
-                        <i class="bi bi-chevron-down"></i>
-                    </button>
-                <div class="flex-fill">@order.Date.Humanize()</div>
-                <div class="text-secondary fw-bold ">@order.GrandTotal.ToString("n2") </div>
-                <span class="text-success ms-auto">@order.Status </span>
+            <div class="sidebar-header text-center mb-4">
+                <img src="https://api.dicebear.com/9.x/initials/svg?seed=@Model.givenName"
+                     class="sidebar-avatar mb-2 rounded-circle" height="60" />
+                <h5 class="fw-bold">@Model.givenName</h5>
+                <small class="text-muted">Üyelik Paneli</small>
             </div>
-            <div class="card-body collapse" id="items_@order.Id">
-                    <table class="table table-bordered">
-                        <colgroup>
-                            <col width="120" />
-                            <col />
-                            <col />
-                            <col />
-                            <col />
-                        </colgroup>
-                        <thead>
-                            <tr>
-                                <th>Ürün</th>
-                                <th>İsmi</th>
-                                <th>Adedi</th>
-                                <th>Fiyatı</th>
-                                <th>Toplam Fiyatı</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in order.Order_Items)
-                            {
-                                <tr>
-                                    <td>
-                                        <img src="@Url.Action("Product", "Images", new {id = item.productId})" height="60" class="img-thumbnail" />
-                                    </td>
-                                    <td>@item.Product.Name</td>
-                                    <td>@item.Quantity</td>
-                                    <td>@item.Price.ToString("n2")</td>
-                                    <td>@item.Amount.ToString("n2")</td>
-                                </tr>
-                            }
 
-                        </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="4" class="text-end fw-bold ">Toplam </td>
-                            <td class=" fw-bold ">@order.GrandTotal.ToString("n2")</td>
-                        </tr>
-                    </tfoot>      
-                    
-                    </table>
-                    
+            <ul class="list-unstyled components mb-4">
+                <li class="mb-2">
+                    <a href="#ordersMenu" data-bs-toggle="collapse" class="sidebar-link">
+                        <i class="bi bi-shop"></i> Siparişlerim
+                    </a>
 
+                    <ul class="collapse list-unstyled ps-3 mt-2" id="ordersMenu">
+                        <li><a asp-action="Profile" asp-controller="Profile" class="sidebar-link">Devam Eden Siparişler</a></li>
+                        <li><a asp-action="PastOrders" asp-controller="Profile" class="sidebar-link">Tamamlanmış Siparişler</a></li>
+                    </ul>
+                </li>
 
+                <li class="mb-2">
+                    <a asp-action="Adresses" asp-controller="Profile"
+                       class="sidebar-link @(title == "Adreslerim" ? "active" : "")">
+                        <i class="bi bi-geo-alt"></i> Adreslerim
+                    </a>
+                </li>
+            </ul>
+
+            <div class="mb-5">
+                <h6>Yeni ürünlerden haberdar olun</h6>
+
+                <div class="input-group">
+                    <input id="sub_email" type="email" class="form-control" placeholder="E-posta adresiniz">
+                    <button id="sub_btn" class="btn btn-primary">Kaydol</button>
                 </div>
 
-
-
-
+                <small id="sub_result" class="text-success mt-1 d-block"></small>
             </div>
 
+            <div class="text-center text-muted small">
+                © @DateTime.Now.Year Mabeya
+            </div>
+        </div>
+    </div>
 
+    <div class="col-12 col-md-9">
+        <div class="ms-md-5">
 
+            <h3 class="mb-4">@title</h3>
 
+            @if (title != "Adreslerim")
+            {
+                foreach (var order in orders)
+                {
+                    @await Html.PartialAsync("_OrderListPartial", order)
+                }
+            }
+            else
+            {
+                @Html.Partial("_UserAddressesPartial", Model)
+            }
 
-}
-   
+        </div>
+    </div>
 
+</div>
 
-    @section Scripts{
-        <script>
-            $("#sidebarCollapse").on("click", function () {
-                $("#sidebar").toggleClass("active");
+@section Scripts {
+    <script>
+        $("#sub_btn").click(function () {
+            let email = $("#sub_email").val();
+            $.post("/account/subscribe", { email: email }, function (res) {
+                $("#sub_result").text(res);
+                $("#sub_email").val("");
             });
-
-
-        </script>
-
-
-    }
+        });
+    </script>
+}

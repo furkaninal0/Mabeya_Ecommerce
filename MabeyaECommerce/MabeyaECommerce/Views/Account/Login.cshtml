@@ -5,44 +5,44 @@
     ViewBag.BodyClass = "login-page";
 }
 
-<div class="re-login-box">
-    <form method="post">
-        <input type="hidden" asp-for="ReturnUrl" value="@ViewBag.ReturnUrl" />
+<div class="login-area">
 
-        <div class="alert alert-danger" asp-validation-summary="ModelOnly"> </div>
+    <div class="re-login-box">
+        <form method="post">
+            <input type="hidden" asp-for="ReturnUrl" value="@ViewBag.ReturnUrl" />
 
-        <div class="mb-3">
-            <label asp-for="UserName" class="form-label"></label>
-            <input asp-for="UserName" class="form-control" />
-            <span asp-validation-for="UserName" class="text-danger"></span>
-        </div>
+            <div class="alert alert-danger" asp-validation-summary="ModelOnly"></div>
 
-        <div class="mb-3">
-            <label asp-for="Password" class="form-label"></label>
-            <input asp-for="Password" type="password" class="form-control" />
-            <span asp-validation-for="Password" class="text-danger"></span>
-        </div>
-
-        <div class="mb-3">
-            <div class="form-check">
-                <input asp-for="IsPersistent" class="form-check-input" />
-                <label asp-for="IsPersistent" class="form-check-label"></label>
+            <div class="mb-3">
+                <label asp-for="UserName" class="form-label text-white"></label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
             </div>
-        </div>
 
-        <div class="mb-3 text-center">
-            Hesabın yok mu? Haydi <a class="text-white" asp-action="Register">kayıt</a> olalım.
-        </div>
+            <div class="mb-3">
+                <label asp-for="Password" class="form-label text-white"></label>
+                <input asp-for="Password" type="password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
 
-        <div class="mb-3">
+            <div class="form-check mb-3">
+                <input asp-for="IsPersistent" class="form-check-input" />
+                <label asp-for="IsPersistent" class="form-check-label text-white"></label>
+            </div>
+
             <button type="submit" class="btn btn-primary w-100">Giriş Yap</button>
-        </div>
 
-        <div class="mb-3  text-center">
-            <a class="text-white" asp-action="ResetPassword">Parolanızı yenileyin.</a>
-        </div>
+            <div class="text-center mt-3 text-white">
+                Hesabın yok mu? <a class="text-white" asp-action="Register">Kayıt Ol</a>
+            </div>
 
-    </form>
+            <div class="text-center mt-2">
+                <a class="text-white" asp-action="ResetPassword">Parolanızı yenileyin.</a>
+            </div>
+
+        </form>
+    </div>
+
 </div>
 
 @section Scripts {

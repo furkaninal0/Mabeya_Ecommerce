@@ -1,6 +1,14 @@
 ﻿@inject MabeyaDbContext dbContext
 @{
-    var neworders = dbContext.shoppedOrders.Include(p => p.User).Include(p => p.Order_Items).Include(p => p.Address).Where(p => p.Status == OrderStatus.New).OrderBy(p => p.Date).Take(10).ToList();
+    var neworders = dbContext.shoppedOrders
+     .Include(p => p.User)
+     .Include(p => p.Order_Items)
+     .Include(p => p.ShippingAddress)
+     .Include(p => p.BillingAddress)
+     .Where(p => p.Status == OrderStatus.New)
+     .OrderByDescending(p => p.Date)
+     .Take(10)
+     .ToList();
 
     ViewData["Title"] = "Admin Yönetim Paneli";
 }
@@ -27,12 +35,12 @@
                         @foreach (var order in neworders)
                         {
                             <tr>
-                                <td>@order.Date.ToShortDateString()</td>
+                                <td>@order.Date.ToShortDateString()</td> 
                                 <td>@order.User!.givenName</td>
                                 <td>
                                     <a href="mailto:@order.User!.Email">@order.User.Email</a>
                                 </td>
-                                <td>@order.Address!.Number</td>
+                                <td>@(order.ShippingAddress?.Number ?? "Yok")</td>
                                 <td class="bi-text-right text-monospace">@order.GrandTotal.ToString("n2")</td>
                                 <td>
                                     <a asp-action="Detail" asp-controller="ShoppedOrders" asp-route-id="@order.Id" class="btn btn-primary">

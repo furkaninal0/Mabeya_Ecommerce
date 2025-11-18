@@ -1,0 +1,112 @@
+﻿@model Address
+@{
+    ViewData["Title"] = "Adres Düzenle";
+    var provinces = ViewBag.Provinces as List<Province>;
+    var cities = ViewBag.Cities as List<City>;
+}
+
+<div class="card shadow-sm p-4">
+    <h4 class="mb-4">Adres Düzenle</h4>
+
+    <form asp-action="EditAddress" method="post">
+        <input type="hidden" asp-for="Id" />
+
+        <div class="mb-3">
+            <label class="form-label">Ad Soyad</label>
+            <input asp-for="Name" class="form-control" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Telefon</label>
+            <input asp-for="Number" class="form-control" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Adres</label>
+            <textarea asp-for="Text" class="form-control" rows="3" required></textarea>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label class="form-label">İl</label>
+                <select id="provinceSelect" class="form-select" required>
+                    <option value="">Seçiniz</option>
+                    @foreach (var p in provinces)
+                    {
+                        <option value="@p.Id">@p.Name</option>
+                    }
+                </select>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label class="form-label">İlçe</label>
+                <select asp-for="CityId" id="citySelect" class="form-select" required>
+                    <option value="">Seçiniz</option>
+                    @foreach (var c in cities)
+                    {
+                        <option value="@c.Id">@c.Name</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="form-check mb-2">
+            <input asp-for="IsShipping" class="form-check-input" type="checkbox" />
+            <label class="form-check-label">Teslimat Adresi</label>
+        </div>
+
+        <div class="form-check mb-3">
+            <input asp-for="IsInvoice" class="form-check-input" type="checkbox" />
+            <label class="form-check-label">Fatura Adresi</label>
+        </div>
+
+        <div id="invoiceFields" class="@(Model.IsInvoice ? "" : "d-none")">
+
+            <div class="mb-3">
+                <label class="form-label">Vergi No</label>
+                <input asp-for="TaxNumber" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Vergi Dairesi</label>
+                <input asp-for="TaxOffice" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Firma Adı</label>
+                <input asp-for="Name" class="form-control" />
+            </div>
+
+        </div>
+
+        <button class="btn btn-primary mt-3">Kaydet</button>
+        <a asp-action="Adresses" class="btn btn-secondary mt-3 ms-2">İptal</a>
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        $("#provinceSelect").change(function () {
+            let selectedProvince = $(this).val();
+
+            $("#citySelect option").hide();
+            $("#citySelect option[value='']").show();
+
+            $("#citySelect option").each(function () {
+                if ($(this).data("province") == selectedProvince) {
+                    $(this).show();
+                }
+            });
+        });
+
+        $("input[name='IsInvoice']").change(function () {
+            if (this.checked) {
+                $("#invoiceFields").removeClass("d-none");
+            } else {
+                $("#invoiceFields").addClass("d-none");
+            }
+        });
+    </script>
+}

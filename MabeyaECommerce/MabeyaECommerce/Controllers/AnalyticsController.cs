@@ -8,16 +8,11 @@ public class AnalyticsController(MabeyaDbContext dbContext) : Controller
 {
     public IActionResult Index()
     {
-        // Bütün veriyi bir kez çekiyoruz
         var allVisits = dbContext.VisitLogs.ToList();
-
-        // --- 1. ÜST KART (KPI) VERİLERİNİ HESAPLA ---
-
         ViewData["TotalVisit"] = allVisits.Count;
         ViewData["MemberVisits"] = allVisits.Count(v => v.UserId != null);
         ViewData["GuestVisits"] = allVisits.Count(v => v.UserId == null);
 
-        // Sadece süresi 0'dan büyük olan (yani bitmiş) ziyaretlerin ortalamasını al
         var completedVisits = allVisits.Where(v => v.DurationSec > 0);
 
         if (completedVisits.Any())
@@ -26,16 +21,13 @@ public class AnalyticsController(MabeyaDbContext dbContext) : Controller
         }
         else
         {
-            ViewData["AvgDuration"] = 0; // Hiç bitmiş ziyaret yoksa
+            ViewData["AvgDuration"] = 0; 
         }
 
-        // --- 2. HAFTALIK GRAFİK VERİLERİ ---
-        var oneWeekAgo = DateTime.Now.Date.AddDays(-6); // Son 7 gün
+        var oneWeekAgo = DateTime.Now.Date.AddDays(-6); 
 
-        // Sadece son 7 günün verilerini al
         var recentVisits = allVisits.Where(v => v.StartTime.Date >= oneWeekAgo).ToList();
 
-        // Günleri oluştur
         var dateList = Enumerable.Range(0, 7)
             .Select(i => DateTime.Now.Date.AddDays(-i))
             .Reverse()
@@ -46,7 +38,7 @@ public class AnalyticsController(MabeyaDbContext dbContext) : Controller
                          select new
                          {
                              Day = day,
-                             Count = g.Count() // O günkü toplam ziyaret (session) sayısını say
+                             Count = g.Count() 
                          };
 
         ViewBag.WeeklyLabels = weeklyData.Select(x => x.Day.ToString("dd MMM"));

@@ -231,31 +231,45 @@ public class AccountController (
         return RedirectToAction(nameof(Checkout));
     }
 
+
     [Authorize]
     [HttpPost]
-    public async Task<IActionResult> CreateAddress([FromBody]AddressViewModel model)
+    public async Task<IActionResult> CreateAddress([FromBody] AddressViewModel model)
     {
-        var userıd = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
-        var address = new Address()
+        if (!ModelState.IsValid)
+            return BadRequest("Eksik bilgi.");
+
+        var user = await userManager.GetUserAsync(User);
+        if (user == null)
+            return Unauthorized();
+
+        var address = new Address
         {
-            Name = model.Name,
-            Number = model.Number,
-            Text = model.Text,
-            zipCode = model.zipCode,
-            cityId = model.CityId,
-            userId = userıd,
+            UserId = user.Id,
+            Name = model.Name!,
+            Text = model.Text!,
+            Number = model.Number!,
+            zipCode = model.zipCode!,
+            CityId = model.CityId,
+            IsInvoice = model.IsInvoice,
+            IsShipping = model.IsShipping,
+            TaxNumber = model.IsInvoice ? model.TaxNumber : null,
+            TaxOffice = model.IsInvoice ? model.TaxOffice : null
         };
+
         dbContext.Add(address);
         await dbContext.SaveChangesAsync();
-        return Ok();
+
+        return Ok(new { id = address.Id });
     }
+
 
     [Authorize]
     public async Task<IActionResult> UserAddress()
     {
         var userId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
         var model = await dbContext.Addresses
-            .Where(a => a.userId == userId)
+            .Where(a => a.UserId == userId)
             .Select(p => new { p.Id, p.Name, p.Number, p.Text })
             .ToListAsync();
         return Json(model);
@@ -276,23 +290,23 @@ public class AccountController (
 #if DEBUG
         Thread.Sleep(5000);
 #endif
-        var order = new ShoppedOrder()
+        var order = new ShoppedOrder
         {
             Date = DateTime.Now,
-            addressId = model.ShippingAddressId,
-            userId = userId,
-            Order_Items = dbContext.
-            shoppingCartItems
-            .Include(p=>p.Product)
-            .Where(p => p.UserId == userId)
-            .Select(p=> new ShoppedOrder_Item
-            {
-                Price = p.Product!.Price,
-                Quantity = p.Quantity,
-                productId = p.ProductId,
-
-            }).ToList()
+            ShippingAddressId = model.ShippingAddressId,
+            BillingAddressId = model.BillingAddressId,
+            UserId = userId,
+            Order_Items = dbContext.shoppingCartItems
+           .Include(p => p.Product)
+           .Where(p => p.UserId == userId)
+           .Select(p => new ShoppedOrder_Item
+           {
+               Price = p.Product!.Price,
+               Quantity = p.Quantity,
+               productId = p.ProductId,
+           }).ToList()
         };
+
         dbContext.Add(order);
         await dbContext.SaveChangesAsync();
         await dbContext.shoppingCartItems.Where(p => p.UserId == userId)
@@ -300,4 +314,77 @@ public class AccountController (
         return Ok();
     }
    
+    public async Task<IActionResult> Comment(CommentViewModel model)
+    {
+        if (!ModelState.IsValid)
+        {
+            TempData["error"] = "Yorum boş olamaz.";
+            return RedirectToAction("Product", "Home", new { id = model.ProductId });
+        }
+
+        var userId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
+
+        var comment = new Comment
+        {
+            Date = DateTime.UtcNow,
+            ProductId = model.ProductId,
+            Scor = model.Rating,
+            UserId = userId,
+            Text = model.Text
+        };
+
+        dbContext.Add(comment);
+        await dbContext.SaveChangesAsync();
+
+
+        return RedirectToRoute("Product", new { id = model.ProductId, name = model.ProductName!.ToSafeUrlString() });
+
+    }
+[Authorize]
+    public async Task<IActionResult> GetMyAddresses()
+    {
+        var userId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
+
+        var list = await dbContext.Addresses
+            .Include(a => a.City)
+            .ThenInclude(c => c.Province)
+            .Where(a => a.UserId == userId)
+            .Select(a => new {
+                id = a.Id,
+                name = a.Name,
+                text = a.Text,
+                number = a.Number,
+                zipCode = a.zipCode,
+                city = a.City.Name,
+                province = a.City.Province.Name
+            })
+            .ToListAsync();
+
+        return Json(list);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Subscribe(string email)
+    {
+        if (string.IsNullOrWhiteSpace(email))
+            return BadRequest("E-posta boş!");
+
+        var exists = await dbContext.Subscribers.AnyAsync(x => x.Email == email);
+        if (exists)
+            return Ok("Zaten abonesiniz.");
+
+        dbContext.Subscribers.Add(new Subscriber
+        {
+            Email = email
+        });
+
+        await dbContext.SaveChangesAsync();
+
+        await emailService.SendAsync(email,
+            "Mabeya - Abonelik Başarılı",
+            "<h3>Aramıza Hoş Geldiniz!</h3><p>Artık yeni ürünlerden ilk siz haberdar olacaksınız 🎉</p>",
+            true);
+
+        return Ok("Abonelik tamamlandı");
+    }
 }

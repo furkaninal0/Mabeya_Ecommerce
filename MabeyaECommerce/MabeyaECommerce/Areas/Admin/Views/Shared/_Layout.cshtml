@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="~/MabeyaECommerce.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/admin/css/style.css" asp-append-version="true" />
     <link href="~/admin/vendors/feather/feather.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
     <link href="~/admin/vendors/mdi/css/materialdesignicons.min.css" rel="stylesheet" />
     <link href="~/admin/vendors/ti-icons/css/themify-icons.css" rel="stylesheet" />
     <link href="~/admin/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
@@ -47,15 +49,14 @@
                 </ul>
                 
                 <ul class="navbar-nav ms-auto">
-                    <li class=" ">
-                        <a class="bi-boombox" asp-area="" asp-action="Index" asp-controller="Home">
-                            <i class=" fa fa-shopping-cart me-2">
+                    <li>
+                        <a class="" asp-area="" asp-action="Index" asp-controller="Home">
+                            <i class="fa fa-shopping-cart me-2">
                                 Mağazaya git
                             </i>
                         </a>
+                    
 
-                    </li>
-                   
                     <li class="nav-item dropdown">
                         <a class="nav-link count-indicator" id="notificationDropdown" href="#" data-bs-toggle="dropdown">
                             <i class="icon-bell"></i>
@@ -218,6 +219,10 @@
                             <ul class="nav flex-column sub-menu">
                                 <li class="nav-item"> <a class="nav-link" asp-controller="ShoppedOrders" asp-action="Index">Yeni Siparişler</a></li>
                                 <li class="nav-item"> <a class="nav-link" asp-controller="ShoppedOrders" asp-action="InProgess">Aktif Siparişler</a></li>
+                                <li class="nav-item"> <a class="nav-link" asp-controller="ShoppedOrders" asp-action="Shipped">Gönderilen Siparişler</a></li>
+                                <li class="nav-item"> <a class="nav-link" asp-controller="ShoppedOrders" asp-action="Delivered">Tamamlanan Siparişler</a></li>
+                                <li class="nav-item"> <a class="nav-link" asp-controller="ShoppedOrders" asp-action="ReturnRequests"> İade Talepleri </a></li>
+                                <li class="nav-item"> <a class="nav-link" asp-controller="ShoppedOrders" asp-action="Cancalled">İptal Siparişler</a></li>
                             </ul>
                         </div>
                     </li>
@@ -229,8 +234,8 @@
                         </a>
                         <div class="collapse" id="tables">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" asp-controller="Dashboard" asp-action="Tables">Satış ve Yorumlar</a></li>
-                                <li class="nav-item"> <a class="nav-link" asp-controller="Dashboard" asp-action="MarketingAnalyst">Analistik</a></li>
+                                <li class="nav-item"> <a class="nav-link" asp-controller="Dashboard" asp-action="Tables">Satış Analizi</a></li>
+                                <li class="nav-item"> <a class="nav-link" asp-controller="Dashboard" asp-action="MarketingAnalyst">Mağaza Analizi</a></li>
                             </ul>
                         </div>
                     </li>
@@ -254,10 +259,10 @@
                         </a>
                         <div class="collapse" id="auth">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="pages/samples/blank-page.html"> Blank Page </a></li>
+                                <li class="nav-item"> <a class="nav-link" asp-controller="Members" asp-action="Members"> Üyeler </a></li>
+                                <li class="nav-item"> <a class="nav-link" asp-controller="Subscribers" asp-action="Index"> E-posta Bülteni </a></li>
                                 <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> 404 </a></li>
                                 <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li>
-                                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
                                 <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
                             </ul>
                         </div>
@@ -307,3 +312,9 @@
 </body>
 </html>
 
+@section Scripts {
+
+    <script>
+    </script>
+
+}

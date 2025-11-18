@@ -4,16 +4,25 @@ namespace MabeyaECommerce.Models;
 
 public class AddressViewModel
 {
-    [DataType(DataType.Text)]
-    [Required(ErrorMessage = "{0} alanı boş bırakılamaz")]
+
+    [Required]
     public string? Name { get; set; }
-    [DataType(DataType.Text)]
-    [Required(ErrorMessage = "{0} alanı boş bırakılamaz")]
+
+    [Required]
     public string? Text { get; set; }
-    [DataType(DataType.PhoneNumber)]
-    [Required(ErrorMessage = "{0} alanı boş bırakılamaz")]
+
+    [Required]
     public string? Number { get; set; }
+
+    [Required]
     public string? zipCode { get; set; }
+
+    [Required]
     public int CityId { get; set; }
 
+    public bool IsInvoice { get; set; }
+    public bool IsShipping { get; set; }
+
+    public string? TaxNumber { get; set; }
+    public string? TaxOffice { get; set; }
 }

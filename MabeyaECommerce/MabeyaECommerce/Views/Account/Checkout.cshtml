@@ -2,92 +2,149 @@
 @{
     ViewData["Title"] = "Sepetim";
     var userId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
-    var items = dbContext.shoppingCartItems.Include(p => p.Product).Where(p => p.UserId == userId).ToList();
+    var items = dbContext.shoppingCartItems
+                .Include(p => p.Product)
+                .Where(p => p.UserId == userId)
+                .ToList();
+
     var counter = 0;
 }
 
-<div class="h4">@ViewData["Title"]</div>
+<h3 class="fw-bold mb-4">@ViewData["Title"]</h3>
 
-<div class="row">
-    <div class="col-12 col-md-9 ">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Product</th>
-                    <th>Price</th>
-                    <th>Qty.</th>
-                    <th>Amount</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in items)
-                {
+<div class="row g-4">
+
+    <div class="col-12 col-md-9">
+
+        <div class="table-responsive shadow-sm rounded">
+            <table class="table align-middle">
+                <thead class="table-light">
                     <tr>
-                        <td>@(++counter)</td>
-                        <td>
-                            <div class="d-flex flex-column gap-3">
-                                <a asp-route="Product" asp-route-id="@item.Product.Id" asp-route-name="@item.Product.Name.ToSafeUrlString() ">
-
-                                    <img src="@Url.Action("Product", "Images" , new {id = item.Product!.Id})" height="60" width="80 " class="p-1 border " />
-                                </a>
-                                <span class="fw-bold">@item.Product.Name</span>
-                            </div>
-                        </td>
-                        <td class="text-end font-monospace">
-                            @item.Product.Price.ToString("N2")
-                        </td>
-                        <td class="text-end font-monospace">
-                            <div class="d-flex align-items-center">
-                                <a asp-action="DecreaseQuantity" asp-route-id="@item.Id" class="btn btn-light">-</a>
-                                <input class="form-control text-center quantity-input" style="width:40px" data-id="@item.Id" value="@item.Quantity" onchange="setQuantity" />
-                                <a asp-action="IncreaseQuantity" asp-route-id="@item.Id" class="btn btn-light" >+</a>
-
-                            </div>
-                        </td>
-                        <td class="text-end font-monospace">
-                            @((item.Product.Price * item.Quantity).ToString("N2"))
-                        </td>
-                        <td>
-                            <a asp-action="RemoveFromCart" asp-route-id="@item.Id" class="text-danger">
-                                <i class="bi bi-trash"></i>
-                            </a>
-                        </td>
+                        <th>#</th>
+                        <th>Ürün</th>
+                        <th class="text-end">Fiyat</th>
+                        <th class="text-center">Adet</th>
+                        <th class="text-end">Toplam</th>
+                        <th></th>
                     </tr>
+                </thead>
 
-                }
-            </tbody>
-        </table>
+                <tbody>
+                    @foreach (var item in items)
+                    {
+                        <tr>
+                            <td class="fw-bold">@(++counter)</td>
+
+                            <td style="min-width: 220px;">
+                                <div class="d-flex gap-3 align-items-center">
+
+                                    <a asp-route="Product"
+                                       asp-route-id="@item.Product.Id"
+                                       asp-route-name="@item.Product.Name.ToSafeUrlString()">
+
+                                        <img src="@Url.Action("Product", "Images", new { id = item.Product!.Id })"
+                                             height="60"
+                                             width="80"
+                                             class="rounded border" />
+                                    </a>
+
+                                    <div>
+                                        <span class="fw-semibold">@item.Product.Name</span>
+                                    </div>
+
+                                </div>
+                            </td>
+
+                            <td class="text-end text-nowrap">
+                                ₺ @item.Product.Price.ToString("N2")
+                            </td>
+
+                            <td class="text-center">
+                                <div class="d-flex justify-content-center align-items-center gap-2">
+
+                                    <a asp-action="DecreaseQuantity"
+                                       asp-route-id="@item.Id"
+                                       class="btn btn-outline-secondary btn-sm px-2">
+                                        -
+                                    </a>
+
+                                    <input class="form-control form-control-sm text-center quantity-input"
+                                           style="width:50px"
+                                           data-id="@item.Id"
+                                           value="@item.Quantity" />
+
+                                    <a asp-action="IncreaseQuantity"
+                                       asp-route-id="@item.Id"
+                                       class="btn btn-outline-secondary btn-sm px-2">
+                                        +
+                                    </a>
+
+                                </div>
+                            </td>
+
+                            <td class="text-end text-nowrap">
+                                ₺ @((item.Product.Price * item.Quantity).ToString("N2"))
+                            </td>
+                            <td class="text-center">
+                                <a asp-action="RemoveFromCart"
+                                   asp-route-id="@item.Id"
+                                   class="text-danger fs-5">
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
     </div>
-    <div class="col-12 col-md-3 ">
-        <div class="p-2 border bg-body-secondary">
-            Total
-            <h2 class="text-success">
-                ₺ @items.Sum(p => p.Quantity * p.Product.Price).ToString("N2")
-                <a asp-action="Payment" class="btn btn-success w-100">
+
+    <div class="col-12 col-md-3">
+
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+
+                <h5 class="fw-bold mb-3">Sipariş Özeti</h5>
+
+                <div class="d-flex justify-content-between mb-2">
+                    <span>Toplam Ürün:</span>
+                    <strong>@items.Sum(p => p.Quantity)</strong>
+                </div>
+
+                <div class="d-flex justify-content-between mb-2">
+                    <span>Ara Toplam:</span>
+                    <strong>₺ @items.Sum(p => p.Product.Price * p.Quantity).ToString("N2")</strong>
+                </div>
+
+                <hr />
+
+                <h4 class="text-success fw-bold">
+                    ₺ @items.Sum(p => p.Quantity * p.Product.Price).ToString("N2")
+                </h4>
+
+                <a asp-action="Payment" class="btn btn-success w-100 mt-3 py-2 fs-6">
                     Satın Al
                 </a>
-            </h2>
+            </div>
         </div>
+
     </div>
+
 </div>
+
+
 @section Scripts {
     <script>
 
         $(() => {
             $('.quantity-input').on('change', (e) => {
-
-
                 const qty = $(e.currentTarget).val();
                 const id = $(e.currentTarget).data('id');
                 window.location = `/Account/SetQuantity/${id}/?Quantity=${qty}`;
-            })
-
-
+            });
         });
-
-
 
     </script>
 }

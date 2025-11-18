@@ -1,5 +1,160 @@
-﻿
+﻿@using Humanizer
+@inject MabeyaDbContext dbContext
 @{
     ViewData["Title"] = "Market Analist";
+    var lastMonthDate = DateTime.Now.AddDays(-30);
+
+
+
+
+    var monthlySalesRates = dbContext.shoppedOrders
+       .GroupBy(p => p.Date.Month)
+.Select(q => new
+{
+    Month = q.Key,
+    Total = q.Count(),
+    Completed = q.Count(f => f.Status == OrderStatus.Shipped),
+    Rate = q.Count() != 0 ?
+        (double)q.Count(f => f.Status == OrderStatus.Shipped) / q.Count() * 100 : 0
+})
+
+        .OrderBy(x => x.Month)
+        .ToList();
+
+    var monthlyNewUsers = dbContext.Users
+        .GroupBy(p => p.Date.Month)
+        .Select(q => new { Month = q.Key, Count = q.Count() })
+        .OrderBy(f => f.Month)
+        .ToList();
+
+    var currentMonth = DateTime.Now.Month;
+
+    var currentMonthRate = monthlySalesRates
+        .FirstOrDefault(x => x.Month == currentMonth)?.Rate ?? 0;
+
+    var currentMonthNewUsers = monthlyNewUsers
+        .FirstOrDefault(x => x.Month == currentMonth)?.Count ?? 0;
+
+    var monthlySiteViews = dbContext.VisitLogs
+        .Count(v => v.StartTime >= lastMonthDate);
+
+
+
+    var commentsdate = dbContext.Comments
+     .Include(p => p.User)
+     .Include(p => p.Product)   
+     .OrderByDescending(p => p.Date)
+     .ToList();
+
+    var product = dbContext.Products.Count(p => p.IsEnabled);
+
+}
+
+<div class="tab-content tab-content-basic">
+    <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="statistics-details d-flex align-items-center justify-content-between">
+
+                    <div>
+                        <p class="statistics-title">Site Görüntülenmesi</p>
+                        <h3 class="rate-percentage">@monthlySiteViews</h3>
+                    </div>
+                    <div>
+                        <p class="statistics-title">Yeni Üyelikler</p>
+                        <h3 class="rate-percentage">@currentMonthNewUsers</h3>
+                    </div>
+                    <div class="d-none d-md-block">
+                        <p class="statistics-title">Toplam Ürün</p>
+                        <h3 class="rate-percentage">@product.ToString("n0")</h3>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+        <div class="table-responsive">
+            <table class="table align-middle">
+                <thead class="bg-light">
+                    <tr>
+                        <th>Tarih</th>
+                        <th>Kullanıcı</th>
+                        <th>Yorum</th>
+                        <th>Ürün</th>
+                        <th>Puan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in commentsdate)
+                    {
+                        <tr>
+                            <td>@item.Date.ToLocalTime().Humanize()</td>
+
+                            <td>
+                                <div class="d-flex align-items-center gap-2">
+                                    <img src="https://api.dicebear.com/9.x/initials/svg?seed=@item.User.givenName"
+                                         height="32" class="rounded-circle" />
+                                    <span>@item.User?.givenName</span>
+                                </div>
+                            </td>
+
+                            <td>
+                                <span title="@item.Text">
+                                    @item.Text
+                                </span>
+                            </td>
+
+                            <td>
+                                <a asp-area=""
+                                   asp-controller="Home"
+                                   asp-action="Product"
+                                   asp-route-id="@item.ProductId"
+                                   class="text-decoration-none">
+                                    @item.Product?.Name
+                                </a>
+                            </td>
+
+                            <td>
+                                @for (int i = 0; i < 5; i++)
+                                {
+                                    if (i < item.Scor)
+                                    {
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                    }
+                                    else
+                                    {
+                                        <i class="bi bi-star text-muted"></i>
+                                    }
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+</div>
+
+@section Scripts {
+
+    <script>
+      
+    </script>
 
 }

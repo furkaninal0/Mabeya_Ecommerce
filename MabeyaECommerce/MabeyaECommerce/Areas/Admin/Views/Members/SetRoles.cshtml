@@ -1,0 +1,30 @@
+﻿@inject Microsoft.AspNetCore.Identity.RoleManager<Role> roleManager
+@model MabeyaECommerce.Areas.Admin.Models.UserWithRolesDto
+@{
+
+    ViewData["Title"] = $"{Model.User.givenName} Yetkileri";
+
+}
+
+<form method="post" asp-action="SetRoles" asp-route-id="@Model.User.Id">
+    <div class="row row-cols-1 row-cols-md-4 ">
+        @foreach (var role in roleManager.Roles.ToList())
+        {
+            <div class="col">
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" name="Roles" id="check_@role.Name" value="@role.Name" @(Model.Roles.Contains(role.Name) ? "checked" : "") " />
+                    <label class="form-check-label" for="check_@role.Name"> @role.Name </label>
+                </div>
+            </div>
+
+        }
+    </div>
+    <hr />
+    <div class="d-flex py-2">
+        <button type="submit" class="btn btn-success ms-auto">Kaydet </button>
+        <a asp-action="Members" class="btn btn-link">İptal</a>
+    </div>
+
+</form>
+
+

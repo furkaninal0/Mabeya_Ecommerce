@@ -1,226 +1,399 @@
 ﻿@model PaymentViewModel
 @inject MabeyaDbContext dbContext
+
 @{
-    var provinces = dbContext.Provinces.ToList();
-    var cities = dbContext.Cities.ToList();
+    ViewData["Title"] = "Ödeme";
+    var provinces = dbContext.Provinces.OrderBy(p => p.Name).ToList();
 }
 
-<h4>Ödeme Sayfası</h4>
-<hr />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
 
-<div ng-app="paymentApp" ng-controller="ctrl" ng-init="init()">
-    <div class="row">
-        <div class="col-6" ng-show="page=='address'">
-            <div class="d-flex ">
-                <button class="btn btn-primary ms-auto" ng-disabled="selectedAddress == null" type="button" ng-click="page='creditCard'">Sonraki </button>
-            </div>
-            <h6>Sipariş Adresi</h6>
-            <div class="d-flex p-2 border" style="cursor : pointer" ng-repeat="address in userAddresses" ng-class="{'bg-success' : address ==selectedAddress}" ng-click="setAddress(address)">
-                <div class="col-1 p-2 text-center">
-                    <i class=" bi bi-check text-success" ng-show="selectedAddress == address"></i>
-                </div>
-                <div class="col-3 p-2">{{address.name}}</div>
-                <div class="col-8 p-2 text-body-secondary overflow-hidden text-truncate">{{address.text}}</div>
-            </div>
-            <hr />
-            <div class="text-center "> veya </div>
-            <hr />
-            <div class="mb-3 ">
-                <label class="form-label">İsim</label>
-                <input class="form-control" ng-model="address.name" type="text" ng-required="true" />
-                <span></span>
-            </div>
-            <div class="mb-3 ">
-                <label class="form-label">Telefon Numarası</label>
-                <input class="form-control" ng-model="address.number" type="tel" required />
-                <span></span>
-            </div>
+<style>
+    body {
+        background: #f5f7fb;
+    }
 
-            <div class="mb-3 ">
-                <label class="form-label">Adres</label>
-                <input class="form-control" ng-model="address.text" type="text" required />
-                <span></span>
-            </div>
-            <div class="mb-3 ">
-                <label class="form-label">Zip Code</label>
-                <input class="form-control" ng-model="address.zipCode" type="text" required/>
-                <span></span>
-            </div>
-            <div class="mb-3 ">
-                <div class="row">
-                    <div class="col-6">
-                        <label class="form-label">Şehir</label>
-                        <select class="form-select" name="Provinces" ng-model="selectedProvinceId" ng-change="fetchCities()" ng-required="true">
-                            <option value="">Seçiniz</option>
-                            @foreach (var item in provinces)
-                            {
-                                <option value="@item.Id">@item.Name</option>
-                            }
+    .step-card {
+        background: #fff;
+        border-radius: 14px;
+        padding: 25px;
+        box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+        margin-bottom: 30px;
+    }
 
-                        </select>
-                    </div>
-                    <div class="col-6 ">
-                        <label class="form-label">City</label>
-                        <select class="form-select" ng-model="address.cityId" ng-options="city.id as city.name for city in cities track by city.id">
-                            <option value="" disabled selected>Seçiniz</option>
-                        </select>
-                    </div>
-                </div>
-                <span></span>
-            </div>
-            <div class="mb-3">
-                <button class="btn btn-primary" type="button" ng-click="saveAddress()">Kaydet</button>
-            </div>
-        </div>
-    <div class="col-6" ng-show="page == 'creditCard'">
-        <h6>Kredi Kartı</h6>
-        <div class="d-flex flex-column">
-            <div class="mb-3 ">
-                <label class="form-label">Kart Numarası</label>
-                <input class="form-control" ng-model="creditCard.cardNumber" type="tel" ng-required="true" />
-                <span></span>
-            </div>
-            <div class="mb-3 ">
-                <label class="form-label">Kart Sahibinin Adı</label>
-                <input class="form-control" ng-model="creditCard.cardHolderName" type="text" required />
-                <span></span>
-            </div>
-            <div class="mb-3 ">
-                        <label class="form-label">Bitiş Tarihi</label>
-                <div class="row">
-                    <div class="col-6 ">
-                        <label>Ay</label>
-                        <select class="form-select" ng-model="creditCard.expireMonth" required>
-                            @for (int i = 1; i <= 12; i++)
-                            {
-                                <option>@i.ToString("00")</option>
-                            }
-                        </select>
-                        <span></span>
-                    </div>
+    .step-title {
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 18px;
+        color: #333;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
 
-                <div class="col-6">
-                    <label class="form-label">Yıl</label>
-                    <select class="form-select" ng-model="creditCard.expireYear" ng-required="true" >
+        .step-title i {
+            font-size: 24px;
+            color: #0d6efd;
+        }
 
-                        @for (int i = DateTime.Today.Year; i <= DateTime.Today.AddYears(10).Year; i++)
-                        {
-                            <option>@(new DateTime(i,1,1).ToString("yy")) </option>
+    .next-btn {
+        display: block;
+        width: 100%;
+        padding: 12px;
+        background: #0d6efd;
+        color: #fff;
+        border-radius: 8px;
+        border: none;
+        font-size: 17px;
+        margin-top: 15px;
+    }
 
-                        }
-                    </select>
-                    <span></span>
-                </div>
-            </div>
-        </div>
-        <div class="mb-3 ">
-            <label class="form-label">CVC</label>
-            <input class="form-control" ng-model="creditCard.cvc" type="number" required />
-            <span></span>
-        </div>
-        <div class="mb-3 ">
-            <button class="btn btn-success" type="button" ng-click="pay()" ng-required="true">
-                <div class="spinner-border spinner-border-sm text-white" role="status" ng-show="status=='progress'"></div>
-                Ödeme Yap
-            </button>
-        </div>
+    #step2, #step3 {
+        display: none;
+    }
+</style>
+
+<h3 class="mb-4 fw-bold">Sipariş Tamamlama</h3>
+
+<div class="container">
+
+  
+    <div class="step-card">
+        <label class="form-label fw-bold">Kayıtlı Adres Seç</label>
+        <select id="saved_addresses" class="form-select">
+            <option value="">Yeni adres gir</option>
+        </select>
     </div>
+
+    <div id="step1" class="step-card">
+
+        <div class="step-title">
+            <i class="bi bi-geo-alt"></i> Teslimat Adresi
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Ad Soyad</label>
+            <input id="ship_name" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Telefon</label>
+            <input id="ship_phone" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Adres</label>
+            <textarea id="ship_address" class="form-control"></textarea>
+        </div>
+
+        <div class="row">
+            <div class="col-6 mb-3">
+                <label class="form-label">İl</label>
+                <select id="ship_province" class="form-select">
+                    <option value="">Seçiniz</option>
+                    @foreach (var p in provinces)
+                    {
+                        <option value="@p.Id">@p.Name</option>
+                    }
+                </select>
+            </div>
+            <div class="col-6 mb-3">
+                <label class="form-label">İlçe</label>
+                <select id="ship_city" class="form-select"></select>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Posta Kodu</label>
+            <input id="ship_zip" class="form-control" />
+        </div>
+
+        <button id="toStep2" class="next-btn">Devam Et</button>
+    </div>
+
+    <div id="step2" class="step-card">
+
+        <div class="step-title">
+            <i class="bi bi-receipt"></i> Fatura Bilgileri
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Fatura Tipi</label>
+            <select id="invoice_type" class="form-select">
+                <option value="individual">Bireysel</option>
+                <option value="corporate">Kurumsal</option>
+            </select>
+        </div>
+
+        <div id="ind_fields">
+            <label class="form-label">Ad Soyad</label>
+            <input id="inv_name" class="form-control" />
+        </div>
+
+        <div id="corp_fields" class="d-none">
+            <div class="mb-3">
+                <label>Firma Adı</label>
+                <input id="inv_company" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label>Vergi No</label>
+                <input id="inv_tax_no" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label>Vergi Dairesi</label>
+                <input id="inv_tax_office" class="form-control" />
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label>Fatura Adresi</label>
+            <textarea id="inv_address" class="form-control"></textarea>
+        </div>
+
+        <div class="row">
+            <div class="col-6 mb-3">
+                <label>İl</label>
+                <select id="inv_province" class="form-select">
+                    <option value="">Seçiniz</option>
+                    @foreach (var p in provinces)
+                    {
+                        <option value="@p.Id">@p.Name</option>
+                    }
+                </select>
+            </div>
+            <div class="col-6 mb-3">
+                <label>İlçe</label>
+                <select id="inv_city" class="form-select"></select>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label>Posta Kodu</label>
+            <input id="inv_zip" class="form-control" />
+        </div>
+
+        <button id="toStep3" class="next-btn">Devam Et</button>
+    </div>
+
+    <div id="step3" class="step-card">
+
+        <div class="step-title">
+            <i class="bi bi-credit-card"></i> Ödeme Bilgileri
+        </div>
+
+        <div class="mb-3">
+            <label>Kart Numarası</label>
+            <input id="card_number" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label>Kart Sahibi</label>
+            <input id="card_holder" class="form-control" />
+        </div>
+
+        <div class="row">
+            <div class="col-6 mb-3">
+                <label>Ay</label>
+                <select id="exp_month" class="form-select">
+                    @for (int i = 1; i <= 12; i++)
+                    {
+                        <option>@i.ToString("00")</option>
+                    }
+                </select>
+            </div>
+
+            <div class="col-6 mb-3">
+                <label>Yıl</label>
+                <select id="exp_year" class="form-select">
+                    @for (int i = DateTime.Now.Year; i <= DateTime.Now.Year + 10; i++)
+                    {
+                        <option>@(new DateTime(i, 1, 1).ToString("yy"))</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label>CVC</label>
+            <input id="card_cvc" class="form-control" />
+        </div>
+
+        <button id="payBtn" class="btn btn-success w-100 py-2 fs-5">Ödeme Yap</button>
+    </div>
+
 </div>
-</div>
-@section Scripts{
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js" integrity="sha512-KZmyTq3PLx9EZl0RHShHQuXtrvdJ+m35tuOiwlcZfs/rE7NZv29ygNA8SFCkMXTnYZQK2OX0Gm2qKGfvWEtRXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script>
-        var app = angular
-            .module('paymentApp', [])
-            .controller('ctrl', function ($scope, $http) {
-                $scope.selectedProvinceId = null;
-                $scope.selectedAddress = null;
-                $scope.cities = [];
-                $scope.userAddresses = [];
-                $scope.page = 'address';
-                $scope.address = {};
-                $scope.creditCard = {};
 
-                $scope.init = () => {
-                    $scope.fetchUserAddresses();
+        let shippingAddressId = null;
+        let billingAddressId = null;
 
-                };
+    
+        $(document).ready(function () {
 
-                $scope.setAddress = (a) => {
-                    $scope.selectedAddress = a;
+            $.get("/account/getmyaddresses", function (list) {
 
-                }
-
-
-                $scope.fetchCities = () => {
-                    $http
-                        .get(`/api/getcities/${$scope.selectedProvinceId}`)
-                        .then((response) => {
-                            $scope.cities = response.data;
-                        });
-
-                };
-
-                $scope.fetchUserAddresses = () => {
-                    $http
-                        .get(`/account/UserAddress/`)
-                        .then((response) => {
-                            $scope.userAddresses = response.data;
-                        })
-                };
-
-                $scope.saveAddress = () => {
-                    console.log("Gönderilen adres:", $scope.address);
-                    $http
-                        .post('/account/createaddress', $scope.address)
-                        .then((response) => {
-                            $scope.fetchUserAddresses();
-                            $scope.address = {};
-                            $scope.selectedProvinceId = null;
-                            Swal.fire({
-                                icon: 'success',
-                                title: 'Adresiniz Kaydedildi!',
-                                html: 'Adresiniz başarıyla kaydolmuştur.'
-
-                            });
-
-                        });
-                };
-
-                $scope.pay = () => {
-                    $scope.status = 'progress';
-                    $scope.creditCard.shippingAddressId = $scope.selectedAddress.id;
-                    $scope.creditCard.billingAddressId = $scope.selectedAddress.id;
-
-                    $scope.creditCard.expireMonth = parseInt($scope.creditCard.expireMonth);
-                    $scope.creditCard.expireYear = parseInt($scope.creditCard.expireYear);
-                    console.log($scope.creditCard);
-                    $http
-                        .post('/account/pay', {
-                            ShippingAddressId: $scope.creditCard.shippingAddressId,
-                            BillingAddressId: $scope.creditCard.billingAddressId,
-                            CardNumber: $scope.creditCard.cardNumber,
-                            CardHolderName: $scope.creditCard.cardHolderName,
-                            Cvc: String($scope.creditCard.cvc),
-
-                            ExpireMonth: parseInt($scope.creditCard.expireMonth),
-                            ExpireYear: parseInt($scope.creditCard.expireYear)
-                        },
-                            { withCredentials: true })
-                        .then((response) => {
-                            $scope.status = 'idle';
-
-                            Swal.fire({
-                                icon: 'success',
-                                title: 'Ödemeniz Yapılmıştır!',
-                                html: 'Siparişiniz başarıyla verilmiştir.'
-
-                            }).then((result) => {
-                                window.location = '/'
-                            });
-                        });
-                };
+                list.forEach(a => {
+                    $("#saved_addresses").append(`
+                        <option value="${a.id}"
+                            data-name="${a.name}"
+                            data-number="${a.number}"
+                            data-text="${a.text}"
+                            data-zipcode="${a.zipCode}"
+                            data-city="${a.city}"
+                            data-province="${a.province}">
+                                ${a.name} - ${a.city}/${a.province}
+                        </option>
+                    `);
+                });
 
             });
+
+        });
+
+        $("#saved_addresses").change(function () {
+
+            let selected = $(this).find(":selected");
+
+            if ($(this).val() === "") {
+                shippingAddressId = null;
+                $("#ship_name").val("");
+                $("#ship_phone").val("");
+                $("#ship_address").val("");
+                $("#ship_zip").val("");
+                return;
+            }
+
+            $("#ship_name").val(selected.data("name"));
+            $("#ship_phone").val(selected.data("number"));
+            $("#ship_address").val(selected.data("text"));
+            $("#ship_zip").val(selected.data("zipcode"));
+
+            shippingAddressId = selected.val();
+        });
+
+        function loadCities(provinceId, target) {
+
+            $.get("/api/getcities/" + provinceId, function (cities) {
+                $(target).empty();
+                cities.forEach(c => {
+                    $(target).append(`<option value="${c.id}">${c.name}</option>`);
+                });
+            });
+
+        }
+
+        $("#ship_province").change(function () {
+            loadCities($(this).val(), "#ship_city");
+        });
+
+        $("#inv_province").change(function () {
+            loadCities($(this).val(), "#inv_city");
+        });
+
+        $("#invoice_type").change(function () {
+            if ($(this).val() === "corporate") {
+                $("#corp_fields").removeClass("d-none");
+                $("#ind_fields").addClass("d-none");
+            } else {
+                $("#corp_fields").addClass("d-none");
+                $("#ind_fields").removeClass("d-none");
+            }
+        });
+
+        $("#toStep2").click(function () {
+
+            if (shippingAddressId) {
+                $("#step1").hide();
+                $("#step2").show();
+                return;
+            }
+
+            let address = {
+                Name: $("#ship_name").val(),
+                Number: $("#ship_phone").val(),
+                Text: $("#ship_address").val(),
+                zipCode: $("#ship_zip").val(),
+                CityId: $("#ship_city").val(),
+                IsShipping: true,
+                IsInvoice: false
+            };
+
+            $.ajax({
+                url: "/account/createaddress",
+                method: "POST",
+                contentType: "application/json",
+                data: JSON.stringify(address),
+                success: function (res) {
+                    shippingAddressId = res.id;
+                    $("#step1").hide();
+                    $("#step2").show();
+                }
+            });
+        });
+
+        $("#toStep3").click(function () {
+
+            let isCorp = $("#invoice_type").val() === "corporate";
+
+            let invoice = {
+                Name: isCorp ? $("#inv_company").val() : $("#inv_name").val(),
+                Number: $("#ship_phone").val(),
+                Text: $("#inv_address").val(),
+                zipCode: $("#inv_zip").val(),
+                CityId: $("#inv_city").val(),
+                IsShipping: false,
+                IsInvoice: true,
+                TaxNumber: $("#inv_tax_no").val(),
+                TaxOffice: $("#inv_tax_office").val()
+            };
+
+            $.ajax({
+                url: "/account/createaddress",
+                method: "POST",
+                contentType: "application/json",
+                data: JSON.stringify(invoice),
+                success: function (res) {
+                    billingAddressId = res.id;
+                    $("#step2").hide();
+                    $("#step3").show();
+                }
+            });
+
+        });
+
+     
+        $("#payBtn").click(function () {
+
+            let payment = {
+                ShippingAddressId: shippingAddressId,
+                BillingAddressId: billingAddressId,
+                CardNumber: $("#card_number").val(),
+                CardHolderName: $("#card_holder").val(),
+                Cvc: $("#card_cvc").val(),
+                ExpireMonth: $("#exp_month").val(),
+                ExpireYear: $("#exp_year").val()
+            };
+
+            $.ajax({
+                url: "/account/pay",
+                method: "POST",
+                contentType: "application/json",
+                data: JSON.stringify(payment),
+                success: () => {
+                    Swal.fire("Başarılı!", "Siparişiniz oluşturuldu", "success")
+                        .then(() => window.location = "/");
+                }
+            });
+
+        });
+
     </script>
 }

@@ -29,7 +29,7 @@ public class CityConfiguration : IEntityTypeConfiguration<City>
         builder
                 .HasMany(p => p.Addresses)
                 .WithOne(p => p.City!)
-                .HasForeignKey(p => p.cityId)
+                .HasForeignKey(p => p.CityId)
                 .OnDelete(DeleteBehavior.Restrict);
         builder.HasData(
            new City { Id = 1, provinceId = 1, Name = "ALADAĞ" },

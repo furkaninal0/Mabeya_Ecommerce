@@ -64,6 +64,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRGFzaGJvYXJkXFRhYmxlcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Asus Tuf15/Documents/GitHub/MabeyaEcommerce/MabeyaECommerce/MabeyaECommerce/Areas/Admin/Views/Members/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWVtYmVyc1xEZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Asus Tuf15/Documents/GitHub/MabeyaEcommerce/MabeyaECommerce/MabeyaECommerce/Areas/Admin/Views/Members/Members.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWVtYmVyc1xNZW1iZXJzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Asus Tuf15/Documents/GitHub/MabeyaEcommerce/MabeyaECommerce/MabeyaECommerce/Areas/Admin/Views/Members/SetRoles.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWVtYmVyc1xTZXRSb2xlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Asus Tuf15/Documents/GitHub/MabeyaEcommerce/MabeyaECommerce/MabeyaECommerce/Areas/Admin/Views/Products/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdHNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -82,6 +94,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Asus Tuf15/Documents/GitHub/MabeyaEcommerce/MabeyaECommerce/MabeyaECommerce/Areas/Admin/Views/ShoppedOrders/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hvcHBlZE9yZGVyc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Asus Tuf15/Documents/GitHub/MabeyaEcommerce/MabeyaECommerce/MabeyaECommerce/Areas/Admin/Views/ShoppedOrders/SetReturnTracking.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hvcHBlZE9yZGVyc1xTZXRSZXR1cm5UcmFja2luZy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Asus Tuf15/Documents/GitHub/MabeyaEcommerce/MabeyaECommerce/MabeyaECommerce/Areas/Admin/Views/SliderImages/Create.cshtml]
@@ -106,6 +122,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Asus Tuf15/Documents/GitHub/MabeyaEcommerce/MabeyaECommerce/MabeyaECommerce/Areas/Admin/Views/Specs/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU3BlY3NcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Asus Tuf15/Documents/GitHub/MabeyaEcommerce/MabeyaECommerce/MabeyaECommerce/Areas/Admin/Views/Subscribers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU3Vic2NyaWJlcnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Asus Tuf15/Documents/GitHub/MabeyaEcommerce/MabeyaECommerce/MabeyaECommerce/Areas/Admin/Views/_ViewImports.cshtml]
@@ -180,16 +200,32 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTZWFyY2guY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus Tuf15/Documents/GitHub/MabeyaEcommerce/MabeyaECommerce/MabeyaECommerce/Views/Profile/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxJbmRleC5jc2h0bWw=
+[C:/Users/Asus Tuf15/Documents/GitHub/MabeyaEcommerce/MabeyaECommerce/MabeyaECommerce/Views/Profile/EditAddress.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxFZGl0QWRkcmVzcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Asus Tuf15/Documents/GitHub/MabeyaEcommerce/MabeyaECommerce/MabeyaECommerce/Views/Profile/Profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Asus Tuf15/Documents/GitHub/MabeyaEcommerce/MabeyaECommerce/MabeyaECommerce/Views/Profile/RequestReturn.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxSZXF1ZXN0UmV0dXJuLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Asus Tuf15/Documents/GitHub/MabeyaEcommerce/MabeyaECommerce/MabeyaECommerce/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Asus Tuf15/Documents/GitHub/MabeyaEcommerce/MabeyaECommerce/MabeyaECommerce/Views/Shared/_CommentFormPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Db21tZW50Rm9ybVBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Asus Tuf15/Documents/GitHub/MabeyaEcommerce/MabeyaECommerce/MabeyaECommerce/Views/Shared/_OrderListPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9PcmRlckxpc3RQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Asus Tuf15/Documents/GitHub/MabeyaEcommerce/MabeyaECommerce/MabeyaECommerce/Views/Shared/_OrderStatusBadgePartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9PcmRlclN0YXR1c0JhZGdlUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Asus Tuf15/Documents/GitHub/MabeyaEcommerce/MabeyaECommerce/MabeyaECommerce/Views/Shared/_ProductListPartial.cshtml]
@@ -198,6 +234,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Asus Tuf15/Documents/GitHub/MabeyaEcommerce/MabeyaECommerce/MabeyaECommerce/Views/Shared/_ProductTilePartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Qcm9kdWN0VGlsZVBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Asus Tuf15/Documents/GitHub/MabeyaEcommerce/MabeyaECommerce/MabeyaECommerce/Views/Shared/_UserAddressesPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Vc2VyQWRkcmVzc2VzUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Asus Tuf15/Documents/GitHub/MabeyaEcommerce/MabeyaECommerce/MabeyaECommerce/Views/Shared/_ValidationScriptsPartial.cshtml]
@@ -223,7 +263,3 @@ build_metadata.AdditionalFiles.CssScope = b-s16f5hm28d
 [C:/Users/Asus Tuf15/Documents/GitHub/MabeyaEcommerce/MabeyaECommerce/MabeyaECommerce/Views/Shared/_LayoutAccount.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRBY2NvdW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = b-7jz2p0ctsr
-
-[C:/Users/Asus Tuf15/Documents/GitHub/MabeyaEcommerce/MabeyaECommerce/MabeyaECommerce/Views/Shared/_LayoutProfile.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRQcm9maWxlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = b-am9nfr2ayw

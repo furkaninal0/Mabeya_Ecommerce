@@ -6,8 +6,9 @@ namespace MabeyaECommerce.Domain;
 
 public class ProductImages 
 {
+    public User? User { get; set; }
+
     public Guid Id { get; set; }
-    public Guid userId { get; set; }
     public DateTime CreatedAt { get; set; }
     public bool IsEnabled { get; set; }
     public Guid productId { get; set; }
@@ -25,6 +26,7 @@ public class ProductImageConfiguration : IEntityTypeConfiguration<ProductImages>
 
         builder.Property(p => p.Image)
             .IsRequired();
+      
 
     }
 

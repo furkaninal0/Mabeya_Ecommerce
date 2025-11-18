@@ -6,8 +6,8 @@ namespace MabeyaECommerce.Domain;
 
 public class Category 
 {
+
     public Guid Id { get; set; }
-    public Guid userId { get; set; }
     public DateTime CreatedAt { get; set; }
     
     [Display(Name = "Ad")]
@@ -36,7 +36,8 @@ public class CategoryConfiguration : IEntityTypeConfiguration<Category>
                 .WithOne(p => p.Category)
                 .HasForeignKey(p => p.CategoryId)
                 .OnDelete(DeleteBehavior.Restrict);
-                
+
+        
 
     }
 }

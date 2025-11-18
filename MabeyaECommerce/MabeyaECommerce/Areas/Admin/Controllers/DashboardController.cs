@@ -1,11 +1,12 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace MabeyaECommerce.Areas.Admin.Controllers;
 
 [Area("Admin")]
 [Authorize(Roles = "Administrators")]
-public class DashboardController : Controller
+public class DashboardController (MabeyaDbContext dbContext): Controller
 {
     public IActionResult Index()
     {
@@ -20,5 +21,5 @@ public class DashboardController : Controller
     {
         return View();
     }
-
+   
 }

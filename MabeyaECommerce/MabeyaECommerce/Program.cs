@@ -1,4 +1,4 @@
-using MabeyaECommerce;
+ï»¿using MabeyaECommerce;
 using MabeyaECommerce.Domain;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -6,10 +6,11 @@ using NETCore.MailKit.Extensions;
 using NETCore.MailKit.Infrastructure.Internal;
 using System.Security.Claims;
 using MabeyaECommerce.Middlewares;
+using DinkToPdf;
+using DinkToPdf.Contracts;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddDbContext<MabeyaDbContext>(config =>
 {
     config.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer"));
@@ -17,19 +18,17 @@ builder.Services.AddDbContext<MabeyaDbContext>(config =>
 });
 
 
-//AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
-//config.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
 builder
     .Services.AddIdentity<User, Role>(config =>
     {
-    config.Password.RequireDigit = builder.Configuration.GetValue<bool>("Identity:RequireDigit");
-    config.Password.RequireLowercase = builder.Configuration.GetValue<bool>("Identity:RequireLowercase");
-    config.Password.RequireUppercase = builder.Configuration.GetValue<bool>("Identity:RequireUppercase");
-    config.Password.RequireNonAlphanumeric = builder.Configuration.GetValue<bool>("Identity:RequireNonAlphanumeric");
-    config.Password.RequiredLength = builder.Configuration.GetValue<int>("Identity:RequiredLength");
-    config.Password.RequiredUniqueChars = builder.Configuration.GetValue<int>("Identity:RequiredUniqueChars");
+        config.Password.RequireDigit = builder.Configuration.GetValue<bool>("PasswordPolicy:RequireDigit");
+        config.Password.RequireLowercase = builder.Configuration.GetValue<bool>("PasswordPolicy:RequireLowercase");
+        config.Password.RequireUppercase = builder.Configuration.GetValue<bool>("PasswordPolicy:RequireUppercase");
+        config.Password.RequireNonAlphanumeric = builder.Configuration.GetValue<bool>("PasswordPolicy:RequireNonAlphanumeric");
+        config.Password.RequiredLength = builder.Configuration.GetValue<int>("PasswordPolicy:RequiredLength");
+        config.Password.RequiredUniqueChars = builder.Configuration.GetValue<int>("PasswordPolicy:RequiredUniqueChars");
 
-    config.User.RequireUniqueEmail = true;
+        config.User.RequireUniqueEmail = true;
     config.Lockout.MaxFailedAccessAttempts = 5;
     config.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
     })
@@ -58,24 +57,19 @@ options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
 
 options.LoginPath = "/Account/Login";
 });
-builder
-    .Services
-    .AddMailKit(config =>
+builder.Services.AddMailKit(option =>
+{
+    option.UseMailKit(new MailKitOptions()
     {
-        config.UseMailKit(new MailKitOptions
-        {
-            Server = "sandbox.smtp.mailtrap.io",
-            Port = 2525,
-            SenderName = "MVCEcommerce Hesap",
-            SenderEmail = "hesap@mvcforum.com",
-            Account = "1dbd08a42eee36",
-            Password = "94db0de79ecb1e",
-            Security = true,
-
-
-
-        });
+        Server = builder.Configuration["EmailSettings:Server"],
+        Port = builder.Configuration.GetValue<int>("EmailSettings:Port"),
+        SenderName = builder.Configuration["EmailSettings:SenderName"],
+        SenderEmail = builder.Configuration["EmailSettings:SenderEmail"],
+        Account = builder.Configuration["EmailSettings:UserName"],
+        Password = builder.Configuration["EmailSettings:Password"],
+        Security = builder.Configuration.GetValue<bool>("EmailSettings:Security")
     });
+});
 
 
 builder.Services.AddAuthentication();
@@ -85,11 +79,9 @@ builder.Services.AddSession();
 var app = builder.Build();
 app.UseStaticFiles();
 
-// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
@@ -132,9 +124,9 @@ dbContext.Database.Migrate();
 
 new[]
 {
-    new Role  {givenName="Yönetici " , Name = "Administrators", },
-    new Role  {givenName="Yönetici Yardýmcýsý" , Name = "Moderators", },
-    new Role  {givenName="Üyeler" , Name = "Members", },
+    new Role  {givenName="YÃ¶netici " , Name = "Administrators", },
+    new Role  {givenName="YÃ¶netici YardÄ±mcÄ±sÄ±" , Name = "Moderators", },
+    new Role  {givenName="Ãœyeler" , Name = "Members", },
 
 }
 .ToList()
@@ -147,10 +139,12 @@ new[]
 var user = new User()
 {
     Date = DateTime.Now,
-    givenName = "Karataþ",
+    givenName = "KarataÅŸ",
     UserName = "mabeya@9895.com",
     Email = "mabeya@9895.com",
     EmailConfirmed= true,
+    SecurityStamp = Guid.NewGuid().ToString()   
+
 };
     userManager.CreateAsync(user , "19941998esbey").Wait();
     userManager.AddToRoleAsync(user, "Administrators").Wait();

@@ -17,7 +17,6 @@ public class VisitTrackingMiddleware
     {
         var path = context.Request.Path;
 
-        // --- STATIC FILES SKIP ---
         if (path.StartsWithSegments("/lib") ||
             path.StartsWithSegments("/css") ||
             path.StartsWithSegments("/js") ||
@@ -28,14 +27,12 @@ public class VisitTrackingMiddleware
             return;
         }
 
-        // --- ADMIN SKIP ---
         if (path.StartsWithSegments("/admin"))
         {
             await _next(context);
             return;
         }
 
-        // --- ONLY ALLOW CERTAIN PUBLIC PAGES ---
         var allowed =
             path == "/" ||
             path.StartsWithSegments("/product") ||

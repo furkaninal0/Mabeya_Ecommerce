@@ -1,0 +1,188 @@
+﻿@model MabeyaECommerce.Areas.Admin.Models.UserDetailViewModel
+@{
+    ViewData["Title"] = "Kullanıcı Detayı";
+}
+
+<style>
+    .detail-card {
+        background: #fff;
+        padding: 25px;
+        margin-bottom: 40px;
+        border-radius: 12px;
+        box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+    }
+
+    .section-title {
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .modern-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 25px;
+    }
+
+        .modern-table thead {
+            background: #f5f7fb;
+        }
+
+        .modern-table th {
+            padding: 12px;
+            font-weight: 600;
+            color: #333;
+            border-bottom: 2px solid #e5e5e5;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        .modern-table td {
+            padding: 12px;
+            font-size: 14px;
+            border-bottom: 1px solid #f0f0f0;
+            color: #444;
+            vertical-align: middle;
+        }
+
+        .modern-table tbody tr:hover {
+            background: #f9fbff;
+        }
+
+    .email-link {
+        color: #0d6efd;
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+        .email-link:hover {
+            text-decoration: underline;
+        }
+
+    .badge-address {
+        background: #e9f3ff;
+        color: #0d6efd;
+        padding: 4px 10px;
+        border-radius: 6px;
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    .divider {
+        height: 3px;
+        background: #f3f3f3;
+        margin: 40px 0;
+        border-radius: 5px;
+    }
+</style>
+
+
+<div class="container-fluid mt-4">
+
+  
+    <div class="detail-card">
+        <div class="section-title">📦 Teslimat Adresleri</div>
+
+        <table class="modern-table">
+            <thead>
+                <tr>
+                    <th>Kullanıcı</th>
+                    <th>E-posta</th>
+                    <th>Telefon</th>
+                    <th>Adres</th>
+                    <th>İl / İlçe</th>
+                    <th>Posta Kodu</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var a in Model.ShippingAddresses)
+                {
+                    <tr>
+                        <td>@a.User!.givenName</td>
+                        <td><a class="email-link" href="mailto:@a.User.Email">@a.User.Email</a></td>
+                        <td>@a.Number</td>
+                        <td><span class="badge-address">@a.Text</span></td>
+                        <td>@a.City!.Name / @a.City!.Province!.Name</td>
+                        <td>@a.zipCode</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+
+    <div class="divider"></div>
+   
+
+    <div class="detail-card">
+        <div class="section-title">🧾 Bireysel Fatura Adresleri</div>
+
+        <table class="modern-table">
+            <thead>
+                <tr>
+                    <th>Kullanıcı</th>
+                    <th>Telefon</th>
+                    <th>Adres</th>
+                    <th>İl / İlçe</th>
+                    <th>Posta Kodu</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var a in Model.BillingAddresses.Where(x => string.IsNullOrEmpty(x.TaxNumber)))
+                {
+                    <tr>
+                        <td>@a.User!.givenName</td>
+                        <td>@a.Number</td>
+                        <td><span class="badge-address">@a.Text</span></td>
+                        <td>@a.City!.Name / @a.City.Province!.Name</td>
+                        <td>@a.zipCode</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+
+    <div class="divider"></div>
+
+
+
+    <div class="detail-card">
+        <div class="section-title">🏢 Kurumsal Fatura Adresleri</div>
+
+        <table class="modern-table">
+            <thead>
+                <tr>
+                    <th>Kullanıcı</th>
+                    <th>Firma Adı</th>
+                    <th>Vergi No</th>
+                    <th>Vergi Dairesi</th>
+                    <th>Adres</th>
+                    <th>Telefon</th>
+                    <th>İl / İlçe</th>
+                    <th>Posta Kodu</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var a in Model.BillingAddresses.Where(x => x.IsInvoice && !string.IsNullOrEmpty(x.TaxNumber)))
+                {
+                    <tr>
+                        <td>@a.User!.givenName</td>
+                        <td>@a.Name</td>
+                        <td>@a.TaxNumber</td>
+                        <td>@a.TaxOffice</td>
+                        <td><span class="badge-address">@a.Text</span></td>
+                        <td>@a.Number</td>
+                        <td>@a.City!.Name / @a.City.Province!.Name</td>
+                        <td>@a.zipCode</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>

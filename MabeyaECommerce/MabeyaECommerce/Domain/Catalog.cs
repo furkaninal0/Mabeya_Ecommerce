@@ -7,12 +7,14 @@ namespace MabeyaECommerce.Domain;
 
 public class Catalog 
 {
-    public Guid Id { get; set; }
-    public Guid userId { get; set; }
-    public DateTime CreatedAt { get; set; }
-    [Display(Name = "Aktif")]
 
+    public Guid Id { get; set; }
+    public User? User { get; set; }
+    public DateTime CreatedAt { get; set; }
+
+    [Display(Name = "Aktif")]
     public bool IsEnabled { get; set; } = true;
+   
     [Display(Name = "Ad")]
     [Required(ErrorMessage = "{0} alanı boş bırakılamaz")]
     public string Name { get; set; }
@@ -30,8 +32,8 @@ public class Catalog
            .ToTable("Catalogs");
         builder.Property(p => p.Name)
             .IsRequired();
-       
 
+        
     }
 }
 

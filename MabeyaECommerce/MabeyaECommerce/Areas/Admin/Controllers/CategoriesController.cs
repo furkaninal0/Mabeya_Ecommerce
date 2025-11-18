@@ -47,6 +47,24 @@ public class CategoriesController (
         return RedirectToAction(nameof(Index));
 
     }
+    public async Task<IActionResult> Delete(Guid id)
+    {
+        var item = await dbContext.Categories
+                        .Include(c => c.Products) 
+                        .FirstOrDefaultAsync(p => p.Id == id);
 
+        if (item == null)
+            return NotFound();
+
+        if (item.Products.Any())
+        {
+            TempData["Error"] = "Bu kategori ürün içeriyor. Silinemez!";
+            return RedirectToAction(nameof(Index));
+        }
+
+        dbContext.Categories.Remove(item);
+        await dbContext.SaveChangesAsync();
+        return RedirectToAction(nameof(Index));
+    }
 
 }

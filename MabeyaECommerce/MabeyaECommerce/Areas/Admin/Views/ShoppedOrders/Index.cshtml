@@ -38,13 +38,37 @@
                     <a href="mailto:@order.User!.Email">@order.User!.Email</a>
                 </td>
                 <td class="text-right text-monospace ">@order.GrandTotal.ToString("n2")</td>
+                <td class="d-flex align-items-center gap-2">
+                    @if (order.Status == OrderStatus.InProgress)
+                    {
+                        <form asp-action="UpdateTracking" method="post" class="d-flex gap-2 track-form">
+                            <input type="hidden" name="id" value="@order.Id" />
 
-                <td class="d-flex justify-content-center">
-                    <a asp-action="Detail" asp-route-id="@order.Id" class="btn btn-primary">
-                        <i class="bi bi-search"></i>
-                        İncele
+                            <input type="text"
+                                   name="trackingNumber"
+                                   value="@order.TrackingNumber"
+                                   placeholder="Kargo No"
+                                   class="form-control trackingInput"
+                                   style="width:150px;" />
+
+                            <button type="submit" class="btn btn-success">
+                                <i class="bi bi-check"></i>
+                            </button>
+                        </form>
+                    }
+                    else
+                    {
+                 
+                    <a asp-action="Detail"
+                       asp-route-id="@order.Id"
+                       class="btn btn-primary">
+                        <i class="bi bi-search"></i> İncele
                     </a>
+                    }
+
                 </td>
+
+
 
 
             </tr>
@@ -79,6 +103,18 @@
                             window.location = $(e.currentTarget).attr('href');
                     });
                 return false;
+            });
+            $('.track-form').on('submit', function () {
+                let input = $(this).find('.trackingInput').val().trim();
+
+                if (input === "") {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Hata',
+                        text: 'Kargo takip numarası boş olamaz!'
+                    });
+                    return false;
+                }
             });
         });
     </script>

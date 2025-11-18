@@ -5,52 +5,53 @@
     ViewBag.BodyClass = "register-page";
 }
 
-<div class="re-login-box">
-    <form method="post">
-        <div class="alert alert-danger" asp-validation-summary="ModelOnly"></div>
+<div class="register-area">
 
-        <div class="mb-3">
-            <label asp-for="UserName" class="form-label"></label>
-            <input asp-for="UserName" class="form-control" placeholder="email adresinizi giriniz." />
-            <span asp-validation-for="UserName" class="text-danger"></span>
-        </div>
+    <div class="re-login-box">
+        <form method="post">
+            <div class="alert alert-danger" asp-validation-summary="ModelOnly"></div>
 
-        <div class="mb-3">
-            <label asp-for="GivenName" class="form-label"></label>
-            <input asp-for="GivenName" class="form-control" placeholder="adınızı ve soyadınızı giriniz." />
-            <span asp-validation-for="GivenName" class="text-danger"></span>
-        </div>
+            <div class="mb-3">
+                <label asp-for="UserName" class="form-label text-white"></label>
+                <input asp-for="UserName" class="form-control" placeholder="email adresinizi giriniz." />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
 
-        <div class="mb-3">
-            <label asp-for="Password" class="form-label"></label>
-            <input asp-for="Password" type="password" class="form-control" placeholder="parolanızı giriniz." />
-            <span asp-validation-for="Password" class="text-danger"></span>
-        </div>
+            <div class="mb-3">
+                <label asp-for="GivenName" class="form-label text-white"></label>
+                <input asp-for="GivenName" class="form-control" placeholder="adınızı ve soyadınızı giriniz." />
+                <span asp-validation-for="GivenName" class="text-danger"></span>
+            </div>
 
-        <div class="mb-3">
-            <label asp-for="PasswordCheck" class="form-label"></label>
-            <input asp-for="PasswordCheck" type="password" class="form-control" placeholder="parolanızı tekrar giriniz." />
-            <span asp-validation-for="PasswordCheck" class="text-danger"></span>
-        </div>
+            <div class="mb-3">
+                <label asp-for="Password" class="form-label text-white"></label>
+                <input asp-for="Password" type="password" class="form-control" placeholder="parolanızı giriniz." />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
 
-        <div class="mb-3">
+            <div class="mb-3">
+                <label asp-for="PasswordCheck" class="form-label text-white"></label>
+                <input asp-for="PasswordCheck" type="password" class="form-control" placeholder="parolanızı tekrar giriniz." />
+                <span asp-validation-for="PasswordCheck" class="text-danger"></span>
+            </div>
+
             <button type="submit" class="btn btn-primary w-100">
-                <i class="bi bi-box-arrow-in-right"></i>
-                Kaydol
+                <i class="bi bi-box-arrow-in-right"></i> Kaydol
             </button>
-        </div>
 
-        <div class="mb-3 text-center">
-            Hesabın var mı? Haydi <a class="text-white" asp-action="Login">giriş</a> yapalım.
-        </div>
+            <div class="text-center mt-3 text-white">
+                Hesabın var mı? <a class="text-white" asp-action="Login">giriş</a> yapalım.
+            </div>
 
-        <div class="text-center">
-            <a class="text-white" asp-action="ResetPassword">Parolanızı yenileyin.</a>
-        </div>
+            <div class="text-center mt-2">
+                <a class="text-white" asp-action="ResetPassword">Parolanızı yenileyin.</a>
+            </div>
 
-    </form>
+        </form>
+    </div>
+
 </div>
 
-    @section Scripts{
-        <partial name="_ValidationScriptsPartial" />
-    }
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

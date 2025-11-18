@@ -7,7 +7,6 @@ namespace MabeyaECommerce.Domain;
 public class Spec 
 {
     public Guid Id { get; set; }
-    public Guid userId { get; set; }
     required
     public DateTime CreatedAt { get; set; }
     [Display(Name="Aktiflik")]

@@ -12,10 +12,8 @@ public static class AppExtensions
         if (string.IsNullOrWhiteSpace(text))
             return "";
 
-        // Sadece harf, rakam ve boşluk bırak
         var cleaned = string.Concat(text.Where(c => char.IsLetterOrDigit(c) || char.IsWhiteSpace(c)));
 
-        // Birden fazla boşluğu tek tireye çevir ve trim uygula
         var result = Regex.Replace(cleaned.Trim(), @"\s+", "-").ToLower();
 
         return result;

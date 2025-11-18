@@ -12,6 +12,8 @@ public class MabeyaDbContext (DbContextOptions options): IdentityDbContext<
     Role,
     Guid>(options)
 
+
+
 {
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -35,6 +37,8 @@ public class MabeyaDbContext (DbContextOptions options): IdentityDbContext<
     public required DbSet<SliderImage> sliderImages{ get; set; }
     public required DbSet<Spec> Specs{ get; set; }
     public DbSet<VisitLog> VisitLogs { get; set; }
+    public DbSet<OrderCancellation> OrderCancellations { get; set; }
+    public DbSet<Subscriber> Subscribers { get; set; }
 
 
 
