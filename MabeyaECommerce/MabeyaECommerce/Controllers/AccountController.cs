@@ -4,34 +4,33 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Shared;
 using NETCore.MailKit.Core;
-using System.Data;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace MabeyaECommerce.Controllers;
 
-public class AccountController (
+public class AccountController(
     UserManager<User> userManager,
     SignInManager<User> signInManager,
     IEmailService emailService,
     MabeyaDbContext dbContext
-    ) : Controller
+) : Controller
 {
     public IActionResult Login(string? returnUrl = null)
     {
         ViewBag.ReturnUrl = returnUrl;
         return View(new LoginUserModel { IsPersistent = true, ReturnUrl = returnUrl });
     }
+
     [HttpPost]
     public async Task<IActionResult> Login(LoginUserModel model)
     {
         var result = await signInManager.PasswordSignInAsync(
-        model.UserName!,
-        model.Password!,
-        isPersistent: model.IsPersistent,
-        lockoutOnFailure: true);
+            model.UserName!,
+            model.Password!,
+            isPersistent: model.IsPersistent,
+            lockoutOnFailure: true);
 
         if (result.Succeeded)
         {
@@ -39,88 +38,94 @@ public class AccountController (
             if (!user.IsEnabled)
                 await signInManager.SignOutAsync();
             else
-                return RedirectToLocal (model.ReturnUrl);
+                return RedirectToLocal(Uri.UnescapeDataString(model.ReturnUrl ?? ""));
         }
+
         ModelState.AddModelError("", "Geçersiz kullanıcı girişi");
         return View(model);
-
     }
+
     private IActionResult RedirectToLocal(string? returnUrl)
     {
         if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
             return Redirect(returnUrl);
-        else
-            return RedirectToAction("Index", "Home");
+
+        return RedirectToAction("Index", "Home");
     }
+
     public IActionResult Register()
     {
         return View();
     }
+
     [HttpPost]
     public async Task<IActionResult> Register(RegisterViewModel model)
     {
-        var user = new User()
+        var user = new User
         {
-
             UserName = model.UserName,
             Email = model.UserName,
             givenName = model.GivenName,
             Date = DateTime.Now,
         };
+
         var result = await userManager.CreateAsync(user, model.Password!);
-       
+
         if (result.Succeeded)
         {
             await userManager.AddToRoleAsync(user, "Members");
             var token = await userManager.GenerateEmailConfirmationTokenAsync(user);
             var link = Url.Action("EmailConfirmation", "Account", new { id = user.Id, token }, Request.Scheme);
+
             var body = $@"<h3> Merhaba Sn {user.givenName} </h3>
                         <p> Hesabınızı aktifleştirmek için aşağıdaki linke tıklayınız.</p>
-                        <a href=""{link}"">Hesabımı Aktifleştir</a>"; 
-            await emailService  
-                .SendAsync
-                (user.Email,
-                "Hesap Aktifleştirme",
-                body, 
-                true
-                );
+                        <a href=""{link}"">Hesabımı Aktifleştir</a>";
+
+            await emailService.SendAsync(user.Email, "Hesap Aktifleştirme", body, true);
 
             return View("RegisterSucces");
         }
+
         foreach (var error in result.Errors)
         {
             ModelState.AddModelError("", error.Description);
         }
+
         return View(model);
     }
+
     public async Task<IActionResult> EmailConfirmation(Guid id, string token)
     {
         var user = await userManager.FindByIdAsync(id.ToString());
         if (user == null) return View("Error");
-        
+
         var result = await userManager.ConfirmEmailAsync(user, token);
         if (result.Succeeded)
         {
             await signInManager.SignInAsync(user, isPersistent: false);
             return RedirectToAction("Index", "Home");
         }
-        return View();
 
+        return View();
     }
+
     [Authorize]
     public async Task<IActionResult> Logout()
     {
         await signInManager.SignOutAsync();
         return RedirectToAction("Index", "Home");
     }
+
     public IActionResult AccessDenied()
     {
         return View();
     }
+
     public IActionResult ResetPassword()
     {
         return View();
     }
+
     [HttpPost]
     public async Task<IActionResult> ResetPassword(ResetPasswordViewModel model)
     {
@@ -130,26 +135,32 @@ public class AccountController (
             ModelState.AddModelError("", "Kullanıcı bulunamadı");
             return View(model);
         }
+
         var token = await userManager.GeneratePasswordResetTokenAsync(user);
         var link = Url.Action("SetPassword", "Account", new { id = user.Id, token }, Request.Scheme);
+
         var body = $@"<h3> Merhaba Sn {user.givenName} </h3>
                         <p> Şifrenizi yenilemek için aşağıdaki linke tıklayınız.</p>
                         <a href=""{link}"">Şifremi Yenile</a>";
 
-        await emailService.SendAsync
-            (user.Email,
+        await emailService.SendAsync(
+            user.Email,
             "Şifre Yenileme",
             body,
             true
-            );
+        );
+
         return View("ResetPasswordEmailSend");
     }
+
     public async Task<IActionResult> SetPassword(SetPassWordViewModel model)
     {
-       var user = await userManager.FindByIdAsync(model.Id!.ToString());
+        var user = await userManager.FindByIdAsync(model.Id!.ToString());
         var result = await userManager.ResetPasswordAsync(user!, model.Token!, model.Password);
         return View("SetPasswordSucces");
     }
+
+
     [Authorize]
     public async Task<IActionResult> RemoveFromCart(Guid id)
     {
@@ -157,60 +168,30 @@ public class AccountController (
         await dbContext.shoppingCartItems.Where(p => p.Id == id && p.UserId == userId!).ExecuteDeleteAsync();
         return RedirectToAction(nameof(Checkout));
     }
-    [HttpPost]
-    [Authorize]
-    public async Task<IActionResult> AddToCart(Guid id)
-    {
-        var userId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
-        var product = await dbContext.Products.SingleOrDefaultAsync(p => p.Id == id);
-        if (product == null)
-        {
-            TempData["error"] = "Product not found!";
-            return RedirectToAction("Index", "Home");
-        }
-        var item = await dbContext.shoppingCartItems.SingleOrDefaultAsync(p => p.UserId == userId && p.ProductId == id);
-        if (item == null)
-        {
-            item = new ShoppingCartItem
-            {
-                ProductId = id,
-                UserId = userId,
-                Quantity = 1,
-            };
-            dbContext.shoppingCartItems.Add(item);
-        }
-        else
-        {
-            item.Quantity++;
-            dbContext.shoppingCartItems.Update(item);
-        }
-        TempData["success"] = "Ürün başarıyla sepete eklendi.";
-        await dbContext.SaveChangesAsync();
-        return Redirect(Request.Headers["Referer"].ToString());
 
-    }
     [Authorize]
     public IActionResult Payment()
     {
         return View();
     }
+
     [Authorize]
     public IActionResult Checkout()
     {
         return View();
     }
-    [Authorize]
 
+    [Authorize]
     public async Task<IActionResult> SetQuantity(Guid id, int Quantity)
     {
-        var item = await dbContext.shoppingCartItems.SingleOrDefaultAsync(p=>p.Id == id);
+        var item = await dbContext.shoppingCartItems.SingleOrDefaultAsync(p => p.Id == id);
         item.Quantity = Quantity;
         dbContext.Update(item);
         await dbContext.SaveChangesAsync();
         return RedirectToAction(nameof(Checkout));
     }
-    [Authorize]
 
+    [Authorize]
     public async Task<IActionResult> IncreaseQuantity(Guid id)
     {
         var item = await dbContext.shoppingCartItems.SingleOrDefaultAsync(p => p.Id == id);
@@ -219,18 +200,17 @@ public class AccountController (
         await dbContext.SaveChangesAsync();
         return RedirectToAction(nameof(Checkout));
     }
-    [Authorize]
 
+    [Authorize]
     public async Task<IActionResult> DecreaseQuantity(Guid id)
     {
         var item = await dbContext.shoppingCartItems.SingleOrDefaultAsync(p => p.Id == id);
         if (item.Quantity > 1)
-        item.Quantity--;
+            item.Quantity--;
         dbContext.Update(item);
         await dbContext.SaveChangesAsync();
         return RedirectToAction(nameof(Checkout));
     }
-
 
     [Authorize]
     [HttpPost]
@@ -263,7 +243,6 @@ public class AccountController (
         return Ok(new { id = address.Id });
     }
 
-
     [Authorize]
     public async Task<IActionResult> UserAddress()
     {
@@ -274,22 +253,21 @@ public class AccountController (
             .ToListAsync();
         return Json(model);
     }
+
     [Authorize]
     [HttpPost]
     [Consumes("application/json")]
-
-    public async Task<IActionResult> Pay ([FromBody]PaymentViewModel model)
+    public async Task<IActionResult> Pay([FromBody] PaymentViewModel model)
     {
-        if(model==null)
+        if (model == null)
             return BadRequest("Model null geldi");
 
         var userIdString = User.FindFirstValue(ClaimTypes.NameIdentifier);
-        if(string.IsNullOrEmpty(userIdString))
+        if (string.IsNullOrEmpty(userIdString))
             return Unauthorized("Kullanıcı kimliği bulunamadı");
+
         var userId = Guid.Parse(userIdString);
-#if DEBUG
-        Thread.Sleep(5000);
-#endif
+
         var order = new ShoppedOrder
         {
             Date = DateTime.Now,
@@ -297,23 +275,26 @@ public class AccountController (
             BillingAddressId = model.BillingAddressId,
             UserId = userId,
             Order_Items = dbContext.shoppingCartItems
-           .Include(p => p.Product)
-           .Where(p => p.UserId == userId)
-           .Select(p => new ShoppedOrder_Item
-           {
-               Price = p.Product!.Price,
-               Quantity = p.Quantity,
-               productId = p.ProductId,
-           }).ToList()
+                .Include(p => p.Product)
+                .Where(p => p.UserId == userId)
+                .Select(p => new ShoppedOrder_Item
+                {
+                    Price = p.Product!.Price,
+                    Quantity = p.Quantity,
+                    productId = p.ProductId,
+                }).ToList()
         };
 
         dbContext.Add(order);
         await dbContext.SaveChangesAsync();
-        await dbContext.shoppingCartItems.Where(p => p.UserId == userId)
+
+        await dbContext.shoppingCartItems
+            .Where(p => p.UserId == userId)
             .ExecuteDeleteAsync();
+
         return Ok();
     }
-   
+
     public async Task<IActionResult> Comment(CommentViewModel model)
     {
         if (!ModelState.IsValid)
@@ -336,11 +317,10 @@ public class AccountController (
         dbContext.Add(comment);
         await dbContext.SaveChangesAsync();
 
-
         return RedirectToRoute("Product", new { id = model.ProductId, name = model.ProductName!.ToSafeUrlString() });
-
     }
-[Authorize]
+
+    [Authorize]
     public async Task<IActionResult> GetMyAddresses()
     {
         var userId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
@@ -349,7 +329,8 @@ public class AccountController (
             .Include(a => a.City)
             .ThenInclude(c => c.Province)
             .Where(a => a.UserId == userId)
-            .Select(a => new {
+            .Select(a => new
+            {
                 id = a.Id,
                 name = a.Name,
                 text = a.Text,
@@ -380,7 +361,8 @@ public class AccountController (
 
         await dbContext.SaveChangesAsync();
 
-        await emailService.SendAsync(email,
+        await emailService.SendAsync(
+            email,
             "Mabeya - Abonelik Başarılı",
             "<h3>Aramıza Hoş Geldiniz!</h3><p>Artık yeni ürünlerden ilk siz haberdar olacaksınız 🎉</p>",
             true);

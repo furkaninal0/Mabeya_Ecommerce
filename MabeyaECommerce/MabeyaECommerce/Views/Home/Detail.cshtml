@@ -86,7 +86,7 @@
                 </div>
 
                 <div>
-                    <form asp-action="AddToCart" asp-controller="Account" asp-route-id="@Model.Id" method="post">
+                    <form asp-controller="Cart" asp-action="Add" asp-route-id="@Model.Id" method="post">
                         @Html.AntiForgeryToken()
                         <button type="submit" class="btn btn-success">
                             Sepete Ekle
