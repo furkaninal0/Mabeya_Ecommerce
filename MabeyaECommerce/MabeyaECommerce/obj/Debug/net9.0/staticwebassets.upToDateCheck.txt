@@ -2885,6 +2885,7 @@ wwwroot\lib\jquery\dist\jquery.slim.js
 wwwroot\lib\jquery\dist\jquery.slim.min.js
 wwwroot\lib\jquery\dist\jquery.slim.min.map
 wwwroot\lib\jquery\LICENSE.txt
+wwwroot\mail-templates\newsletter.html
 wwwroot\sidebars\css\bootstrap.min.css
 wwwroot\sidebars\css\bootstrap\mixins\_border-radius.css
 wwwroot\sidebars\css\bootstrap\mixins\_screen-reader.css
@@ -2986,7 +2987,6 @@ wwwroot\sidebars\scss\bootstrap\_type.scss
 wwwroot\sidebars\scss\bootstrap\_utilities.scss
 wwwroot\sidebars\scss\bootstrap\_variables.scss
 wwwroot\sidebars\scss\style.scss
-wwwroot\mail-templates\newsletter.html
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\lib\bootstrap-icons\icons\1-circle.svg
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\lib\bootstrap-icons\icons\1-square-fill.svg
 C:\Users\Asus Tuf15\Documents\GitHub\MabeyaEcommerce\MabeyaECommerce\MabeyaECommerce\wwwroot\lib\bootstrap-icons\icons\1-square.svg

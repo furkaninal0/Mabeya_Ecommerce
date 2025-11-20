@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{39ABB65E-8B0E-4496-A1F5-A91D490EB7B3}|MabeyaECommerce\\MabeyaECommerce.csproj|c:\\users\\asus tuf15\\documents\\github\\mabeyaecommerce\\mabeyaecommerce\\mabeyaecommerce\\views\\home\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{39ABB65E-8B0E-4496-A1F5-A91D490EB7B3}|MabeyaECommerce\\MabeyaECommerce.csproj|solutionrelative:mabeyaecommerce\\views\\home\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39ABB65E-8B0E-4496-A1F5-A91D490EB7B3}|MabeyaECommerce\\MabeyaECommerce.csproj|c:\\users\\asus tuf15\\documents\\github\\mabeyaecommerce\\mabeyaecommerce\\mabeyaecommerce\\views\\shared\\_refundpolicypartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{39ABB65E-8B0E-4496-A1F5-A91D490EB7B3}|MabeyaECommerce\\MabeyaECommerce.csproj|solutionrelative:mabeyaecommerce\\views\\shared\\_refundpolicypartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{39ABB65E-8B0E-4496-A1F5-A91D490EB7B3}|MabeyaECommerce\\MabeyaECommerce.csproj|c:\\users\\asus tuf15\\documents\\github\\mabeyaecommerce\\mabeyaecommerce\\mabeyaecommerce\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{39ABB65E-8B0E-4496-A1F5-A91D490EB7B3}|MabeyaECommerce\\MabeyaECommerce.csproj|solutionrelative:mabeyaecommerce\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -13,10 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{39ABB65E-8B0E-4496-A1F5-A91D490EB7B3}|MabeyaECommerce\\MabeyaECommerce.csproj|c:\\users\\asus tuf15\\documents\\github\\mabeyaecommerce\\mabeyaecommerce\\mabeyaecommerce\\views\\shared\\_producttilepartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{39ABB65E-8B0E-4496-A1F5-A91D490EB7B3}|MabeyaECommerce\\MabeyaECommerce.csproj|solutionrelative:mabeyaecommerce\\views\\shared\\_producttilepartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{39ABB65E-8B0E-4496-A1F5-A91D490EB7B3}|MabeyaECommerce\\MabeyaECommerce.csproj|c:\\users\\asus tuf15\\documents\\github\\mabeyaecommerce\\mabeyaecommerce\\mabeyaecommerce\\views\\home\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{39ABB65E-8B0E-4496-A1F5-A91D490EB7B3}|MabeyaECommerce\\MabeyaECommerce.csproj|solutionrelative:mabeyaecommerce\\views\\home\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{39ABB65E-8B0E-4496-A1F5-A91D490EB7B3}|MabeyaECommerce\\MabeyaECommerce.csproj|c:\\users\\asus tuf15\\documents\\github\\mabeyaecommerce\\mabeyaecommerce\\mabeyaecommerce\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -378,11 +382,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 232,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 52,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Controllers\\HomeController.cs",
@@ -392,6 +396,19 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-18T15:53:17.696Z",
               "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_RefundPolicyPartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Views\\Shared\\_RefundPolicyPartial.cshtml",
+              "RelativeDocumentMoniker": "MabeyaECommerce\\Views\\Shared\\_RefundPolicyPartial.cshtml",
+              "ToolTip": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Views\\Shared\\_RefundPolicyPartial.cshtml",
+              "RelativeToolTip": "MabeyaECommerce\\Views\\Shared\\_RefundPolicyPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-20T10:44:49.313Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
@@ -411,13 +428,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "CartController.cs",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Controllers\\CartController.cs",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Controllers\\CartController.cs",
               "ToolTip": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Controllers\\CartController.cs",
               "RelativeToolTip": "MabeyaECommerce\\Controllers\\CartController.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAQwDUAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABMAAABVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-19T11:00:39.916Z",
               "EditorCaption": ""
@@ -425,18 +442,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "Profile.cshtml",
-              "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Views\\Profile\\Profile.cshtml",
-              "RelativeDocumentMoniker": "MabeyaECommerce\\Views\\Profile\\Profile.cshtml",
-              "ToolTip": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Views\\Profile\\Profile.cshtml",
-              "RelativeToolTip": "MabeyaECommerce\\Views\\Profile\\Profile.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-18T18:42:15.628Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "_UserAddressesPartial.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Views\\Shared\\_UserAddressesPartial.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Views\\Shared\\_UserAddressesPartial.cshtml",
@@ -448,7 +453,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "AccountController.cs",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Controllers\\AccountController.cs",
@@ -456,12 +461,36 @@
               "RelativeToolTip": "MabeyaECommerce\\Controllers\\AccountController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACgAAABWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T18:34:57.407Z",
+              "WhenOpened": "2025-11-18T18:34:57.407Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Detail.cshtml",
+              "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Views\\Home\\Detail.cshtml",
+              "RelativeDocumentMoniker": "MabeyaECommerce\\Views\\Home\\Detail.cshtml",
+              "ToolTip": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Views\\Home\\Detail.cshtml",
+              "RelativeToolTip": "MabeyaECommerce\\Views\\Home\\Detail.cshtml",
+              "ViewState": "AgIAAL0AAAAAAAAAAAAWwNQAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-18T18:42:06.898Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
+              "Title": "Profile.cshtml",
+              "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Views\\Profile\\Profile.cshtml",
+              "RelativeDocumentMoniker": "MabeyaECommerce\\Views\\Profile\\Profile.cshtml",
+              "ToolTip": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Views\\Profile\\Profile.cshtml",
+              "RelativeToolTip": "MabeyaECommerce\\Views\\Profile\\Profile.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-18T18:42:15.628Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "_ProductTilePartial.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Views\\Shared\\_ProductTilePartial.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Views\\Shared\\_ProductTilePartial.cshtml",
@@ -473,19 +502,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Detail.cshtml",
-              "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Views\\Home\\Detail.cshtml",
-              "RelativeDocumentMoniker": "MabeyaECommerce\\Views\\Home\\Detail.cshtml",
-              "ToolTip": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Views\\Home\\Detail.cshtml",
-              "RelativeToolTip": "MabeyaECommerce\\Views\\Home\\Detail.cshtml",
-              "ViewState": "AgIAAEQAAAAAAAAAAAAiwFgAAABnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-18T18:42:06.898Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Program.cs",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Program.cs",
@@ -497,7 +514,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Views\\Shared\\_Layout.cshtml",
@@ -509,7 +526,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "_ValidationScriptsPartial.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
@@ -521,7 +538,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "_ViewImports.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Views\\_ViewImports.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Views\\_ViewImports.cshtml",
@@ -533,7 +550,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "_ViewStart.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Views\\_ViewStart.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Views\\_ViewStart.cshtml",
@@ -545,7 +562,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "AppExtensions.cs",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\AppExtensions.cs",
               "RelativeDocumentMoniker": "MabeyaECommerce\\AppExtensions.cs",
@@ -557,7 +574,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "MabeyaDbContext.cs",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\MabeyaDbContext.cs",
               "RelativeDocumentMoniker": "MabeyaECommerce\\MabeyaDbContext.cs",
@@ -569,7 +586,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "Error.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Views\\Shared\\Error.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Views\\Shared\\Error.cshtml",
@@ -581,7 +598,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "_ProductListPartial.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Views\\Shared\\_ProductListPartial.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Views\\Shared\\_ProductListPartial.cshtml",
@@ -593,7 +610,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "_OrderStatusBadgePartial.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Views\\Shared\\_OrderStatusBadgePartial.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Views\\Shared\\_OrderStatusBadgePartial.cshtml",
@@ -605,7 +622,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "_OrderListPartial.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Views\\Shared\\_OrderListPartial.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Views\\Shared\\_OrderListPartial.cshtml",
@@ -617,7 +634,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "_LayoutAccount.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Views\\Shared\\_LayoutAccount.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Views\\Shared\\_LayoutAccount.cshtml",
@@ -629,7 +646,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "_CommentFormPartial.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Views\\Shared\\_CommentFormPartial.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Views\\Shared\\_CommentFormPartial.cshtml",
@@ -641,7 +658,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "RequestReturn.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Views\\Profile\\RequestReturn.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Views\\Profile\\RequestReturn.cshtml",
@@ -653,7 +670,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "EditAddress.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Views\\Profile\\EditAddress.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Views\\Profile\\EditAddress.cshtml",
@@ -665,7 +682,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "Search.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Views\\Home\\Search.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Views\\Home\\Search.cshtml",
@@ -677,7 +694,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Views\\Home\\Index.cshtml",
@@ -689,7 +706,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "Category.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Views\\Home\\Category.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Views\\Home\\Category.cshtml",
@@ -701,7 +718,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "Catalog.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Views\\Home\\Catalog.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Views\\Home\\Catalog.cshtml",
@@ -713,7 +730,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "SetPasswordSucces.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Views\\Account\\SetPasswordSucces.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Views\\Account\\SetPasswordSucces.cshtml",
@@ -725,7 +742,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 27,
               "Title": "SetPassword.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Views\\Account\\SetPassword.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Views\\Account\\SetPassword.cshtml",
@@ -737,7 +754,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 28,
               "Title": "ResetPasswordEmailSend.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Views\\Account\\ResetPasswordEmailSend.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Views\\Account\\ResetPasswordEmailSend.cshtml",
@@ -749,7 +766,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 29,
               "Title": "ResetPassword.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Views\\Account\\ResetPassword.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Views\\Account\\ResetPassword.cshtml",
@@ -761,7 +778,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 30,
               "Title": "RegisterSucces.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Views\\Account\\RegisterSucces.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Views\\Account\\RegisterSucces.cshtml",
@@ -773,7 +790,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 31,
               "Title": "Register.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Views\\Account\\Register.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Views\\Account\\Register.cshtml",
@@ -785,7 +802,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 32,
               "Title": "Payment.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Views\\Account\\Payment.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Views\\Account\\Payment.cshtml",
@@ -797,7 +814,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 33,
               "Title": "EmailConfirmationError.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Views\\Account\\EmailConfirmationError.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Views\\Account\\EmailConfirmationError.cshtml",
@@ -809,7 +826,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 34,
               "Title": "Login.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Views\\Account\\Login.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Views\\Account\\Login.cshtml",
@@ -821,7 +838,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 35,
               "Title": "Checkout.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Views\\Account\\Checkout.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Views\\Account\\Checkout.cshtml",
@@ -833,7 +850,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 36,
               "Title": "AccessDenied.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Views\\Account\\AccessDenied.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Views\\Account\\AccessDenied.cshtml",
@@ -845,7 +862,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 37,
               "Title": "SetPasswordViewModel.cs",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Models\\SetPasswordViewModel.cs",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Models\\SetPasswordViewModel.cs",
@@ -857,7 +874,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 38,
               "Title": "ResetPasswordViewModel.cs",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Models\\ResetPasswordViewModel.cs",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Models\\ResetPasswordViewModel.cs",
@@ -869,7 +886,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 39,
               "Title": "ProductTileViewModel.cs",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Models\\ProductTileViewModel.cs",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Models\\ProductTileViewModel.cs",
@@ -881,7 +898,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 40,
               "Title": "PaymentViewModel.cs",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Models\\PaymentViewModel.cs",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Models\\PaymentViewModel.cs",
@@ -893,7 +910,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 41,
               "Title": "LoginUserModel.cs",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Models\\LoginUserModel.cs",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Models\\LoginUserModel.cs",
@@ -905,7 +922,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 42,
               "Title": "ErrorViewModel.cs",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Models\\ErrorViewModel.cs",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Models\\ErrorViewModel.cs",
@@ -917,7 +934,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 43,
               "Title": "CommentViewModel.cs",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Models\\CommentViewModel.cs",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Models\\CommentViewModel.cs",
@@ -929,7 +946,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 44,
               "Title": "AddressViewModel.cs",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Models\\AddressViewModel.cs",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Models\\AddressViewModel.cs",
@@ -941,7 +958,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 45,
               "Title": "VisitTrackingMiddleware.cs",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Middlewares\\VisitTrackingMiddleware.cs",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Middlewares\\VisitTrackingMiddleware.cs",
@@ -953,7 +970,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 46,
               "Title": "City.cs",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Domain\\City.cs",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Domain\\City.cs",
@@ -965,7 +982,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 47,
               "Title": "Category.cs",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Domain\\Category.cs",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Domain\\Category.cs",
@@ -977,7 +994,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 48,
               "Title": "Catalog.cs",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Domain\\Catalog.cs",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Domain\\Catalog.cs",
@@ -989,7 +1006,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 49,
               "Title": "Address.cs",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Domain\\Address.cs",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Domain\\Address.cs",
@@ -1001,7 +1018,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 50,
               "Title": "ProfileController.cs",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Controllers\\ProfileController.cs",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Controllers\\ProfileController.cs",
@@ -1013,7 +1030,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 51,
               "Title": "ImagesController.cs",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Controllers\\ImagesController.cs",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Controllers\\ImagesController.cs",
@@ -1025,7 +1042,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 53,
               "Title": "AnalyticsController.cs",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Controllers\\AnalyticsController.cs",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Controllers\\AnalyticsController.cs",
@@ -1037,7 +1054,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 54,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Views\\Subscribers\\Index.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Views\\Subscribers\\Index.cshtml",
@@ -1049,7 +1066,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 55,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Views\\Specs\\Index.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Views\\Specs\\Index.cshtml",
@@ -1061,7 +1078,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 56,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Views\\Specs\\Edit.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Views\\Specs\\Edit.cshtml",
@@ -1073,7 +1090,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 56,
+              "DocumentIndex": 57,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Views\\Specs\\Create.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Views\\Specs\\Create.cshtml",
@@ -1085,7 +1102,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
+              "DocumentIndex": 58,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Views\\SliderImages\\Edit.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Views\\SliderImages\\Edit.cshtml",
@@ -1097,7 +1114,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 58,
+              "DocumentIndex": 59,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Views\\SliderImages\\Index.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Views\\SliderImages\\Index.cshtml",
@@ -1109,7 +1126,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 59,
+              "DocumentIndex": 60,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Views\\SliderImages\\Create.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Views\\SliderImages\\Create.cshtml",
@@ -1121,7 +1138,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 60,
+              "DocumentIndex": 61,
               "Title": "SetReturnTracking.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Views\\ShoppedOrders\\SetReturnTracking.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Views\\ShoppedOrders\\SetReturnTracking.cshtml",
@@ -1133,7 +1150,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 61,
+              "DocumentIndex": 62,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Views\\ShoppedOrders\\Index.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Views\\ShoppedOrders\\Index.cshtml",
@@ -1145,7 +1162,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 62,
+              "DocumentIndex": 63,
               "Title": "Detail.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Views\\ShoppedOrders\\Detail.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Views\\ShoppedOrders\\Detail.cshtml",
@@ -1157,7 +1174,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 63,
+              "DocumentIndex": 64,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
@@ -1169,7 +1186,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 64,
+              "DocumentIndex": 65,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Views\\Products\\Index.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Views\\Products\\Index.cshtml",
@@ -1181,7 +1198,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 65,
+              "DocumentIndex": 66,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Views\\Products\\Edit.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Views\\Products\\Edit.cshtml",
@@ -1193,7 +1210,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 66,
+              "DocumentIndex": 67,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Views\\Products\\Create.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Views\\Products\\Create.cshtml",
@@ -1205,7 +1222,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 67,
+              "DocumentIndex": 68,
               "Title": "SetRoles.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Views\\Members\\SetRoles.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Views\\Members\\SetRoles.cshtml",
@@ -1217,7 +1234,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 68,
+              "DocumentIndex": 69,
               "Title": "Members.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Views\\Members\\Members.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Views\\Members\\Members.cshtml",
@@ -1229,7 +1246,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 69,
+              "DocumentIndex": 70,
               "Title": "Detail.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Views\\Members\\Detail.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Views\\Members\\Detail.cshtml",
@@ -1241,7 +1258,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 70,
+              "DocumentIndex": 71,
               "Title": "Tables.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Views\\Dashboard\\Tables.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Views\\Dashboard\\Tables.cshtml",
@@ -1253,7 +1270,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 71,
+              "DocumentIndex": 72,
               "Title": "MarketingAnalyst.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Views\\Dashboard\\MarketingAnalyst.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Views\\Dashboard\\MarketingAnalyst.cshtml",
@@ -1265,7 +1282,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 72,
+              "DocumentIndex": 73,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
@@ -1277,7 +1294,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 74,
+              "DocumentIndex": 75,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Views\\Categories\\Edit.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Views\\Categories\\Edit.cshtml",
@@ -1289,7 +1306,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 75,
+              "DocumentIndex": 76,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Views\\Categories\\Create.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Views\\Categories\\Create.cshtml",
@@ -1301,7 +1318,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 76,
+              "DocumentIndex": 77,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Views\\Catalogs\\Index.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Views\\Catalogs\\Index.cshtml",
@@ -1313,7 +1330,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 77,
+              "DocumentIndex": 78,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Views\\Catalogs\\Edit.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Views\\Catalogs\\Edit.cshtml",
@@ -1325,7 +1342,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 78,
+              "DocumentIndex": 79,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Views\\Catalogs\\Create.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Views\\Catalogs\\Create.cshtml",
@@ -1337,7 +1354,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 79,
+              "DocumentIndex": 80,
               "Title": "UserWithRolesDto.cs",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Models\\UserWithRolesDto.cs",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Models\\UserWithRolesDto.cs",
@@ -1349,7 +1366,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 73,
+              "DocumentIndex": 74,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Views\\Categories\\Index.cshtml",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Views\\Categories\\Index.cshtml",
@@ -1361,7 +1378,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 80,
+              "DocumentIndex": 81,
               "Title": "UserDetailViewModel.cs",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Models\\UserDetailViewModel.cs",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Models\\UserDetailViewModel.cs",
@@ -1373,7 +1390,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 81,
+              "DocumentIndex": 82,
               "Title": "SliderImagesDto.cs",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Models\\SliderImagesDto.cs",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Models\\SliderImagesDto.cs",
@@ -1385,7 +1402,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 82,
+              "DocumentIndex": 83,
               "Title": "SubscribersController.cs",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Controllers\\SubscribersController.cs",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Controllers\\SubscribersController.cs",
@@ -1397,7 +1414,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 83,
+              "DocumentIndex": 84,
               "Title": "SpecsController.cs",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Controllers\\SpecsController.cs",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Controllers\\SpecsController.cs",
@@ -1409,7 +1426,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 84,
+              "DocumentIndex": 85,
               "Title": "SliderImagesController.cs",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Controllers\\SliderImagesController.cs",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Controllers\\SliderImagesController.cs",
@@ -1421,7 +1438,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 85,
+              "DocumentIndex": 86,
               "Title": "ShoppedOrdersController.cs",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Controllers\\ShoppedOrdersController.cs",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Controllers\\ShoppedOrdersController.cs",
@@ -1433,7 +1450,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 87,
+              "DocumentIndex": 88,
               "Title": "MembersController.cs",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Controllers\\MembersController.cs",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Controllers\\MembersController.cs",
@@ -1445,7 +1462,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 88,
+              "DocumentIndex": 89,
               "Title": "DashboardController.cs",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Controllers\\DashboardController.cs",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Controllers\\DashboardController.cs",
@@ -1457,7 +1474,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 90,
+              "DocumentIndex": 91,
               "Title": "CatalogsController.cs",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Controllers\\CatalogsController.cs",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Controllers\\CatalogsController.cs",
@@ -1469,7 +1486,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 86,
+              "DocumentIndex": 87,
               "Title": "ProductsController.cs",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Controllers\\ProductsController.cs",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Controllers\\ProductsController.cs",
@@ -1481,7 +1498,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 91,
+              "DocumentIndex": 92,
               "Title": "Product.cs",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Domain\\Product.cs",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Domain\\Product.cs",
@@ -1493,7 +1510,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 89,
+              "DocumentIndex": 90,
               "Title": "CategoriesController.cs",
               "DocumentMoniker": "C:\\Users\\Asus Tuf15\\Documents\\GitHub\\MabeyaEcommerce\\MabeyaECommerce\\MabeyaECommerce\\Areas\\Admin\\Controllers\\CategoriesController.cs",
               "RelativeDocumentMoniker": "MabeyaECommerce\\Areas\\Admin\\Controllers\\CategoriesController.cs",
